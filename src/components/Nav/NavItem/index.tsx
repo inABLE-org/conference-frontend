@@ -9,7 +9,7 @@ export default function NavItem({ name, href, className }: NavItemProps) {
     <li>
       <a
         href={href}
-        className={`block lg:inline-block my-5 lg:my-0 ${className}`}
+        className={`flex lg:inline-flex my-5 lg:my-0 ${className}`}
       >
         {name}
       </a>

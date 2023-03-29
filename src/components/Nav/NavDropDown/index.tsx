@@ -11,11 +11,11 @@ export default function NavDropDown({ name, children }: NavDropDownProps) {
   return (
     <>
       <li>
-        <div className="relative inline-block">
+        <div className="relative lg:inline-block">
           <div>
             <button
               type="button"
-              className="my-5 lg:my-0 inline-flex"
+              className="flex my-5 lg:my-0 lg:inline-flex"
               id="menu-button"
               aria-expanded={false}
               aria-haspopup="true"
@@ -31,7 +31,7 @@ export default function NavDropDown({ name, children }: NavDropDownProps) {
           <ul
             className={`${
               expanded ? "" : "hidden"
-            } lg:absolute left-0 lg:left-auto md:right-0 z-10 mt-2 origin-top-right rounded-md bg-white shadow-lg ring-1 ring-primary ring-opacity-5 py-1`}
+            } lg:absolute left-0 lg:left-auto md:right-0 z-10 mt-2 origin-top-right rounded-md bg-primary-2 shadow-lg ring-1 ring-primary ring-opacity-5 py-1`}
             role="menu"
             aria-labelledby="menu-button"
           >
