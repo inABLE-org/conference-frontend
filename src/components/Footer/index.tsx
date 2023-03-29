@@ -1,11 +1,11 @@
-import { ArrowRightIcon, ArrowSmallRightIcon } from "@heroicons/react/24/solid";
+import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import CustomImage from "../CustomImage";
 import FooterNavItem from "./FooterNavItem";
 
 export default function Footer() {
   return (
     <>
-      <footer className="bg-gradient-to-b from-primary-1 to-primary-2 text-white">
+      <footer className="bg-gradient-to-b from-primary-1 to-primary text-white">
         <div className="mx-auto container px-2 lg:px-0 pt-20 pb-14">
           <div className="md:flex md:justify-between">
             <div className="mr-24">
@@ -50,7 +50,7 @@ export default function Footer() {
                 </ul>
               </div>
 
-              <div className="col-span-12 lg:col-start-6 lg:col-span-7 xl:col-span-4 xl:pl-5">
+              <div className="col-span-12 lg:col-start-6 lg:col-span-7 xl:col-span-4 lg:pl-5 xl:pl-0">
                 <h2 className="font-bold text-xl">
                   Subscribe to our newsletter
                 </h2>
@@ -104,43 +104,62 @@ export default function Footer() {
                 </a>
               </div>
             </div>
-            <div className="flex space-x-6 items-center">
-              <a href="#">
-                <CustomImage
-                  src={"/assets/icons/instagram.png"}
-                  alt="inable logo"
-                  className="h-5 w-6"
-                />
-              </a>
-              <a href="#">
-                <CustomImage
-                  src={"/assets/icons/Youtube.png"}
-                  alt="inable logo"
-                  className="h-5 w-6"
-                />
-              </a>
-              <a href="#">
-                <CustomImage
-                  src={"/assets/icons/Twitter.png"}
-                  alt="inable logo"
-                  className="h-5 w-6"
-                />
-              </a>
-              <a href="#">
-                <CustomImage
-                  src={"/assets/icons/Facebook.png"}
-                  alt="inable logo"
-                  className="h-5 w-6"
-                />
-              </a>
-              <a href="#">
-                <CustomImage
-                  src={"/assets/icons/Linkedin.png"}
-                  alt="inable logo"
-                  className="h-5 w-6"
-                />
-              </a>
-            </div>
+            <ul className="flex space-x-6 items-center">
+              <li>
+                <a
+                  href="https://www.instagram.com/inableorg/"
+                  target={"_blank"}
+                >
+                  <CustomImage
+                    src={"/assets/icons/instagram.png"}
+                    alt="Our instagram(opens in a new tab)"
+                    className="h-5 w-6"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.youtube.com/@inABLEvideos"
+                  target={"_blank"}
+                >
+                  <CustomImage
+                    src={"/assets/icons/Youtube.png"}
+                    alt="Our youtube channel(opens in a new tab)"
+                    className="h-5 w-6"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://twitter.com/inABLEorg" target={"_blank"}>
+                  <CustomImage
+                    src={"/assets/icons/Twitter.png"}
+                    alt="Our twitter account(opens in a new tab)"
+                    className="h-5 w-6"
+                  />
+                </a>
+              </li>
+              <li>
+                <a href="https://www.facebook.com/InABLE" target={"_blank"}>
+                  <CustomImage
+                    src={"/assets/icons/Facebook.png"}
+                    alt="Our facebook page(opens in a new tab)"
+                    className="h-5 w-6"
+                  />
+                </a>
+              </li>
+              <li>
+                <a
+                  href="https://www.linkedin.com/company/inable/"
+                  target={"_blank"}
+                >
+                  <CustomImage
+                    src={"/assets/icons/Linkedin.png"}
+                    alt="Our linkedIn account(opens in a new tab)"
+                    className="h-5 w-6"
+                  />
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
       </footer>

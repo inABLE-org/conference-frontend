@@ -24,7 +24,7 @@ export default function Nav({
       </Head>
       <header>
         <nav
-          className="flex items-center justify-between flex-wrap bg-primary p-7 pt-4 text-white font-medium"
+          className="flex items-center justify-between flex-wrap bg-primary p-7 pt-4 xl:px-[1.806vw] text-white font-medium"
           aria-label="main"
         >
           <CustomImage
@@ -74,23 +74,26 @@ export default function Nav({
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
               <form className="flex border-b-2 md:w-1/2 lg:max-w-[9.125rem] my-6 lg:my-0 mr-9">
-                <div className="relative flex-auto">
+                <div className="relative inline-flex max-w-[86%]">
                   <input
                     id="searchBox"
                     type="text"
                     role={"search"}
-                    className="bg-inherit border-white w-full min-w-0 peer px-1"
+                    className="bg-inherit border-white min-w-0 peer px-1"
                     placeholder=" "
                   />
                   <label
                     htmlFor="searchBox"
-                    className="absolute bg-primary text-gray-300 duration-300 transform -translate-y-4 scale-75 top-0 z-1 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-white peer-placeholder-shown:bg-transparent peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4  peer-focus:bg-primary left-1"
+                    className="absolute bg-primary text-gray-300 text-sm duration-300 transform -translate-y-4 scale-75 top-0 origin-[0] peer-placeholder-shown:scale-100 peer-placeholder-shown:-translate-y-1/2 peer-placeholder-shown:top-1/2 peer-placeholder-shown:text-white peer-placeholder-shown:bg-transparent peer-placeholder-shown:left-6 peer-focus:top-0 peer-focus:scale-75 peer-focus:-translate-y-4  peer-focus:bg-primary peer-focus:left-1"
                   >
                     Search
                   </label>
                 </div>
                 <button type="submit" className="">
-                  <MagnifyingGlassIcon className="h-4 w-4" />
+                  <MagnifyingGlassIcon
+                    className="h-4 w-4 stroke-[1.5]"
+                    stroke="currentColor"
+                  />
                 </button>
               </form>
               <a href="#" className="rounded bg-secondary p-2">
