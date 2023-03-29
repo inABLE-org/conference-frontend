@@ -9,7 +9,7 @@ export default function Layout({children}: LayoutProps) {
   return (
     <>
       <Nav />
-      <main className="min-h-[23.58398rem]">
+      <main className="min-h-[23.58398rem] bg-primary-2">
         {children}
       </main>
       <Footer />
