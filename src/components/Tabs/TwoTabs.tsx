@@ -30,7 +30,7 @@ export default function TwoTabs(props:{linkOne:JSX.Element,linkTwo:JSX.Element,t
             </div>
         </div>
         {/*Tab content*/}
-        <div className={`bg-white ${openTab === 1 ? "block" : "hidden"} min-h-300`}>
+        <div className={`${openTab === 1 ? "block" : "hidden"} min-h-300`}>
                 {props.tab1content}
           </div>
           <div className={`${openTab === 2 ? "block" : "hidden"} bg-white`}>

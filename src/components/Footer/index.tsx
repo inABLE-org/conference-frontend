@@ -24,7 +24,7 @@ export default function Footer() {
               <div className="my-5 md:my-0 col-span-12 sm:col-span-6 lg:col-span-5 xl:col-span-3">
                 <h2 className="font-bold text-xl">The Conference</h2>
                 <ul className="mt-4 mb-8">
-                  <FooterNavItem href="/" name="About the conference" />
+                  <FooterNavItem href="/about" name="About the conference" />
                   <FooterNavItem href="/" name="Agenda" />
                   <FooterNavItem href="/" name="Speakers" />
                   <FooterNavItem href="/" name="Sponsors" />
