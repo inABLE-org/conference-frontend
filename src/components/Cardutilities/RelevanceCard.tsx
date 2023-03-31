@@ -5,7 +5,7 @@ export default function RelevanceCard(
      }) {
     return (
         <>
-            <div className="mx-[160px] grid grid-cols-6 gap-0 bg-white border border-gray-200  shadow mt-[60px]">
+            <div className="mx-12 px-12 grid grid-cols-6 gap-0 bg-white border border-gray-200  shadow mt-[60px]">
                     {props.impactname}
                     {props.impactdescription}
             </div>
