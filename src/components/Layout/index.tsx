@@ -2,17 +2,17 @@ import Nav from "@/components/Nav";
 import Footer from "@/components/Footer";
 
 type LayoutProps = {
-  children: React.ReactNode
-}
+  children: React.ReactNode;
+};
 
-export default function Layout({children}: LayoutProps) {
+export default function Layout({ children }: LayoutProps) {
   return (
-    <>
+    <div>
       <Nav />
-      <main className="min-h-[23.58398rem] bg-primary-2">
+      <main id="mainContent" className="min-h-[39.58398rem]">
         {children}
       </main>
       <Footer />
-    </>
+    </div>
   );
 }

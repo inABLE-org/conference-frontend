@@ -5,6 +5,7 @@ import NavItem from "./NavItem";
 import NavDropDown from "./NavDropDown";
 import DropDownItem from "./NavDropDown/DropDownItem";
 import { useState } from "react";
+import Link from "next/link";
 
 type NavProps = {
   pageTitle?: string;
@@ -13,6 +14,7 @@ type NavProps = {
 export default function Nav({
   pageTitle = "Inclusive Africa Conference 2023",
 }: NavProps) {
+  const [skipVisible, setSkipVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   return (
     <>
@@ -22,20 +24,36 @@ export default function Nav({
         <meta name="viewport" content="width=device-width, initial-scale=1" />
         <link rel="icon" href="/favicon.ico" />
       </Head>
-      <header>
+      <header className="md:sticky top-0 z-10">
+        <div className={`bg-primary ${skipVisible ? "" : "sr-only"}`}>
+          <div className="container pb-6 pt-2">
+            <a
+              href="#mainContent"
+              className="bg-ash-2 font-semibold text-black py-2 px-8"
+              onFocus={() => setSkipVisible(true)}
+              onBlur={() => setSkipVisible(false)}
+            >
+              Skip to content
+            </a>
+          </div>
+        </div>
         <nav
           className="flex items-center justify-between flex-wrap bg-primary p-7 pt-4 xl:px-[1.806vw] text-white font-medium"
           aria-label="main"
         >
-          <CustomImage
-            src={"/assets/img/logo.png"}
-            alt="inclusive africa 2023 logo"
-            className="h-14 w-44"
-          />
+          <Link href={"/"}>
+            <CustomImage
+              src={"/assets/img/logo.png"}
+              alt="inclusive africa 2023 logo"
+              className="h-14 w-44"
+            />
+          </Link>
           <div className="block lg:hidden">
             <button
               className="flex items-center px-3 py-2 border rounded"
               aria-expanded={expanded}
+              aria-controls="mainNavigation"
+              aria-label={"main menu"}
               onClick={() => setExpanded(!expanded)}
             >
               <Bars3Icon className="fill-current h-3 w-3" />
@@ -59,7 +77,7 @@ export default function Nav({
                   className="sm:min-w-[16rem]"
                 />
               </NavDropDown>
-              <NavItem href="/" name="Agenda" />
+              <NavItem href="/agenda" name="Agenda" />
               <NavItem href="/" name="Speakers" />
               <NavItem href="/" name="Sponsors" />
               <NavDropDown name="Media">
@@ -73,7 +91,7 @@ export default function Nav({
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
-              <form className="flex border-b-2 md:w-1/2 lg:max-w-[9.125rem] my-6 lg:my-0 mr-9">
+              <form className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9">
                 <div className="relative inline-flex max-w-[86%]">
                   <input
                     id="searchBox"
@@ -96,7 +114,11 @@ export default function Nav({
                   />
                 </button>
               </form>
-              <a href="#" className="rounded bg-secondary p-2">
+              <a
+                href="#"
+                className="rounded bg-secondary p-2"
+                aria-label="Register for Inclusive Africa 2023"
+              >
                 Register
               </a>
             </div>

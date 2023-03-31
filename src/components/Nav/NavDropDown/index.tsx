@@ -17,7 +17,7 @@ export default function NavDropDown({ name, children }: NavDropDownProps) {
               type="button"
               className="flex my-5 lg:my-0 lg:inline-flex"
               id="menu-button"
-              aria-expanded={false}
+              aria-expanded={expanded}
               aria-haspopup="true"
               onClick={() => setExpanded(!expanded)}
             >

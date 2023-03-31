@@ -1,6 +1,6 @@
 import CustomImage from "../CustomImage";
 
-type DirectusImage = {
+export type DirectusImage = {
   id: string;
   title: string;
 };
