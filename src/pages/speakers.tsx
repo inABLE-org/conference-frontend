@@ -6,8 +6,7 @@ import CustomImage from "@/components/CustomImage";
 import Speaker from "@/components/Cardutilities/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import TwoTabs from "@/components/Tabs/TwoTabs";
-import { FontAwesomeIcon } from '@fortawesome/react-fontawesome';
-import { faLinkedin as fabLinkedin } from '@fortawesome/fontawesome-free-brands';
+
 
 
 type Speaker = {
