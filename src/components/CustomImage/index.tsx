@@ -4,7 +4,7 @@ type CustomImageProps = {
   src: string;
   alt?: string;
   id?: string;
-  className?: string
+  className?: string;
 };
 
 export default function CustomImage({
@@ -21,6 +21,7 @@ export default function CustomImage({
           src={src}
           alt={alt}
           fill
+          className="object-fill"
           sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
         />
       </div>

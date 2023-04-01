@@ -78,7 +78,7 @@ export default function Nav({
                 />
               </NavDropDown>
               <NavItem href="/agenda" name="Agenda" />
-              <NavItem href="/" name="Speakers" />
+              <NavItem href="/speakers" name="Speakers" />
               <NavItem href="/" name="Sponsors" />
               <NavDropDown name="Media">
                 <DropDownItem
