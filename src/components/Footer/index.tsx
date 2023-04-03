@@ -9,16 +9,20 @@ export default function Footer() {
         <div className="mx-auto container lg:px-0 pt-20 pb-14">
           <div className="md:flex md:justify-between">
             <div className="mr-24">
-              <CustomImage
-                src={"/assets/img/logo.png"}
-                alt="inclusive africa 2023 logo"
-                className="h-16 w-56"
-              />
-              <CustomImage
-                src={"/assets/img/inable-logo.png"}
-                alt="inable logo"
-                className="h-24 w-16 mt-8"
-              />
+              <a href="https://www.inclusiveafrica.org/">
+                <CustomImage
+                  src={"/assets/img/logo.png"}
+                  alt="inclusive africa 2023 logo(Opens in a new tab)"
+                  className="h-16 w-56"
+                />
+              </a>
+              <a href="https://inable.org/">
+                <CustomImage
+                  src={"/assets/img/inable-logo.png"}
+                  alt="inable logo(Opens in a new tab)"
+                  className="h-24 w-16 mt-8"
+                />
+              </a>
             </div>
             <div className="grid grid-cols-12 gap-1">
               <div className="my-5 md:my-0 col-span-12 sm:col-span-6 lg:col-span-5 xl:col-span-3">

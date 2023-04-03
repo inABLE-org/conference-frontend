@@ -83,11 +83,14 @@ export default function Agenda() {
 
   return (
     <>
-      <Layout>
+      <Layout pageTitle="Agenda">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
           <div className="container">
             <BackButton />
-            <PageTitle title="Agenda" />
+            <PageTitle
+              title="Agenda"
+              underlineClass="border-4 border-secondary-2"
+            />
             <TopParagraph
               text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
@@ -121,6 +124,7 @@ export default function Agenda() {
                       <dt className="relative text-2xl px-4 xl:px-0 py-11 lg:w-[30%]">
                         <div className="w-fit mx-auto">
                           {formatTime(conference_agenda.start_time)} -{" "}
+                          <span className="sr-only">to</span>
                           {formatTime(conference_agenda.end_time)}
                         </div>
                       </dt>

@@ -48,11 +48,14 @@ export default function Speakers() {
 
   return (
     <>
-      <Layout>
+      <Layout pageTitle="Speakers">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
           <div className="container">
             <BackButton />
-            <PageTitle title="Speakers" />
+            <PageTitle
+              title="Speakers"
+              underlineClass="border-4 border-secondary-2"
+            />
             <TopParagraph
               text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
