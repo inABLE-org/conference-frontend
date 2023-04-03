@@ -8,11 +8,11 @@ import { useState } from "react";
 import Link from "next/link";
 
 type NavProps = {
-  pageTitle?: string;
+  pageTitle: string;
 };
 
 export default function Nav({
-  pageTitle = "Inclusive Africa Conference 2023",
+  pageTitle,
 }: NavProps) {
   const [skipVisible, setSkipVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
@@ -67,7 +67,7 @@ export default function Nav({
           >
             <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-20">
               <NavItem href="/" name="Home" />
-              <NavDropDown name="The Conference">
+              <NavDropDown id="TheConferenceMenu" name="The Conference">
                 <DropDownItem name="About the conference" href="#" />
                 <DropDownItem name="Conference Information" href="#" />
                 <DropDownItem name="Hotel and Travel" href="#" />
@@ -79,8 +79,8 @@ export default function Nav({
               </NavDropDown>
               <NavItem href="/agenda" name="Agenda" />
               <NavItem href="/speakers" name="Speakers" />
-              <NavItem href="/" name="Sponsors" />
-              <NavDropDown name="Media">
+              <NavItem href="/sponsors" name="Sponsors" />
+              <NavDropDown id="mediaMenu" name="Media">
                 <DropDownItem
                   name="Press Releases"
                   href="#"
@@ -91,14 +91,18 @@ export default function Nav({
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
-              <form className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9">
+              <form
+                className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9"
+                role="search"
+                aria-label="Sitewide"
+              >
                 <div className="relative inline-flex max-w-[86%]">
                   <input
                     id="searchBox"
                     type="text"
-                    role={"search"}
                     className="bg-inherit border-white min-w-0 peer px-1"
                     placeholder=" "
+                    aria-label="Enter search keyword"
                   />
                   <label
                     htmlFor="searchBox"
@@ -107,7 +111,7 @@ export default function Nav({
                     Search
                   </label>
                 </div>
-                <button type="submit" className="">
+                <button type="submit" aria-label="search">
                   <MagnifyingGlassIcon
                     className="h-4 w-4 stroke-[1.5]"
                     stroke="currentColor"

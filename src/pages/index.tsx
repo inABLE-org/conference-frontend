@@ -39,6 +39,10 @@ export default function Home() {
         type
         host
         host_website
+        hero_image {
+          id
+          title
+        }
       }
       CTA: conference_call_to_action(
         limit: 4
@@ -131,20 +135,6 @@ export default function Home() {
   );
 
   const SponsorsDisplay = () => {
-    // let title = "Jubile Sponsors";
-    // let _list: Sponsor = data.jubilee;
-
-    // if (_type === "platinum") {
-    //   title = "Platinum Sponsors";
-    //   _list = data.platinum;
-    // } else if (_type === "gold") {
-    //   title = "Gold Sponsors";
-    //   _list = data.gold;
-    // } else if (_type === "silver") {
-    //   title = "Gold Sponsors";
-    //   _list = data.gold;
-    // }
-
     let title = "Platinum Sponsors";
     let _list: Sponsor[] = data.platinum;
 
@@ -180,7 +170,7 @@ export default function Home() {
               <div>
                 <h1
                   id="pageTitle"
-                  className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-secondary-1 mb-9 sm:leading-[4.840625rem]`}
+                  className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-secondary-1 mb-9 sm:leading-[4.840625rem] md:mt-3 lg:mt-0`}
                 >
                   Inclusive{" "}
                   <span className="text-white inline-block">
@@ -188,7 +178,7 @@ export default function Home() {
                     <CustomImage
                       src={"/assets/icons/Vector.png"}
                       alt=""
-                      className="inline-flex h-7 w-5 absolute -top-8 -right-4"
+                      className="inline-flex h-7 w-5 absolute -top-3 sm:-top-5 md:-top-8 -right-1 sm:-right-2 md:-right-2 lg:-right-4 2xl:-right-2"
                     />
                   </span>{" "}
                   Conference 2023
@@ -197,7 +187,7 @@ export default function Home() {
                   Taking digital accessibility & assistive technology in Africa
                   to the next level.
                 </p>
-                <div className="sm:text-xl font-semibold text-white pb-5">
+                <div className="text-xs sm:text-xl font-semibold text-white pb-5 flex">
                   <a
                     href="#"
                     className="rounded-3xl bg-secondary py-2 px-3 sm:px-12 mr-9"
@@ -221,11 +211,13 @@ export default function Home() {
               </div>
             </div>
             <div className="overflow-clip">
-              <CustomImage
-                src={"/assets/img/Hero Image.png"}
-                alt="inable logo"
-                className="hidden lg:block min-h-[50vw] 2xl:min-h-[45vw] w-full"
-              />
+              {data && (
+                <CustomImage
+                  src={`https://cms.inclusiveafrica.org/assets/${data.config[0].hero_image.id}`}
+                  alt={data.config[0].hero_image.title}
+                  className="hidden lg:block min-h-[50vw] 2xl:min-h-[45vw] w-full"
+                />
+              )}
             </div>
           </div>
         </div>

@@ -7,6 +7,8 @@ export type DirectusImage = {
 
 export type Sponsor = {
   name: string;
+  type: string;
+  main: boolean;
   logo: DirectusImage;
   website: string;
 };
