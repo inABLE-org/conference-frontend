@@ -3,17 +3,18 @@ export default function ImpactSection()
 {
     return(
         <>
-         <div className="container grid sm:grid-cols-2 xl:grid-cols-4 mx-auto gap-6 my-16">
+         <div className="grid sm:grid-cols-2 xl:grid-cols-4  gap-6 my-16 sm:align-center">
                         <ImpactsCard
                         number="8"
-                        title= <>Computer <br></br>Technology</>
-                        description=<>
+                        title= {<>Computer <br></br>Technology</>}
+                        description={<>
                         Established eight (8) assistive
                          computer technology labs in
                          <br></br>six (6) special schools for the
                           <br></br>
                            blind.  
                         </>
+                        }
                         />
                          <ImpactsCard
                         number="14,500"
@@ -44,7 +45,7 @@ export default function ImpactSection()
                         />
 
                     </div>
-                    <div className="container grid sm:grid-cols-2 xl:grid-cols-4 mx-auto gap-6 my-16">
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-16">
                         <ImpactsCard
                         title=<>
                             Computer Labs for <br /> the Blind Program

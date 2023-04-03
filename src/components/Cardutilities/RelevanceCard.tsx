@@ -5,10 +5,18 @@ export default function RelevanceCard(
      }) {
     return (
         <>
-            <div className="mx-12 px-12 grid grid-cols-6 gap-0 bg-white border border-gray-200  shadow mt-[60px]">
-                    {props.impactname}
-                    {props.impactdescription}
-            </div>
+            
+                    <div className="flex justify-center mb-10">
+                        <div className="flex flex-wrap container">
+                            <div className="w-40 md:w-auto bg-primary text-white px-12 py-12">
+                               <div className="mx-12">{props.impactname}</div>
+                            </div>
+                            <div className="w-60 md:w-auto bg-white pr-12 py-4 border border-gray-200">
+                               <div className="mx-12">{props.impactdescription}</div>
+                            </div>
+                        </div>
+                    </div>
+            
         </>
     )
 }
