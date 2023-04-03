@@ -1,26 +1,17 @@
 import useSWR from "swr";
 import CustomImage from "@/components/CustomImage";
 import Layout from "@/components/Layout";
-import { Inter } from "next/font/google";
 import { Fetcher } from "@/components/fetcher";
-import { DirectusImage } from "@/components/Sponsors";
-import { useRouter } from "next/router";
 import { useState } from "react";
-import BackButton from "@/components/BackButton/BackButton";
-
-type Speaker = {
-  id: string;
-  first_name: string;
-  second_name: string;
-  organization: string;
-  role: string;
-  Country: string;
-  key_note: Boolean;
-  photo: DirectusImage;
-};
+import BackButton from "@/components/BackButton";
+import PageTitle from "@/components/PageTitle/BackButton";
+import TopParagraph from "@/components/TopParagraph";
+import Tabs from "@/components/Tabs";
+import TabPanel from "@/components/Tabs/TabPanel";
+import { SpeakerInfo } from "../speakers";
 
 type ConferenceSpeaker = {
-  conference_speakers_id: Speaker;
+  conference_speakers_id: SpeakerInfo;
 };
 
 type AgendaInfo = {
@@ -79,7 +70,6 @@ export default function Agenda() {
   );
 
   let days: string[] = [];
-  let conference_agenda: AgendaInfo[] = [];
 
   if (data) {
     days = Array.from(
@@ -89,87 +79,39 @@ export default function Agenda() {
         )
       )
     );
-
-    conference_agenda = data.conference_agenda.filter((agenda: AgendaInfo) => {
-      if (formatDate(agenda.start_time) === days[activeTab]) {
-        return agenda;
-      }
-    });
   }
 
-  const switchTab = (e: any, currentTab: number) => {
-    if (e.key === "ArrowRight") {
-      currentTab++;
-      const activeTab = currentTab >= days.length ? 0 : currentTab;
-      setActiveTab(activeTab);
-      document.getElementById(`tab-${activeTab}`)?.focus();
-    } else if (e.key === "ArrowLeft") {
-      currentTab--;
-      const activeTab = currentTab < 0 ? days.length - 1 : currentTab;
-      setActiveTab(activeTab);
-      document.getElementById(`tab-${activeTab}`)?.focus();
-    }
-  };
-
-  console.log(data);
   return (
     <>
       <Layout>
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
           <div className="container">
             <BackButton />
-            <h1
-              id="pageTitle"
-              className="mt-7 text-5xl pb-4 border-b-8 border-secondary-2 mx-auto w-fit mb-6"
-            >
-              Agenda
-            </h1>
-            <p className="text-center font-medium w-7/12 sm:px-2 pb-9 mb-8 mx-auto">
-              &quot;Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
+            <PageTitle title="Agenda" />
+            <TopParagraph
+              text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud
-            </p>
-            <ul
+              enim ad minim veniam, quis nostrud'
+            />
+            <Tabs
+              tabList={days.map((day) => week_day(day))}
               className="flex mx-auto space-x-9 justify-center text-xl"
-              role={"tablist"}
-              aria-labelledby="pageTitle"
-            >
-              {days.map((day: string, key: number) => {
-                return (
-                  <li
-                    role={"tab"}
-                    aria-selected={key === activeTab}
-                    aria-controls="agendaPanel"
-                    tabIndex={key === activeTab ? 0 : -1}
-                    id={`tab-${key}`}
-                    key={key}
-                    className={`px-8 pb-1 hover:cursor-pointer ${
-                      key === activeTab ? "border-b-5 border-secondary-2" : ""
-                    }`}
-                    onKeyDown={(e) => switchTab(e, key)}
-                    onClick={() => setActiveTab(key)}
-                  >
-                    {week_day(day)}
-                  </li>
-                );
-              })}
-            </ul>
+              onTabSwith={setActiveTab}
+            />
           </div>
         </div>
-        <div
-          id="agendaPanel"
-          role={"tabpanel"}
-          className="container pt-20"
-          aria-labelledby={`tab-${activeTab}`}
-          tabIndex={0}
-        >
+        <TabPanel className="container pt-20" activeTab={activeTab}>
           <h2 className="font-medium text-[2em]" id="dayTitle">
             {data && days[activeTab]}
           </h2>
           <dl className="mt-16" aria-labelledby="dayTitle">
-            {conference_agenda &&
-              conference_agenda.map(
-                (conference_agenda: AgendaInfo, key: number) => {
+            {data &&
+              data.conference_agenda
+                .filter(
+                  (agenda: AgendaInfo) =>
+                    formatDate(agenda.start_time) === days[activeTab]
+                )
+                .map((conference_agenda: AgendaInfo, key: number) => {
                   return (
                     <div
                       key={key}
@@ -233,10 +175,9 @@ export default function Agenda() {
                       </dd>
                     </div>
                   );
-                }
-              )}
+                })}
           </dl>
-        </div>
+        </TabPanel>
       </Layout>
     </>
   );

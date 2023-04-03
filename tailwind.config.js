@@ -50,6 +50,8 @@ module.exports = {
       borderWidth: {
         3: "3px",
         5: "5px",
+        6: "6px",
+        7: "7px",
       },
     },
   },
