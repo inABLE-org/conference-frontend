@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-gradient-to-b from-primary-1 to-primary text-white">
-        <div className="mx-auto container px-2 lg:px-0 pt-20 pb-14">
+        <div className="mx-auto container lg:px-0 pt-20 pb-14">
           <div className="md:flex md:justify-between">
             <div className="mr-24">
               <CustomImage
@@ -29,7 +29,11 @@ export default function Footer() {
                   <FooterNavItem href="/" name="Speakers" />
                   <FooterNavItem href="/" name="Sponsors" />
                 </ul>
-                <a href="#" className="rounded bg-secondary py-2 px-6">
+                <a
+                  href="#"
+                  className="rounded bg-secondary py-2 px-6"
+                  aria-label="Register for Inclusive Africa 2023"
+                >
                   Register
                 </a>
               </div>
@@ -84,24 +88,32 @@ export default function Footer() {
                 <span className="mr-10">
                   © Inclusive Africa Conference 2023
                 </span>
-                <a
-                  href="#responsive-header"
-                  className="block lg:inline-block mr-6 my-5 lg:my-0"
-                >
-                  Privacy Policy
-                </a>
-                <a
-                  href="#responsive-header"
-                  className="block lg:inline-block mr-6 my-5 lg:my-0"
-                >
-                  Terms of Service
-                </a>
-                <a
-                  href="#responsive-header"
-                  className="block lg:inline-block mr-6 my-5 lg:my-0"
-                >
-                  Cookie Settings
-                </a>
+                <ul className="md:inline-flex">
+                  <li>
+                    <a
+                      href="#responsive-header"
+                      className="block lg:inline-block mr-6 my-5 lg:my-0"
+                    >
+                      Privacy Policy
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#responsive-header"
+                      className="block lg:inline-block mr-6 my-5 lg:my-0"
+                    >
+                      Terms of Service
+                    </a>
+                  </li>
+                  <li>
+                    <a
+                      href="#responsive-header"
+                      className="block lg:inline-block mr-6 my-5 lg:my-0"
+                    >
+                      Cookie Settings
+                    </a>
+                  </li>
+                </ul>
               </div>
             </div>
             <ul className="flex space-x-6 items-center">

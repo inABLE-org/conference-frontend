@@ -175,10 +175,11 @@ export default function Home() {
     <>
       <Layout>
         <div className="bg-gradient-to-b from-primary to-primary-1">
-          <div className="lg:grid grid-cols-2 mx-auto w-full max-w-[117.9em]">
+          <div className="lg:grid grid-cols-2">
             <div className="pl-14 flex items-center">
               <div>
                 <h1
+                  id="pageTitle"
                   className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-secondary-1 mb-9 sm:leading-[4.840625rem]`}
                 >
                   Inclusive{" "}
@@ -200,10 +201,15 @@ export default function Home() {
                   <a
                     href="#"
                     className="rounded-3xl bg-secondary py-2 px-3 sm:px-12 mr-9"
+                    aria-describedby="pageTitle"
                   >
                     Register
                   </a>
-                  <a href="#" className="rounded-3xl border-2 py-2 px-5">
+                  <a
+                    href="#"
+                    className="rounded-3xl border-2 py-2 px-5"
+                    aria-describedby="pageTitle"
+                  >
                     Read More{" "}
                     <ArrowRightIcon
                       className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
@@ -218,13 +224,13 @@ export default function Home() {
               <CustomImage
                 src={"/assets/img/Hero Image.png"}
                 alt="inable logo"
-                className="hidden lg:block min-h-[50vw] w-full"
+                className="hidden lg:block min-h-[50vw] 2xl:min-h-[45vw] w-full"
               />
             </div>
           </div>
         </div>
-        <div>
-          <div className="relative container grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-5 bg-white mx-auto py-12 pl-11 pr-8 -mt-20 shadow-md">
+        <div className="container">
+          <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-5 bg-white py-12 pl-11 pr-8 -mt-20 shadow-md">
             <div className="flex items-center text-sm font-medium">
               <CalendarIcon
                 className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
@@ -338,7 +344,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="container grid sm:grid-cols-2 xl:grid-cols-4 mx-auto gap-6 my-16">
+        <div className="container grid sm:grid-cols-2 xl:grid-cols-4 gap-6 my-16">
           {data && data.CTA.length && (
             <>
               {data.CTA.map((cta: CTAInfo, key: number) => {
@@ -356,8 +362,8 @@ export default function Home() {
           )}
         </div>
         <div className="bg-gradient-to-b from-primary to-primary-1 py-32">
-          <div className="container grid sm:grid-cols-2 text-white mx-auto gap-24">
-            <div className="">
+          <div className="container grid sm:grid-cols-2 text-ash gap-24">
+            <div>
               <iframe
                 className="w-full h-full rounded-3xl"
                 src="https://www.youtube.com/embed/0CqvRPeU52w"
@@ -370,7 +376,7 @@ export default function Home() {
               <h2 className="text-secondary-1 text-5xl font-bold mb-10">
                 Register Now!
               </h2>
-              <h3 className="text-2xl font-bold mb-1">
+              <h3 className="text-2xl font-bold mb-1" id="inclusiveAfricaTitle">
                 The Annual Inclusive Conference 2023
               </h3>
               <p className="font-medium mb-12">
@@ -382,6 +388,7 @@ export default function Home() {
               <a
                 href="#"
                 className="rounded-3xl border-2 py-2 px-5 font-medium text-xl"
+                aria-describedby="inclusiveAfricaTitle"
               >
                 Read More
                 <ArrowRightIcon
@@ -392,7 +399,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="container mx-auto py-40 text-center">
+        <div className="container py-40 text-center">
           <h2 className="font-semibold text-5xl">Sponsors</h2>
           <p className="text-xl py-9">
             This conference is possible thanks to our sponsors and partners

@@ -1,7 +1,6 @@
-import '@/styles/globals.css'
-import type { AppProps } from 'next/app'
-import { Poppins } from 'next/font/google';
-
+import "@/styles/globals.css";
+import type { AppProps } from "next/app";
+import { Poppins } from "next/font/google";
 
 const poppins = Poppins({
   subsets: ["latin"],
@@ -12,7 +11,7 @@ const poppins = Poppins({
 
 export default function App({ Component, pageProps }: AppProps) {
   return (
-    <div className={`${poppins.variable} font-sans`}>
+    <div className={`${poppins.variable} font-sans bg-primary-2`}>
       <Component {...pageProps} />
     </div>
   );
