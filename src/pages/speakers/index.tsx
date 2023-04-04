@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Speaker from "@/components/Cardutilities/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import BackButton from "@/components/BackButton";
-import PageTitle from "@/components/PageTitle/BackButton";
+import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
 import { DirectusImage } from "@/components/Sponsors";
@@ -61,12 +61,12 @@ export default function Speakers() {
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud'
             />
+            <Tabs
+              tabList={["All Speakers", "Keynote Speakers"]}
+              className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
+              onTabSwith={setActiveTab}
+            />
           </div>
-          <Tabs
-            tabList={["All Speakers", "Keynote Speakers"]}
-            className="flex mx-auto space-x-9 justify-center text-xl"
-            onTabSwith={setActiveTab}
-          />
         </div>
         <TabPanel className="container py-28" activeTab={activeTab}>
           <ul

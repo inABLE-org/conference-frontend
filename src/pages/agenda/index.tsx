@@ -4,7 +4,7 @@ import Layout from "@/components/Layout";
 import { Fetcher } from "@/components/fetcher";
 import { useState } from "react";
 import BackButton from "@/components/BackButton";
-import PageTitle from "@/components/PageTitle/BackButton";
+import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
 import TabPanel from "@/components/Tabs/TabPanel";
@@ -98,7 +98,7 @@ export default function Agenda() {
             />
             <Tabs
               tabList={days.map((day) => week_day(day))}
-              className="flex mx-auto space-x-9 justify-center text-xl"
+              className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
               onTabSwith={setActiveTab}
             />
           </div>

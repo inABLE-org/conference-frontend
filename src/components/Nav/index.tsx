@@ -11,9 +11,7 @@ type NavProps = {
   pageTitle: string;
 };
 
-export default function Nav({
-  pageTitle,
-}: NavProps) {
+export default function Nav({ pageTitle }: NavProps) {
   const [skipVisible, setSkipVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   return (
@@ -69,11 +67,17 @@ export default function Nav({
               <NavItem href="/" name="Home" />
               <NavDropDown id="TheConferenceMenu" name="The Conference">
                 <DropDownItem name="About the conference" href="#" />
-                <DropDownItem name="Conference Information" href="#" />
-                <DropDownItem name="Hotel and Travel" href="#" />
+                <DropDownItem
+                  name="Conference Information"
+                  href="/theconference/generalinformation"
+                />
+                <DropDownItem
+                  name="Hotel and Travel"
+                  href="/theconference/generalinformation?info=1"
+                />
                 <DropDownItem
                   name="Health & Safety Information"
-                  href="#"
+                  href="/theconference/generalinformation?info=2"
                   className="sm:min-w-[16rem]"
                 />
               </NavDropDown>
@@ -119,9 +123,10 @@ export default function Nav({
                 </button>
               </form>
               <a
-                href="#"
+                target={"_blank"}
+                href="https://hopin.com/events/inclusive-africa-2023/registration"
                 className="rounded bg-secondary p-2"
-                aria-label="Register for Inclusive Africa 2023"
+                aria-label="Register for Inclusive Africa 2023(Opens in a new Tab)"
               >
                 Register
               </a>

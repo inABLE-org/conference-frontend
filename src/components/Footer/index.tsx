@@ -26,35 +26,51 @@ export default function Footer() {
             </div>
             <div className="grid grid-cols-12 gap-1">
               <div className="my-5 md:my-0 col-span-12 sm:col-span-6 lg:col-span-5 xl:col-span-3">
-                <h2 className="font-bold text-xl">The Conference</h2>
-                <ul className="mt-4 mb-8">
+                <h2 className="font-bold text-xl" id="footerTitle1">
+                  The Conference
+                </h2>
+                <ul className="mt-4 mb-8" aria-labelledby="footerTitle1">
                   <FooterNavItem href="/" name="About the conference" />
-                  <FooterNavItem href="/" name="Agenda" />
-                  <FooterNavItem href="/" name="Speakers" />
-                  <FooterNavItem href="/" name="Sponsors" />
+                  <FooterNavItem href="/agenda" name="Agenda" />
+                  <FooterNavItem href="/speakers" name="Speakers" />
+                  <FooterNavItem href="/sponsors" name="Sponsors" />
                 </ul>
                 <a
-                  href="#"
+                  target={"_blank"}
+                  href="https://hopin.com/events/inclusive-africa-2023/registration"
                   className="rounded bg-secondary py-2 px-6"
-                  aria-label="Register for Inclusive Africa 2023"
+                  aria-label="Register for Inclusive Africa 2023(Opens in a new tab)"
                 >
                   Register
                 </a>
               </div>
               <div className="hidden sm:block col-start-7 col-span-6 lg:col-span-3 xl:col-span-2">
-                <h2 className="font-bold text-xl">Media</h2>
-                <ul className="mt-4 mb-8">
+                <h2 className="font-bold text-xl" id="footerTitle2">
+                  Media
+                </h2>
+                <ul className="mt-4 mb-8" aria-labelledby="footerTitle2">
                   <FooterNavItem href="/" name="Press Releases" />
                   <FooterNavItem href="/" name="Resources" />
                   <FooterNavItem href="/" name="Photo Albums" />
                 </ul>
               </div>
               <div className="hidden sm:block col-start-7 col-span-6 lg:col-span-4 xl:col-span-3">
-                <h2 className="font-bold text-xl">General Information</h2>
-                <ul className="mt-4 mb-8">
-                  <FooterNavItem href="/" name="Conference Information" />
-                  <FooterNavItem href="/" name="Hotel and Travel" />
-                  <FooterNavItem href="/" name="Health & Safety Information" />
+                <h2 className="font-bold text-xl" id="footerTitle3">
+                  General Information
+                </h2>
+                <ul className="mt-4 mb-8" aria-labelledby="footerTitle3">
+                  <FooterNavItem
+                    href="/theconference/generalinformation"
+                    name="Conference Information"
+                  />
+                  <FooterNavItem
+                    href="/theconference/generalinformation?info=1"
+                    name="Hotel and Travel"
+                  />
+                  <FooterNavItem
+                    href="/theconference/generalinformation?info=2"
+                    name="Health & Safety Information"
+                  />
                 </ul>
               </div>
 
@@ -69,7 +85,7 @@ export default function Footer() {
                 <div className="flex justify-center mt-11">
                   <a
                     href="#"
-                    className="rounded-lg border border-secondary py-2 px-4 text-sm"
+                    className="rounded-lg border-[2.5px] border-secondary py-2 px-4 text-sm"
                   >
                     Subscribe to our newsletter
                     <ArrowRightIcon
