@@ -59,11 +59,7 @@ export default function Speakers() {
               enim ad minim veniam, quis nostrud'
             />
           </div>
-          <Tabs
-            tabList={["All Speakers", "Keynote Speakers"]}
-            className="flex mx-auto space-x-9 justify-center text-xl"
-            onTabSwith={setActiveTab}
-          />
+          
         </div>
         <TabPanel className="container py-28" activeTab={activeTab}>
           <ul

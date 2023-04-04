@@ -4,13 +4,13 @@ export default function ObjectiveCard(
     objectiveName: JSX.Element
 }) {
     return(
-      <div className="grid grid-cols-5 mb-8 mt-4">
-            <div className="col-span-1 bg-secondary text-white text-[64px] text-center">
-                {props.objectiveNumber}
-            </div>
-            <div className="col-span-4 text-start border border-gray-200 pr-5 bg-white">
-                <p className="mx-6">{props.objectiveName}</p>
-            </div>
+        <div className="grid lg:grid-cols-7 mb-8  sm:grid-cols-1 ">
+        <div className="bg-secondary-2 text-white text-[64px] flex items-center justify-center">
+          {props.objectiveNumber}
         </div>
+        <div className="col-span-6 text-start border border-gray-200 pr-5 bg-white ">
+          <p className="mx-6">{props.objectiveName}</p>
+        </div>
+      </div>
     )
 }
