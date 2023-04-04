@@ -3,7 +3,7 @@ import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
-import PageTitle from "@/components/PageTitle/BackButton";
+import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 
 export default function Home() {
@@ -71,14 +71,19 @@ export default function Home() {
               />
             )}
           </div>
-          <h2 className="font-semibold text-5xl mt-24 mb-16">Partners</h2>
-          <div className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5">
+          <h2 className="font-semibold text-5xl mt-24 mb-16" id="partnersTitle">
+            Partners
+          </h2>
+          <ul
+            className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"
+            aria-labelledby="partnersTitle"
+          >
             {data &&
               data.conference_sponsors
                 .filter((sponsor: Sponsor) => sponsor.type === "Partner")
                 .map((partner: Sponsor, key: number) => {
                   return (
-                    <div
+                    <li
                       key={key}
                       className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between"
                     >
@@ -90,14 +95,15 @@ export default function Home() {
                       />
                       <a
                         href={partner.website}
-                        aria-label={`(Opens opens in a new tab)`}
+                        target={"_blank"}
+                        aria-label={`${partner.name} (Opens in a new tab)`}
                       >
                         {partner.name}
                       </a>
-                    </div>
+                    </li>
                   );
                 })}
-          </div>
+          </ul>
         </div>
       </Layout>
     </>
