@@ -2,11 +2,12 @@ import { ChevronDownIcon } from "@heroicons/react/24/solid";
 import { useState } from "react";
 
 type NavDropDownProps = {
+  id: string;
   name: string;
   children: React.ReactNode;
 };
 
-export default function NavDropDown({ name, children }: NavDropDownProps) {
+export default function NavDropDown({ id, name, children }: NavDropDownProps) {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
@@ -16,10 +17,11 @@ export default function NavDropDown({ name, children }: NavDropDownProps) {
             <button
               type="button"
               className="flex my-5 lg:my-0 lg:inline-flex"
-              id="menu-button"
+              id={id}
               aria-expanded={expanded}
               aria-haspopup="true"
-              onClick={() => setExpanded(!expanded)}
+              aria-controls={`MenuFor${id}`}
+              onClick={() =>  setExpanded(!expanded)}
             >
               {name}
               <ChevronDownIcon
@@ -29,11 +31,12 @@ export default function NavDropDown({ name, children }: NavDropDownProps) {
             </button>
           </div>
           <ul
+            id={`MenuFor${id}`}
             className={`${
               expanded ? "" : "hidden"
             } lg:absolute left-0 lg:left-auto md:right-0 z-10 mt-2 origin-top-right rounded-md bg-primary-2 shadow-lg ring-1 ring-primary ring-opacity-5 py-1`}
             role="menu"
-            aria-labelledby="menu-button"
+            aria-labelledby={id}
           >
             {children}
           </ul>

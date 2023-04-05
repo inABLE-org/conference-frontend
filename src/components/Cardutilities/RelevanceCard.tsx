@@ -10,7 +10,7 @@ export default function RelevanceCard(
           {props.impactname}
         </div>
         <div className="col-span-7 text-start border border-gray-200 pr-5 bg-white ">
-          <p className="mx-6">{props.impactdescription}</p>
+          <span className="mx-6">{props.impactdescription}</span>
         </div>
       </div>
         </>

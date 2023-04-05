@@ -1,9 +1,9 @@
-import ImpactsCard from "../CTACard/Impactscard"
+import ImpactsCard from "@/components/Cardutilities/ImpactCard"
 export default function ImpactSection()
 {
     return(
         <>
-         <div className="grid sm:grid-cols-2 xl:grid-cols-4  gap-6 my-16 justify-center">
+         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-16 justify-center">
                         <ImpactsCard
                         number="8"
                         title= {<>Computer <br></br>Technology</>}

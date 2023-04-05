@@ -5,7 +5,7 @@ export default function Conferencecard(
 )
 {
     return(
-        <div className="rounded-lg bg-white shadow w-[280px] text-center py-5 mb-5">
+        <div className="rounded-lg bg-white shadow text-center py-5 mb-5">
           {props.title}
         </div>
     )

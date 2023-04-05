@@ -37,6 +37,7 @@ module.exports = {
           DEFAULT: "#EEEEEE",
           1: "#F0F0F0",
           2: "#F0F4F8",
+          3: "#D9D9D926",
         },
       },
       fontFamily: {
@@ -46,12 +47,16 @@ module.exports = {
       boxShadow: {
         card: "0px 0px 16px rgba(16, 24, 40, 0.3)",
         "agenda-card": "0px 0px 4px rgba(0, 0, 0, 0.25)",
+        "gi-card": "0px 0px 16px rgba(0, 0, 0, 0.25)",
       },
       borderWidth: {
         3: "3px",
         5: "5px",
         6: "6px",
         7: "7px",
+      },
+      fontSize: {
+        "32px": "2rem",
       },
     },
   },

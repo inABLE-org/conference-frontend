@@ -4,7 +4,7 @@ import React, { useState } from "react";
 import Speaker from "@/components/Cardutilities/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import BackButton from "@/components/BackButton";
-import PageTitle from "@/components/PageTitle/BackButton";
+import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
 import { DirectusImage } from "@/components/Sponsors";
@@ -48,18 +48,25 @@ export default function Speakers() {
 
   return (
     <>
-      <Layout>
+      <Layout pageTitle="Speakers">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
           <div className="container">
             <BackButton />
-            <PageTitle title="Speakers" />
+            <PageTitle
+              title="Speakers"
+              underlineClass="border-4 border-secondary-2"
+            />
             <TopParagraph
               text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
               do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
               enim ad minim veniam, quis nostrud'
             />
+            <Tabs
+              tabList={["All Speakers", "Keynote Speakers"]}
+              className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
+              onTabSwith={setActiveTab}
+            />
           </div>
-          
         </div>
         <TabPanel className="container py-28" activeTab={activeTab}>
           <ul

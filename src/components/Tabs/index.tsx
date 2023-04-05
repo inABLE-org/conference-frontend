@@ -1,4 +1,4 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 
 type TabProps = {
   tabList: string[];
@@ -38,6 +38,10 @@ export default function Tabs({
       updateActiveTab(activeTab);
     }
   };
+
+  useEffect(() => {
+    setActiveTab(selectedTab);
+  }, [selectedTab]);
 
   return (
     <>
