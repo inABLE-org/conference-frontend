@@ -1,5 +1,4 @@
 import useSWR from "swr";
-import CustomImage from "@/components/CustomImage";
 import Layout from "@/components/Layout";
 import { Fetcher } from "@/components/fetcher";
 import { useState } from "react";
@@ -9,12 +8,13 @@ import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
 import TabPanel from "@/components/Tabs/TabPanel";
 import { SpeakerInfo } from "../speakers";
+import AgendaPane from "@/components/AgendaPane";
 
-type ConferenceSpeaker = {
+export type ConferenceSpeaker = {
   conference_speakers_id: SpeakerInfo;
 };
 
-type AgendaInfo = {
+export type AgendaInfo = {
   title: string;
   description: string;
   start_time: string;
@@ -25,13 +25,7 @@ type AgendaInfo = {
 const week_day = (_date: string) =>
   new Intl.DateTimeFormat("en", { weekday: "long" }).format(new Date(_date));
 
-const formatTime = (_date: string) =>
-  new Intl.DateTimeFormat("en-AU", {
-    hour: "numeric",
-    minute: "numeric",
-  }).format(new Date(_date));
-
-const formatDate = (_date: string) =>
+export const formatDate = (_date: string) =>
   new Intl.DateTimeFormat("en-US", {
     weekday: "long",
     year: "numeric",
@@ -57,6 +51,7 @@ export default function Agenda() {
             first_name
             second_name
             organization
+            moderator
             role
             photo {
               id
@@ -84,7 +79,7 @@ export default function Agenda() {
   return (
     <>
       <Layout pageTitle="Agenda">
-        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
+        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <BackButton />
             <PageTitle
@@ -104,83 +99,15 @@ export default function Agenda() {
           </div>
         </div>
         <TabPanel className="container pt-20" activeTab={activeTab}>
-          <h2 className="font-medium text-[2em]" id="dayTitle">
-            {data && days[activeTab]}
-          </h2>
-          <dl className="mt-16" aria-labelledby="dayTitle">
-            {data &&
-              data.conference_agenda
-                .filter(
-                  (agenda: AgendaInfo) =>
-                    formatDate(agenda.start_time) === days[activeTab]
-                )
-                .map((conference_agenda: AgendaInfo, key: number) => {
-                  return (
-                    <div
-                      key={key}
-                      tabIndex={0}
-                      className="md:flex bg-white shadow-agenda-card mb-16 hover:border-2 hover:border-secondary-2"
-                    >
-                      <dt className="relative text-2xl px-4 xl:px-0 py-11 lg:w-[30%]">
-                        <div className="w-fit mx-auto">
-                          {formatTime(conference_agenda.start_time)} -{" "}
-                          <span className="sr-only">to</span>
-                          {formatTime(conference_agenda.end_time)}
-                        </div>
-                      </dt>
-                      <dd className="border-l-[0.015625rem] py-9 w-full">
-                        <div className="mx-auto  max-w-[93%]">
-                          <h3 className="font-medium text-[1.75rem]">
-                            {conference_agenda.title}
-                          </h3>
-                          <p className="my-9">
-                            {conference_agenda.description}
-                          </p>
-                          {conference_agenda.speakers.length > 0 && (
-                            <h3 className="font-medium text-2xl mb-6">
-                              {conference_agenda.speakers.length}
-                              <span id="speakerTitle"> SPEAKERS</span>
-                            </h3>
-                          )}
-                          <ul
-                            className="grid md:grid-cols-2 gap-y-10"
-                            aria-label="speakerTitle"
-                          >
-                            {conference_agenda.speakers.map(
-                              (
-                                { conference_speakers_id }: ConferenceSpeaker,
-                                key: number
-                              ) => {
-                                return (
-                                  <li
-                                    key={key}
-                                    className="flex items-center space-x-4 lg:space-x-6"
-                                  >
-                                    <CustomImage
-                                      src={`https://cms.inclusiveafrica.org/assets/${conference_speakers_id.photo.id}`}
-                                      alt={`${conference_speakers_id.first_name}`}
-                                      className="min-h-[85%] lg:min-h-[5.1vw] min-w-[13%] md:min-w-[24%] lg:min-w-[5vw] rounded-full overflow-hidden"
-                                    />
-                                    <div>
-                                      <h4 className="font-semibold">
-                                        {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
-                                      </h4>
-                                      {conference_speakers_id.role} <br />
-                                      <span>
-                                        {conference_speakers_id.organization}
-                                      </span>
-                                    </div>
-                                  </li>
-                                );
-                              }
-                            )}
-                          </ul>
-                        </div>
-                      </dd>
-                    </div>
-                  );
-                })}
-          </dl>
+          {data && (
+            <AgendaPane
+              date={days[activeTab]}
+              agendaList={data.conference_agenda.filter(
+                (agenda: AgendaInfo) =>
+                  formatDate(agenda.start_time) === days[activeTab]
+              )}
+            />
+          )}
         </TabPanel>
       </Layout>
     </>

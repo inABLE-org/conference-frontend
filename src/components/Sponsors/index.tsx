@@ -16,13 +16,17 @@ export type Sponsor = {
 type SponsorsProps = {
   title: string;
   sponsors: Sponsor[];
+  border?: Boolean;
 };
-export default function Sponsors({ title, sponsors }: SponsorsProps) {
+export default function Sponsors({ title, sponsors, border }: SponsorsProps) {
   return (
     <>
-      <h3 className="font-semibold text-xl mb-9">{title}</h3>
+      {border && <hr className="border-black border-opacity-50 -mb-4" />}
+      <h3 className="font-semibold text-xl bg-primary-2 w-fit mx-auto px-6">
+        {title}
+      </h3>
       <ul
-        className="grid sm:grid-cols-2 gap-y-11 md:flex md:space-x-16 mx-auto justify-center mb-20"
+        className="grid sm:grid-cols-2 gap-y-11 md:flex md:space-x-16 mx-auto justify-center pt-12 pb-20"
         aria-label={title}
       >
         {sponsors.map((sponsor: Sponsor, key: number) => {
