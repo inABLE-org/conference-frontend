@@ -29,7 +29,7 @@ export default function Home() {
   return (
     <>
       <Layout pageTitle="Sponsors">
-        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
+        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <BackButton />
             <PageTitle
@@ -48,6 +48,7 @@ export default function Home() {
                 sponsors={data.conference_sponsors.filter(
                   (sponsor: Sponsor) => sponsor.type === "Platinum"
                 )}
+                border
               />
             )}
           </div>
@@ -58,6 +59,7 @@ export default function Home() {
                 sponsors={data.conference_sponsors.filter(
                   (sponsor: Sponsor) => sponsor.type === "Gold"
                 )}
+                border
               />
             )}
           </div>
@@ -68,6 +70,7 @@ export default function Home() {
                 sponsors={data.conference_sponsors.filter(
                   (sponsor: Sponsor) => sponsor.type === "Silver"
                 )}
+                border
               />
             )}
           </div>

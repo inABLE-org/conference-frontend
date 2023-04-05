@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import React, { useState } from "react";
-import Speaker from "@/components/Cardutilities/Speaker";
+import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
@@ -18,7 +18,9 @@ export type SpeakerInfo = {
   role: string;
   Country: string;
   key_note: Boolean;
+  moderator: Boolean;
   photo: DirectusImage;
+  linkedin: string;
 };
 
 export default function Speakers() {
@@ -34,6 +36,7 @@ export default function Speakers() {
         second_name
         organization
         key_note
+        moderator
         role
         Country
         photo
@@ -49,7 +52,7 @@ export default function Speakers() {
   return (
     <>
       <Layout pageTitle="Speakers">
-        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
+        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <BackButton />
             <PageTitle
@@ -71,7 +74,7 @@ export default function Speakers() {
         <TabPanel className="container py-28" activeTab={activeTab}>
           <ul
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16"
-            aria-label="pageTitle"
+            aria-labelledby={`tab-${activeTab}`}
           >
             {data &&
               data.conference_speakers
@@ -79,15 +82,9 @@ export default function Speakers() {
                   (speaker: SpeakerInfo) =>
                     (speaker.key_note && activeTab === 1) || activeTab === 0
                 )
-                .map((speaker: SpeakerInfo) => (
-                  <li key={speaker.id}>
-                    <Speaker
-                      name={speaker.first_name + " " + speaker.second_name}
-                      role={speaker.role}
-                      organization={speaker.organization}
-                      country={speaker.Country}
-                      imgsource={`https://cms.inclusiveafrica.org/assets/${speaker.photo.id}:`}
-                    />
+                .map((speaker: SpeakerInfo, key: number) => (
+                  <li key={key}>
+                    <Speaker {...speaker} />
                   </li>
                 ))}
           </ul>

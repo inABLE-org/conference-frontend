@@ -38,6 +38,7 @@ module.exports = {
           1: "#F0F0F0",
           2: "#F0F4F8",
           3: "#D9D9D926",
+          4: "#EBEBEB",
         },
       },
       fontFamily: {
