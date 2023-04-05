@@ -5,7 +5,7 @@ export default function RelevanceCard(
     }) {
     return (
         <>
-            <div className="lg:grid lg:grid-cols-9 mb-8  sm:grid-cols-1 md:grid">
+        <div className="lg:grid lg:grid-cols-9 mb-8  sm:grid-cols-1 md:grid">
         <div className="bg-primary text-white text-[64px] flex items-center col-span-2 justify-center">
           {props.impactname}
         </div>

@@ -9,17 +9,17 @@ export default function About() {
     return (
         <Layout>
             <div className="w-100 bg-primary">
-                <div className=" lg:px-[270px] sm:px-0 ">
+                <div className=" lg:px-[270px] sm:px-0">
                     <div className="flex flex-wrap py-12">
-                        <div className="w-full sm:w-1/2">
-                            <h1 className="text-white text-5xl text-start">
+                        <div className="w-full sm:w-1/2 md:w-1/2 mb-10">
+                            <h1 className="text-white text-5xl text-start mr-5">
                                 The Annual <br />
                                 Inclusive Africa <br />
                                 Conference
                             </h1>
                         </div>
-                        <div className="w-full sm:w-1/2">
-
+                        <div className="w-full sm:w-1/2 md:w-1/2">
+                            <p className="text-white">To take digital accessibility and assistive technology in Africa to the next level, inABLE has begun organizing the fourth annual Inclusive Africa Conference scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually. The agenda discussions will focus on promoting the advancement of digital accessibility and assistive technology for persons with disabilities in Africa.</p>
                         </div>
                     </div>
                     <div className="text-white py-6">
@@ -69,7 +69,7 @@ export default function About() {
                         </h3>
                     }
                     impactdescription={
-                        <p className="ml-10 py-8">
+                        <p className="ml-7 py-8">
                             The failure to provide accessible products and services in
                             education, employment, financial services and other sectors is a
                             global issue. During the COVID-19 pandemic, people were asked to
@@ -243,7 +243,7 @@ export default function About() {
                                     2022 Gallerly
                                 </button>
                             </div>
-                            <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3">
+                            <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3 justify-center">
                                 <Conferencecard title={
                                      <>
                                      <h4 className="text-[32px] font-semibold mt-1">Launch</h4>
@@ -328,7 +328,7 @@ export default function About() {
                                         2022 Gallerly
                                     </button>
                                 </div>
-                                <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3">
+                                <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3 justify-center">
                                     <Conferencecard title={
                                          <>
                                          <h4 className="text-[32px] font-semibold my-5">+1583</h4>
@@ -406,7 +406,7 @@ export default function About() {
                                         2022 Gallerly
                                     </button>
                                 </div>
-                                <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3">
+                                <div className="grid  lg:grid-cols-2  sm:grid-cols-1 grid-rows-3 justify-center">
                                     <Conferencecard title={
                                         <>
                                         <h4 className="text-[32px] font-semibold my-5">27/14</h4>

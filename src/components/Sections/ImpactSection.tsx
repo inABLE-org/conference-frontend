@@ -3,7 +3,7 @@ export default function ImpactSection()
 {
     return(
         <>
-         <div className="grid sm:grid-cols-2 xl:grid-cols-4  gap-6 my-16 sm:align-center">
+         <div className="grid sm:grid-cols-2 xl:grid-cols-4  gap-6 my-16 justify-center">
                         <ImpactsCard
                         number="8"
                         title= {<>Computer <br></br>Technology</>}
@@ -18,62 +18,61 @@ export default function ImpactSection()
                         />
                          <ImpactsCard
                         number="14,500"
-                        title=<>
+                        title={<>
                          Visually impaired <br /> Students & teachers
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                         Enrolled over 14,500 blind and <br />visually impaired students and <br/>teachers
-                        </>
+                        </>}
                         />
                          <ImpactsCard
                         number="150"
-                        title=<>
+                        title={<>
                         Assistive <br />Technology
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                         Hired 150 assistive <br /> technology computer <br /> instructors.  
-                        </>
+                        </>}
                         />
                          <ImpactsCard
                         number="44,000"
-                        title=<>
+                        title={<>
                         Assistive technology <br /> Training Hours
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                         Provided more than 43,000 <br /> hours of assistive technology computer skills training
-                        </>
+                        </>}
                         />
-
                     </div>
-                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-16">
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-16 justify-center">
                         <ImpactsCard
-                        title=<>
+                        title={<>
                             Computer Labs for <br /> the Blind Program
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                           currently in partnership with <br />schools for the blind in Siaya,<br />Thika, Meru and Mombasa counties
-                        </>
+                        </>}
                         />
                          <ImpactsCard
-                        title=<>
+                        title={<>
                          Digital Accessibility <br /> Awareness
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                             (Inclusive Africa Conference <br />and Advocacy) <br />Facilitated first-ever ICT <br />Accessibility Standard in Africa
-                        </>
+                        </>}
                         />
                          <ImpactsCard
-                        title=<div className="py-5">
+                        title={<div className="py-5">
                             Digital Accessibility <br />Research and <br />Development
-                        </div>
+                        </div>}
                         />
                          <ImpactsCard
-                        title=<>
+                        title={<>
                         Assistive technology <br /> Training Hours
-                        </>
-                        description=<>
+                        </>}
+                        description={<>
                         Provided more than 43,000 <br /> hours of assistive technology computer skills training
-                        </>
+                        </>}
                         />
                     </div>           
         </>
