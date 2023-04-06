@@ -66,7 +66,7 @@ export default function Nav({ pageTitle }: NavProps) {
             <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-20">
               <NavItem href="/" name="Home" />
               <NavDropDown id="TheConferenceMenu" name="The Conference">
-                <DropDownItem name="About the conference" href="#" />
+                <DropDownItem name="About the conference" href="/about" />
                 <DropDownItem
                   name="Conference Information"
                   href="/theconference/generalinformation"
