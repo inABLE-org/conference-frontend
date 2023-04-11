@@ -14,7 +14,7 @@ export default function PreviousConference() {
                                 <h3 className="text-white font-semibold text-[64px]">2022</h3>
                                 <img src="assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In</h4>
-                                <div className="grid grid-cols-3 mt-3 text-white lg:w-[500px]">
+                                <div className="grid grid-cols-3 mt-3 mb-10 text-white lg:w-[500px]">
                                     <div>
                                         <ul>
                                             <li>Uganda</li>
@@ -42,6 +42,8 @@ export default function PreviousConference() {
                                         </ul>
                                     </div>
                                 </div>
+                                <a href="#" className="text-white  border-b border-b-1 border-b-secondary font-medium">Knowledge Document - Day one</a><br></br>
+                                <a href="#" className="text-white  border-b border-b-4 border-b-secondary font-medium">Knowledge Document - Day two</a>
                             </div>
                             <div>
                                 <div className="flex pr-9 mb-5">
@@ -111,7 +113,7 @@ export default function PreviousConference() {
                                 <h3 className="text-dark font-semibold text-[64px]">2021</h3>
                                 <img src="assets/img/conference2022.png" />
                                 <h4 className="text-dark font-bold text-xl my-3">Live Watch parties In:</h4>
-                                <div className="grid grid-cols-3 mt-3 text-dark lg:w-[500px]">
+                                <div className="grid grid-cols-3 my-3 text-dark lg:w-[500px]">
                                     <div>
                                         <ul>
                                             <li>Kenya</li>
@@ -133,6 +135,7 @@ export default function PreviousConference() {
                                         </ul>
                                     </div>
                                 </div>
+                                <a href="#" className="border-b border-b-4 border-b-secondary font-medium">Knowledge Document </a>
                             </div>
                             <div>
                                 <div className="flex pr-9 mb-5">
@@ -193,7 +196,7 @@ export default function PreviousConference() {
                                 <img src="assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In:</h4>
                                 <div>
-                                    <div className="grid grid-cols-3 mt-3 text-white lg:w-[500px]">
+                                    <div className="grid grid-cols-3 my-3 text-white lg:w-[500px]">
                                         <div className="h-full">
                                             <ul>
                                                 <li>Kenya</li>
@@ -215,6 +218,7 @@ export default function PreviousConference() {
                                             </ul>
                                         </div>
                                     </div>
+                                    <a href="#" className="text-white  border-b border-b-4 border-b-secondary font-medium">Knowledge Document</a>
                                 </div>
                             </div>
                             <div>
