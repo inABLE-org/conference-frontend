@@ -12,15 +12,15 @@ export default function About() {
                 <div className="w-100 bg-primary">
                     <div className="sm:px-0">
                         <div className="container flex flex-wrap py-12">
-                            <div className="w-full sm:w-1/2 md:w-1/2 mb-10">
-                                <h1 className="text-white text-5xl text-start mr-5">
-                                    The Annual <br />
-                                    Inclusive Africa <br />
-                                    Conference
+                            <div className="grid grid-cols-1 md:grid-cols-2 gap-0 py-3">
+                                <div>
+                                <h1 className="text-white text-5xl text-start font-semibold py-8">
+                                    The Annual <br />  Inclusive Africa <br /> Conference
                                 </h1>
-                            </div>
-                            <div className="w-full sm:w-1/2 md:w-1/2">
-                                <p className="text-white font-medium">To take digital accessibility and assistive technology in Africa to the next level, inABLE has begun organizing the fourth annual Inclusive Africa Conference scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually. The agenda discussions will focus on promoting the advancement of digital accessibility and assistive technology for persons with disabilities in Africa.</p>
+                                </div>
+                                <div>
+                                    <p className="text-white font-medium lg:-ml-20 py-8 text-base leading-29">To take digital accessibility and assistive technology in Africa to the next level, inABLE has begun organizing the fourth annual <a className="underline" href="https://inclusiveafrica.org/">Inclusive Africa Conference </a>scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually. The agenda discussions will focus on promoting the advancement of digital accessibility and assistive technology for persons with disabilities in Africa.</p>    
+                                </div>
                             </div>
                         </div>
                         <div className="text-white pt-1 pb-3">
@@ -73,8 +73,8 @@ export default function About() {
                     </h2>
                     <RelevanceCard
                         impactname={
-                            <h3 className="text-4xl px-4 pt-8 pb-16 mb-10 ">
-                                Covid 19 impact on PwD
+                            <h3 className="text-4xl py-8 font-semibold">
+                                Covid 19 <br />impact on <br /> PwD
                             </h3>
                         }
                         impactdescription={
@@ -83,8 +83,8 @@ export default function About() {
                                 education, employment, financial services and other sectors is a
                                 global issue. During the COVID-19 pandemic, people were asked to
                                 stay home and go online to access vital public health information,
-                                work-from-home, and remote education. This magnified the
-                                inequalities and alienation that prevent inclusion and protection
+                                work-from-home, and <a className="underline decoration-2" href="https://www.pd.co.ke/news/remote-learning-discriminatory-to-children-with-special-needs-47329/">remote education</a>. This magnified the
+                                inequalities and alienation that prevent <a className="underline decoration-2" href="https://inable.org/2020/07/21/inclusive-education-leads-to-future-opportunities/">Inclusion </a> and protection
                                 of PWDs. For many of the estimated 300 million Persons with
                                 Disabilities (PWDs) in Africa, digital services and products are
                                 just not usable. They were never designed with their diverse needs
@@ -97,18 +97,18 @@ export default function About() {
 
                     <RelevanceCard
                         impactname={
-                            <h3 className="text-4xl px-4 pt-8  mb-10">
-                                UNCRPD <br />
+                            <h3 className="text-4xl px-10 py-12">
+                                <span className="font-semibold">UNCRPD</span><br />
                                 <span className="text-xl">
-                                    (UN Convention on the Rights of Persons with disabilities)
+                                    (UN Convention on the <br />Rights of Persons with disabilities)
                                 </span>
                             </h3>
                         }
                         impactdescription={
-                            <p className="ml-10 py-8">
-                                The UN Convention on the Rights of Persons with disabilities
-                                addresses accessibility in its resolution adopted by the General
-                                Assembly in 1993 by recognizing “the importance of accessibility
+                            <p className="ml-10 py-6">
+                                The <a className="underline decoration-2" href="https://www.un.org/disabilities/documents/accessibility_and_development_june2013.pdf">UN Convention on the Rights of Persons with disabilities </a>
+                                addresses accessibility in its resolution adopted by the <a className="underline decoration-2" href="http://www.un-documents.net/a48r96.htm">General Assembly </a>
+                                in 1993 by recognizing “the importance of accessibility
                                 to the physical,social, economic and cultural environment, to
                                 health and education and to information and communication, in
                                 enabling persons with disabilities to fully enjoy all human rights
@@ -227,7 +227,7 @@ export default function About() {
                         </div>
                     </div>
                 </div>
-             <PreviousConference/>  
+                <PreviousConference />
                 <div className="mt-10 py-10 text-center">
                     <h2 className="text-5xl">Other Meetings & conferences</h2>
                     <p className="mt-10 mb-12">

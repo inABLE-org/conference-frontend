@@ -9,7 +9,7 @@ export default function RelevanceCard(
         <div className="bg-primary text-white text-[64px] flex items-center col-span-2 justify-center">
           {props.impactname}
         </div>
-        <div className="col-span-7 text-start border border-gray-200 pr-5 bg-white ">
+        <div className="col-span-7  border border-gray-200  bg-white ">
           <span className="mx-6">{props.impactdescription}</span>
         </div>
       </div>
