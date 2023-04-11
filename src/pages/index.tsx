@@ -250,11 +250,10 @@ export default function Home() {
               />
               <div
                 dangerouslySetInnerHTML={{
-                  __html: `${data ? data.config[0].type : ""} ${
-                    data && data.config[0].type === "Hybrid"
+                  __html: `${data ? data.config[0].type : ""} ${data && data.config[0].type === "Hybrid"
                       ? "Conference <br /> (In person + Virtual)"
                       : "<br />"
-                  }`,
+                    }`,
                 }}
               ></div>
             </div>
@@ -363,6 +362,9 @@ export default function Home() {
                 allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
                 allowFullScreen
               ></iframe>
+              <div className="py-8">
+                <a href="/transcript" className="underline underline-offset-4 decoration-2 font-bold">Video Transcript</a>
+              </div>
             </div>
             <div className="py-3">
               <h2 className="text-secondary-1 text-5xl font-bold mb-10">
