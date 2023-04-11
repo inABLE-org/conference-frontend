@@ -5,13 +5,23 @@ type NavDropDownProps = {
   id: string;
   name: string;
   children: React.ReactNode;
+  current?: Boolean;
 };
 
-export default function NavDropDown({ id, name, children }: NavDropDownProps) {
+export default function NavDropDown({
+  id,
+  name,
+  children,
+  current,
+}: NavDropDownProps) {
   const [expanded, setExpanded] = useState(false);
   return (
     <>
-      <li>
+      <li
+        className={`py-2 px-1 ${
+          current ? "border-b-3 border-secondary-1" : ""
+        }`}
+      >
         <div className="relative lg:inline-block">
           <div>
             <button
@@ -21,11 +31,11 @@ export default function NavDropDown({ id, name, children }: NavDropDownProps) {
               aria-expanded={expanded}
               aria-haspopup="true"
               aria-controls={`MenuFor${id}`}
-              onClick={() =>  setExpanded(!expanded)}
+              onClick={() => setExpanded(!expanded)}
             >
               {name}
               <ChevronDownIcon
-                className="h-6 w-5 text-secondary stroke-[1.5] ml-2"
+                className="h-6 w-5 text-secondary-1 stroke-[1.5] ml-2"
                 stroke="currentColor"
               />
             </button>

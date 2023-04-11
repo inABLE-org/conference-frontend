@@ -52,7 +52,7 @@ export default function Agenda() {
   return (
     <>
       <Layout pageTitle="General Information">
-        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-ash-1">
+        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <BackButton />
             <PageTitle title="General Information" />
@@ -118,7 +118,7 @@ export default function Agenda() {
                   <span className="font-bold">*$140 USD</span> on BB/night Group
                   Rate
                 </p>
-                <p>Book Here (Link will be provided to hyperlink)</p>
+                <p>Book Here </p>
                 <ul className="list-disc ml-8">
                   <li>Contact: Stella at Radisson Blu Hotel</li>
                   <li>Phone Number: +254 708 177 111</li>
@@ -163,7 +163,7 @@ export default function Agenda() {
                 </p>
               </GeneralInformation>
               <GeneralInformation title="Parking">
-                <ul className="list-disc ml-8">
+                <ul className="list-disc ml-8 space-y-3">
                   <li>
                     On-site parking is available for free. Radisson Blu Upper
                     Hill offers valet parking upon request and is available at
@@ -173,7 +173,7 @@ export default function Agenda() {
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Currency & Exchange">
-                <ul className="list-disc ml-8">
+                <ul className="list-disc ml-8 space-y-3">
                   <li>
                     The unit currency is the Kenya Shilling. Bank notes are
                     available in denominations of Kes. 50, 100, 200, 500 and
@@ -203,7 +203,7 @@ export default function Agenda() {
                   ATMs. Most establishments & service providers accept them.
                 </p>
               </GeneralInformation>
-              <GeneralInformation title="Credit cards">
+              <GeneralInformation title="Dialing codes">
                 <p>
                   +254 is the international dialing code for Kenya, and 020 is
                   the area code for Nairobi.
@@ -214,7 +214,7 @@ export default function Agenda() {
           {activeTab === 2 && (
             <>
               <GeneralInformation title="Covid-19 protocols and relevant information">
-                <ul className="list-disc ml-8">
+                <ul className="list-disc ml-8 space-y-3">
                   <li>
                     The Inclusive Africa Conference is committed to working with
                     the venue, service providers, and vendors to customize a

@@ -6,12 +6,14 @@ import NavDropDown from "./NavDropDown";
 import DropDownItem from "./NavDropDown/DropDownItem";
 import { useState } from "react";
 import Link from "next/link";
+import { usePathname } from "next/navigation";
 
 type NavProps = {
   pageTitle: string;
 };
 
 export default function Nav({ pageTitle }: NavProps) {
+  const currentPath = usePathname();
   const [skipVisible, setSkipVisible] = useState(false);
   const [expanded, setExpanded] = useState(false);
   return (
@@ -43,7 +45,7 @@ export default function Nav({ pageTitle }: NavProps) {
             <CustomImage
               src={"/assets/img/logo.png"}
               alt="inclusive africa 2023 logo"
-              className="h-14 w-44"
+              className="h-14 w-44 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
             />
           </Link>
           <div className="block lg:hidden">
@@ -64,9 +66,13 @@ export default function Nav({ pageTitle }: NavProps) {
             } w-full lg:flex lg:flex-col-reverse xl:flex-row lg:w-auto lg:items-end`}
           >
             <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-20">
-              <NavItem href="/" name="Home" />
-              <NavDropDown id="TheConferenceMenu" name="The Conference">
-                <DropDownItem name="About the conference" href="/about" />
+              <NavItem href="/" name="Home" current={currentPath === "/"} />
+              <NavDropDown
+                id="TheConferenceMenu"
+                name="The Conference"
+                current={currentPath === "/theconference/generalinformation"}
+              >
+                <DropDownItem name="About the conference" href="#" />
                 <DropDownItem
                   name="Conference Information"
                   href="/theconference/generalinformation"
@@ -81,10 +87,26 @@ export default function Nav({ pageTitle }: NavProps) {
                   className="sm:min-w-[16rem]"
                 />
               </NavDropDown>
-              <NavItem href="/agenda" name="Agenda" />
-              <NavItem href="/speakers" name="Speakers" />
-              <NavItem href="/sponsors" name="Sponsors" />
-              <NavDropDown id="mediaMenu" name="Media">
+              <NavItem
+                href="/agenda"
+                name="Agenda"
+                current={currentPath === "/agenda"}
+              />
+              <NavItem
+                href="/speakers"
+                name="Speakers"
+                current={currentPath === "/speakers"}
+              />
+              <NavItem
+                href="/sponsors"
+                name="Sponsors"
+                current={currentPath === "/sponsors"}
+              />
+              <NavDropDown
+                id="mediaMenu"
+                name="Media"
+                current={currentPath === "/media"}
+              >
                 <DropDownItem
                   name="Press Releases"
                   href="#"
