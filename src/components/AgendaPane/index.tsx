@@ -28,7 +28,6 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
           return (
             <div
               key={key}
-              tabIndex={0}
               className="md:flex bg-white shadow-agenda-card mb-16 hover:border-2 hover:border-secondary-2"
             >
               <dt className="relative flex flex-col items-center justify-between text-2xl px-4 xl:px-0 py-11 lg:w-[30%]">
@@ -44,7 +43,7 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                       alt={`${moderator[0].conference_speakers_id.first_name}`}
                       className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
                     />
-                    <h4 className="font-semibold">Moderator</h4>
+                    <h3 className="font-semibold">Moderator</h3>
                     <a
                       href={`/speakers/${moderator[0].conference_speakers_id.id}`}
                     >{`${moderator[0].conference_speakers_id.first_name} ${moderator[0].conference_speakers_id.second_name}`}</a>
@@ -60,12 +59,15 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                   {conference_agenda.speakers.length > 0 && (
                     <h3 className="font-medium text-2xl mb-6">
                       {conference_agenda.speakers.length - moderator.length}
-                      <span id="speakerTitle"> SPEAKERS</span>
+                      <span id={`speakerTitle-${conference_agenda.id}`}>
+                        {" "}
+                        SPEAKERS
+                      </span>
                     </h3>
                   )}
                   <ul
                     className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
-                    aria-label="speakerTitle"
+                    aria-label={`speakerTitle-${conference_agenda.id}`}
                   >
                     {conference_agenda.speakers.map(
                       (
@@ -83,12 +85,14 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                                 alt={`${conference_speakers_id.first_name}`}
                                 className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden"
                               />
-                              <a
-                                href={`/speakers/${conference_speakers_id.id}`}
-                                className="font-semibold"
-                              >
-                                {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
-                              </a>
+                              <h4>
+                                <a
+                                  href={`/speakers/${conference_speakers_id.id}`}
+                                  className="font-semibold"
+                                >
+                                  {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
+                                </a>
+                              </h4>
                               <p>{conference_speakers_id.role}</p>
                               <p>{conference_speakers_id.organization}</p>
                             </li>

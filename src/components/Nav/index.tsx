@@ -45,7 +45,7 @@ export default function Nav({ pageTitle }: NavProps) {
             <CustomImage
               src={"/assets/img/logo.png"}
               alt="inclusive africa 2023 logo"
-              className="h-14 w-44 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
+              className="h-14 w-44 lg:h-[3.7vw] lg:w-[12.6vw] 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
             />
           </Link>
           <div className="block lg:hidden">
@@ -109,11 +109,11 @@ export default function Nav({ pageTitle }: NavProps) {
               >
                 <DropDownItem
                   name="Press Releases"
-                  href="#"
+                  href="/media"
                   className="sm:min-w-[10rem]"
                 />
-                <DropDownItem name="Resources" href="#" />
-                <DropDownItem name="Photo Albums" href="#" />
+                <DropDownItem name="Resources" href="/media?media=1" />
+                <DropDownItem name="Photo Albums" href="/media?media=2" />
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">

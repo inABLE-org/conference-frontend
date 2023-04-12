@@ -2,7 +2,6 @@ import useSWR from "swr";
 import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 
@@ -31,7 +30,6 @@ export default function Home() {
       <Layout pageTitle="Sponsors">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
             <PageTitle
               title="Sponsors and partners"
               underlineClass="border-4 border-secondary-2 w-9/12 mx-auto"

@@ -2,7 +2,6 @@ import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { Fetcher } from "@/components/fetcher";
 import { useState } from "react";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
@@ -15,6 +14,7 @@ export type ConferenceSpeaker = {
 };
 
 export type AgendaInfo = {
+  id: string;
   title: string;
   description: string;
   start_time: string;
@@ -41,6 +41,7 @@ export default function Agenda() {
         sort: "start_time"
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
+        id
         title
         description
         start_time
@@ -81,7 +82,6 @@ export default function Agenda() {
       <Layout pageTitle="Agenda">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
             <PageTitle
               title="Agenda"
               underlineClass="border-4 border-secondary-2"

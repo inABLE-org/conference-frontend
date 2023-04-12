@@ -12,11 +12,11 @@ export default function Footer() {
               <a href="https://www.inclusiveafrica.org/">
                 <CustomImage
                   src={"/assets/img/logo.png"}
-                  alt="inclusive africa 2023 logo(Opens in a new tab)"
+                  alt="inclusive africa 2023 logo"
                   className="h-16 w-56"
                 />
               </a>
-              <a href="https://inable.org/">
+              <a href="https://inable.org/" target={"_blank"}>
                 <CustomImage
                   src={"/assets/img/inable-logo.png"}
                   alt="inable logo(Opens in a new tab)"
@@ -49,9 +49,9 @@ export default function Footer() {
                   Media
                 </h2>
                 <ul className="mt-4 mb-8" aria-labelledby="footerTitle2">
-                  <FooterNavItem href="/" name="Press Releases" />
-                  <FooterNavItem href="/" name="Resources" />
-                  <FooterNavItem href="/" name="Photo Albums" />
+                  <FooterNavItem href="/media" name="Press Releases" />
+                  <FooterNavItem href="/media?media=1" name="Resources" />
+                  <FooterNavItem href="/media?media=2" name="Photo Albums" />
                 </ul>
               </div>
               <div className="hidden sm:block col-start-7 col-span-6 lg:col-span-4 xl:col-span-3">
