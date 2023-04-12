@@ -170,10 +170,10 @@ export default function Home() {
               <div>
                 <h1
                   id="pageTitle"
-                  className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-secondary-1 mb-9 sm:leading-[4.840625rem] md:mt-3 lg:mt-0`}
+                  className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-white mb-9 sm:leading-[4.840625rem] md:mt-3 lg:mt-0`}
                 >
                   Inclusive{" "}
-                  <span className="text-white inline-block">
+                  <span className="text-secondary-1 inline-block">
                     Africa
                     <CustomImage
                       src={"/assets/icons/Vector.png"}

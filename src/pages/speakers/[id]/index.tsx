@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import React, { useState } from "react";
+import React from "react";
 import { Fetcher } from "@/utils/fetcher";
 import BackButton from "@/components/BackButton";
 import CustomImage from "@/components/CustomImage";
@@ -43,6 +43,7 @@ export default function Speakers() {
             speakers: { conference_speakers_id: { id: { _eq: $id } } }
           }
         ) {
+          id
           title
           description
           start_time

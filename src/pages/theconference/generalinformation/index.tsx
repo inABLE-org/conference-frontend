@@ -2,7 +2,6 @@ import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { Fetcher } from "@/components/fetcher";
 import { useEffect, useState } from "react";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import Tabs from "@/components/Tabs";
 import TabPanel from "@/components/Tabs/TabPanel";
@@ -54,8 +53,9 @@ export default function Agenda() {
       <Layout pageTitle="General Information">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
-            <PageTitle title="General Information" />
+            <div className="mb-16">
+              <PageTitle title="General Information" />
+            </div>
             <Tabs
               tabList={[
                 "Conference information",
@@ -80,7 +80,7 @@ export default function Agenda() {
                   <ConferenceInformation
                     title="Location"
                     info={data.conference_information[0].location}
-                    background="bg-ash-3"
+                    background="bg-ash-3 bg-opacity-15"
                   />
                   <ConferenceInformation
                     title="Detailed Directions"
@@ -89,7 +89,7 @@ export default function Agenda() {
                   <ConferenceInformation
                     title="Conference Dates"
                     info={data.conference_information[0].dates}
-                    background="bg-ash-3"
+                    background="bg-ash-3 bg-opacity-15"
                   />
                   <ConferenceInformation
                     title="Conference Hours"
@@ -98,7 +98,7 @@ export default function Agenda() {
                   <ConferenceInformation
                     title="Hotel Contact"
                     info={data.conference_information[0].contact}
-                    background="bg-ash-3"
+                    background="bg-ash-3 bg-opacity-15"
                   />
                 </>
               )}
@@ -254,7 +254,7 @@ export default function Agenda() {
               </GeneralInformation>
               <GeneralInformation title="Masks and Social Distancing">
                 <p>
-                  <span className="font-bold">Note:</span> Masks will be
+                  <strong className="font-bold">Note:</strong> Masks will be
                   optional during the conference sessions. However, the
                   panelists will be socially distanced and will not be required
                   to wear face masks during the presentations. The Inclusive

@@ -3,7 +3,6 @@ import Layout from "@/components/Layout";
 import React, { useState } from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
@@ -54,7 +53,6 @@ export default function Speakers() {
       <Layout pageTitle="Speakers">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
             <PageTitle
               title="Speakers"
               underlineClass="border-4 border-secondary-2"
