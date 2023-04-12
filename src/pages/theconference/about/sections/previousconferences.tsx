@@ -7,16 +7,16 @@ export default function PreviousConference() {
                 About Previous Conferences
             </h4>
             <div>
-                <div className="bg-primary">
+                <div className="bg-gradient-to-b from-primary to-primary-1">
                     <div className="container">
                         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
                             <div>
                                 <h3 className="text-white font-semibold text-[64px]">2022</h3>
-                                <img src="assets/img/conference2022.png" />
+                                <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In</h4>
-                                <div className="grid grid-cols-3 mt-3 mb-10 text-white lg:w-[500px]">
+                                <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-[-30px] mt-3 text-white lg:w-[430px] ml-5">
                                     <div>
-                                        <ul>
+                                        <ul className="list-disc">
                                             <li>Uganda</li>
                                             <li>Ethiopia</li>
                                             <li>Ghana</li>
@@ -25,7 +25,7 @@ export default function PreviousConference() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <ul>
+                                        <ul className="list-disc">
                                             <li>Nigeria</li>
                                             <li>Malawi</li>
                                             <li>Zambia</li>
@@ -34,20 +34,22 @@ export default function PreviousConference() {
                                         </ul>
                                     </div>
                                     <div>
-                                        <ul>
+                                        <ul className="list-disc">
                                             <li>South Africa</li>
                                             <li>Gabon</li>
-                                            <li>Central Africa Republic</li>
+                                            <li className="whitespace-nowrap">Central Africa Republic</li>
                                             <li>Burundi</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="#" className="text-white  border-b border-b-1 border-b-secondary font-medium">Knowledge Document - Day one</a><br></br>
-                                <a href="#" className="text-white  border-b border-b-4 border-b-secondary font-medium">Knowledge Document - Day two</a>
+                                <div className="mt-4 ">
+                                <a href="#" className="text-white border-b border-b-2 border-b-secondary font-medium">Knowledge Document - Day one</a> <br /> <br />
+                                <a href="#" className="text-white  border-b border-b-2 border-b-secondary font-medium ">Knowledge Document - Day two</a>
+                                </div>
                             </div>
                             <div>
-                                <div className="flex pr-9 mb-5">
-                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full mr-12">
+                                <div className="flex mb-10">
+                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full">
                                         2022 Gallerly
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
@@ -55,7 +57,7 @@ export default function PreviousConference() {
                                         />
                                     </button>
                                 </div>
-                                <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
+                                <div className="grid gap-6 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
                                             <h4 className="text-[32px] font-semibold mt-1">Launch</h4>
@@ -68,7 +70,7 @@ export default function PreviousConference() {
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">+2465</h4>
+                                            <h4 className="text-[32px] font-semibold mt-5">+2465</h4>
                                             <p className="font-medium text-2xl">Registrations</p>
                                         </>
                                     }
@@ -82,8 +84,8 @@ export default function PreviousConference() {
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">64</h4>
-                                            <p className="font-medium text-2xl">Country by <br />registration</p>
+                                            <h4 className="text-[32px] font-semibold mt-5">522</h4>
+                                            <p className="font-medium text-2xl">Watch Parties<br />Attendance</p>
                                         </>
                                     }
                                     />
@@ -111,35 +113,35 @@ export default function PreviousConference() {
                         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
                             <div>
                                 <h3 className="text-dark font-semibold text-[64px]">2021</h3>
-                                <img src="assets/img/conference2022.png" />
+                                <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-dark font-bold text-xl my-3">Live Watch parties In:</h4>
-                                <div className="grid grid-cols-3 my-3 text-dark lg:w-[500px]">
-                                    <div>
-                                        <ul>
+                                <div className="grid lg:grid-cols-3 md:grid-cols-2 my-4 text-dark lg:w-[450px]">
+                                    <div className="lg:ml-5">
+                                        <ul className="list-disc">
                                             <li>Kenya</li>
                                             <li>Uganda</li>
                                             <li>Ethiopia</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <ul>
+                                        <ul className="list-disc">
                                             <li>Ghana</li>
                                             <li>Nigeria</li>
                                             <li>Malawi</li>
                                         </ul>
                                     </div>
                                     <div>
-                                        <ul>
+                                        <ul className="list-disc">
                                             <li>Zambia</li>
                                             <li>South Africa</li>
                                         </ul>
                                     </div>
                                 </div>
-                                <a href="#" className="border-b border-b-4 border-b-secondary font-medium">Knowledge Document </a>
+                                <a href="#" className="border-b border-b-2 border-b-secondary font-medium">Knowledge Document </a>
                             </div>
                             <div>
-                                <div className="flex pr-9 mb-5">
-                                    <button className="text-dark rounded border-4 border-primary p-3 ml-auto rounded-full mr-12">
+                                <div className="flex mb-5">
+                                    <button className="text-dark rounded border-4 border-primary p-3 ml-auto rounded-full ">
                                         2022 Gallerly
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
@@ -150,35 +152,35 @@ export default function PreviousConference() {
                                 <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">+1583</h4>
+                                            <h4 className="text-[32px] font-semibold my-3">+1583</h4>
                                             <p className="font-medium text-2xl">Registration</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">8</h4>
+                                            <h4 className="text-[32px] font-semibold my-3">8</h4>
                                             <p className="font-medium text-2xl">Country partners</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">375</h4>
+                                            <h4 className="text-[32px] font-semibold my-3">375</h4>
                                             <p className="font-medium text-2xl">Watch Parties<br />Attendance</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">42</h4>
+                                            <h4 className="text-[32px] font-semibold my-3">42</h4>
                                             <p className="font-medium text-2xl">Countries By Registrations</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">39 / 12 </h4>
+                                            <h4 className="text-[32px] font-semibold my-3">39 / 12 </h4>
                                             <p className="font-medium text-2xl">Speakers Countries</p>
                                         </>
                                     }
@@ -188,42 +190,42 @@ export default function PreviousConference() {
                         </div>
                     </div>
                 </div>
-                <div className="bg-primary">
+                <div className="bg-gradient-to-b from-primary to-primary-1">
                     <div className="container">
                         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
                             <div>
                                 <h3 className="text-white font-semibold text-[64px]">2020</h3>
-                                <img src="assets/img/conference2022.png" />
+                                <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In:</h4>
                                 <div>
-                                    <div className="grid grid-cols-3 my-3 text-white lg:w-[500px]">
+                                    <div className="grid lg:grid-cols-3 md:grid-cols-2 my-3 text-dark lg:w-[450px] text-white">
                                         <div className="h-full">
-                                            <ul>
+                                            <ul className="list-disc lg:ml-6">
                                                 <li>Kenya</li>
                                                 <li>Uganda</li>
                                                 <li>Ethiopia</li>
                                             </ul>
                                         </div>
                                         <div className="h-full">
-                                            <ul>
+                                            <ul className="list-disc">
                                                 <li>Ghana</li>
                                                 <li>Nigeria</li>
                                                 <li>Malawi</li>
                                             </ul>
                                         </div>
                                         <div className="h-full">
-                                            <ul>
+                                            <ul className="list-disc">
                                                 <li>Zambia</li>
                                                 <li>South Africa</li>
                                             </ul>
                                         </div>
                                     </div>
-                                    <a href="#" className="text-white  border-b border-b-4 border-b-secondary font-medium">Knowledge Document</a>
+                                    <a href="#" className="text-white  border-b border-b-2 border-b-secondary font-medium">Knowledge Document</a>
                                 </div>
                             </div>
                             <div>
-                                <div className="flex pr-9 mb-5">
-                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full mr-12">
+                                <div className="flex mb-5">
+                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full ">
                                         2022 Gallerly
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
@@ -234,35 +236,35 @@ export default function PreviousConference() {
                                 <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">27/14</h4>
-                                            <p className="font-medium text-2xl">Speakers Countries</p>
+                                            <h4 className="text-[32px] font-semibold my-3">6300</h4>
+                                            <p className="font-medium text-2xl">Registrations</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">27/14</h4>
-                                            <p className="font-medium text-2xl">Speakers Countries</p>
+                                            <h4 className="text-[32px] font-semibold my-3">8</h4>
+                                            <p className="font-medium text-2xl">Country partners</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">27/14</h4>
-                                            <p className="font-medium text-2xl">Speakers Countries</p>
+                                            <h4 className="text-[32px] font-semibold my-3">302</h4>
+                                            <p className="font-medium text-2xl">Watch Parties <br />Attendance</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">27/14</h4>
-                                            <p className="font-medium text-2xl">Speakers Countries</p>
+                                            <h4 className="text-[32px] font-semibold my-3">70</h4>
+                                            <p className="font-medium text-2xl">Countries By <br />Registrations</p>
                                         </>
                                     }
                                     />
                                     <Conferencecard title={
                                         <>
-                                            <h4 className="text-[32px] font-semibold my-5">27/14</h4>
+                                            <h4 className="text-[32px] font-semibold my-3">27/14</h4>
                                             <p className="font-medium text-2xl">Speakers Countries</p>
                                         </>
                                     }
