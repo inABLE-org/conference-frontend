@@ -57,6 +57,7 @@ export default function PressList() {
                   alt={press.banner.title}
                   className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] 2xl:max-h-[12vw]"
                   imgClass="object-cover"
+                  unoptimized
                 />
               )}
               {press.banner && press.banner.type.includes("video") && (
@@ -70,10 +71,15 @@ export default function PressList() {
                 </div>
               )}
               <div className="px-5 flex space-x-4">
-                <p className="font-medium line-clamp-4">{press.excerpt}</p>
+                <p
+                  className="font-medium line-clamp-4"
+                  dangerouslySetInnerHTML={{
+                    __html: press.excerpt,
+                  }}
+                ></p>
                 {press.banner && press.banner.type.includes("video") && (
                   <a
-                    href="/transcript"
+                    href={`/media/transcript?media=${press.id}`}
                     className="border border-ash-5 px-2 py-2 h-10 w-10"
                   >
                     <NextImage
@@ -86,7 +92,7 @@ export default function PressList() {
                 )}
               </div>
               <a
-                href={`/media/press_release?id=${press.id}`}
+                href={`/media/press_release?press=${press.id}`}
                 className="ml-5 font-bold border-b-2 border-secondary-2 w-fit max-w-[83%] text-[0.836875rem] capitalize truncate ..."
               >
                 Read More About {press.title}

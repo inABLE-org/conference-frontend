@@ -59,6 +59,7 @@ const AlbumCard = ({
           alt={title}
           className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] rounded-lg overflow-hidden"
           imgClass="object-cover"
+          unoptimized
         />
       </button>
       {!noTitle && (

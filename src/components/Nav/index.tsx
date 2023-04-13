@@ -65,7 +65,7 @@ export default function Nav({ pageTitle }: NavProps) {
               expanded ? "" : "hidden"
             } w-full lg:flex lg:flex-col-reverse xl:flex-row lg:w-auto lg:items-end`}
           >
-            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-20">
+            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20">
               <NavItem href="/" name="Home" current={currentPath === "/"} />
               <NavDropDown
                 id="TheConferenceMenu"
@@ -117,7 +117,7 @@ export default function Nav({ pageTitle }: NavProps) {
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
-              <form
+              {/* <form
                 className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9"
                 role="search"
                 aria-label="Sitewide"
@@ -143,7 +143,7 @@ export default function Nav({ pageTitle }: NavProps) {
                     stroke="currentColor"
                   />
                 </button>
-              </form>
+              </form> */}
               <a
                 target={"_blank"}
                 href="https://hopin.com/events/inclusive-africa-2023/registration"

@@ -13,6 +13,7 @@ import {
 import { Inter } from "next/font/google";
 import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
+import NextImage from "@/components/NextImage";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -129,6 +130,20 @@ export default function Home() {
         }
         website
       }
+      conference_press(
+        sort: "-date"
+        limit: 1
+        filter: { status: { _eq: "published" }, main: { _eq: true } }
+      ) {
+        id
+        title
+        excerpt
+        banner {
+          id
+          title
+          type
+        }
+      }
     }
     `,
     Fetcher
@@ -189,14 +204,18 @@ export default function Home() {
                 </p>
                 <div className="text-xs sm:text-xl font-semibold text-white pb-5 flex">
                   <a
-                    href="#"
+                    href="https://hopin.com/events/inclusive-africa-2023/registration"
                     className="rounded-3xl bg-secondary py-2 px-3 sm:px-12 mr-9"
                     aria-describedby="pageTitle"
                   >
                     Register
                   </a>
                   <a
-                    href="#"
+                    href={`/media ${
+                      data
+                        ? `/press_release?press=${data.conference_press[0].id}`
+                        : ""
+                    }`}
                     className="rounded-3xl border-2 py-2 px-5"
                     aria-describedby="pageTitle"
                   >
@@ -210,7 +229,7 @@ export default function Home() {
                 <div className="min-h-[7rem] xl:min-h-[10rem]"></div>
               </div>
             </div>
-            <div className="overflow-clip">
+            <div className="overflow-clip lg:min-h-[45vw]">
               {data && (
                 <CustomImage
                   src={`https://cms.inclusiveafrica.org/assets/${data.config[0].hero_image.id}`}
@@ -354,42 +373,81 @@ export default function Home() {
           )}
         </div>
         <div className="bg-gradient-to-b from-primary to-primary-1 py-32">
-          <div className="container grid sm:grid-cols-2 text-ash gap-24">
-            <div>
-              <iframe
-                className="w-full h-full rounded-3xl"
-                src="https://www.youtube.com/embed/0CqvRPeU52w"
-                title="YouTube video player"
-                allow="accelerometer; autoplay; clipboard-write; encrypted-media; gyroscope; picture-in-picture; web-share"
-                allowFullScreen
-              ></iframe>
-            </div>
-            <div className="py-3">
-              <h2 className="text-secondary-1 text-5xl font-bold mb-10">
-                Register Now!
-              </h2>
-              <h3 className="text-2xl font-bold mb-1" id="inclusiveAfricaTitle">
-                The Annual Inclusive Conference 2023
-              </h3>
-              <p className="font-medium mb-12">
-                We at inABLE are pleased to invite you to the 4th Annual
-                Inclusive Africa Conference. Register Now! Limited slots
-                available!
-              </p>
+          {data && (
+            <div className="container grid md:grid-cols-2 text-ash gap-5 lg:gap-24 lg:px-0">
+              <div className="md:flex items-center">
+                <div>
+                  {!data.conference_press[0].banner && (
+                    <NextImage
+                      src="/assets/icons/album.svg"
+                      className="h-[50vw] md:max-h-[24.5vw] rounded overflow-hidden"
+                      imgClass="object-cover"
+                    />
+                  )}
+                  {data.conference_press[0].banner &&
+                    data.conference_press[0].banner.type.includes("image") && (
+                      <NextImage
+                        src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                        alt={data.conference_press[0].banner.title}
+                        className="h-[50vw] md:max-h-[24.5vw] rounded overflow-hidden"
+                        imgClass="object-cover"
+                      />
+                    )}
+                  {data.conference_press[0].banner &&
+                    data.conference_press[0].banner.type.includes("video") && (
+                      <>
+                        <div className="h-[50vw] md:max-h-[24.5vw]">
+                          <video
+                            className="w-full max-h-full rounded"
+                            controls
+                            aria-label={`${data.conference_press[0].banner.title} video`}
+                          >
+                            <source
+                              src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                            />
+                            Your browser does not support the video tag.
+                          </video>
+                        </div>
 
-              <a
-                href="#"
-                className="rounded-3xl border-2 py-2 px-5 font-medium text-xl"
-                aria-describedby="inclusiveAfricaTitle"
-              >
-                Read More
-                <ArrowRightIcon
-                  className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-                  stroke="currentColor"
-                />
-              </a>
+                        <div className="mt-8">
+                          <a
+                            href={`/media/transcript?media=${data.conference_press[0].id}`}
+                            className="font-bold text-[0.8125em] border-b-2 pb-[0.125rem]"
+                          >
+                            Video Transcript
+                          </a>
+                        </div>
+                      </>
+                    )}
+                </div>
+              </div>
+              <div className="pt-10">
+                <h2
+                  className="text-secondary-1 text-5xl font-bold mb-10"
+                  id="inclusiveAfricaTitle"
+                >
+                  {data.conference_press[0].title}
+                </h2>
+                <div
+                  className="font-medium mb-24"
+                  dangerouslySetInnerHTML={{
+                    __html: data.conference_press[0].excerpt,
+                  }}
+                ></div>
+                <a
+                  href={`/media/press_release?press=${data.conference_press[0].id}`}
+                  className="rounded-3xl border-2 py-2 px-5 font-medium text-xl"
+                  aria-describedby="inclusiveAfricaTitle"
+                >
+                  Read More
+                  <ArrowRightIcon
+                    className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
+                    stroke="currentColor"
+                  />
+                </a>
+              </div>
             </div>
-          </div>
+          )}
         </div>
         <div className="container py-40 text-center">
           <h2 className="font-semibold text-5xl">Sponsors</h2>

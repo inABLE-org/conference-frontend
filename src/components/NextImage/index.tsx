@@ -6,6 +6,7 @@ type NextImageProps = {
   id?: string;
   className?: string;
   imgClass?: string;
+  unoptimized?: boolean | undefined;
 };
 
 export default function NextImage({
@@ -14,6 +15,7 @@ export default function NextImage({
   id = "",
   className = "",
   imgClass = "",
+  unoptimized=false
 }: NextImageProps) {
   return (
     <div className={`relative ${className}`}>
@@ -22,8 +24,11 @@ export default function NextImage({
         src={src}
         alt={alt}
         fill
-        className={`w-full ${imgClass}`}
         sizes="(max-width: 768px) 100vw, (max-width: 1200px) 50vw, 33vw"
+        className={`w-full ${imgClass}`}
+        unoptimized={unoptimized}
+        placeholder="blur"
+        blurDataURL="/assets/icons/album.svg"
       />
     </div>
   );

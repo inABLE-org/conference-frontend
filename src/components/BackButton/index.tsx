@@ -8,7 +8,7 @@ export default function BackButton() {
     <>
       <div className="font-medium text-xl">
         <ArrowLeftIcon
-          className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
+          className="h-5 w-5 inline-flex stroke-[1.5]"
           stroke="currentColor"
         />
         <button
