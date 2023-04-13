@@ -6,15 +6,19 @@ export default function Custom404() {
         <>
             <Layout>
                 <div className='container'>
-                    <div className="grid lg:grid-cols-2 gap-0 py-16">
-                        <div className="p-4 flex h-50 items-center justify-center">
+                    <div className="grid lg:grid-cols-2 gap-0 py-10">
+                        <div className="p-4">
                             <div>
-                                <h1 className='my-10 font-semibold text-6xl'>Page Not Found</h1>
+                                <h1 className='my-10 font-semibold text-6xl lg:text-center md:text-center sm:mx-5'>Page Not Found</h1>
                                 <p className='text-center mx-[-20px]'>The Link you followed might be broken or the page<br />may have been removed</p>
-                                <div className="mt-5 flex flex-col sm:flex-row lg:py-6 lg:px-6">
-                                    <a href="/" className="px-4 py-3 bg-secondary-2 mx-5 rounded-md text-white font-semibold mb-3 sm:mb-0 sm:mr-5">Go back to Homepage</a>
-                                    <a href="#" className="px-4 text-sm py-3 bg-white rounded-md border-t-2 border-b-2 rounded-lg border border-secondary font-semibold mx-5">Contact us</a>
-                                </div>
+                            </div>
+                            <div className="flex justify-center mt-11">
+                                <a
+                                    href="/"
+                                    className="bg-secondary rounded py-4 px-8 font-semibold text-white"
+                                >
+                                    Go to Homepage
+                                </a>
                             </div>
                         </div>
                         <div className="p-4 h-50">
