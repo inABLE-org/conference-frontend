@@ -3,17 +3,17 @@ export default function ImpactSection()
 {
     return(
         <>
-         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-8 justify-center">
+         <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-3 my-8 lgjustify-center">
                         <ImpactsCard
                         number="8"
                         title= {<>Computer <br></br>Technology</>}
-                        description={<>
+                        description={<span>
                         Established eight (8) assistive
-                         computer technology labs in
-                         <br></br>six (6) special schools for the
-                          <br></br>
+                         <br />computer technology labs in
+                         <br />six (6) special schools for the
+                          <br />
                            blind.  
-                        </>
+                        </span>
                         }
                         />
                          <ImpactsCard
@@ -40,17 +40,17 @@ export default function ImpactSection()
                         Assistive technology <br /> Training Hours
                         </>}
                         description={<>
-                        Provided more than 43,000 <br /> hours of assistive technology computer skills training
+                        Provided more than 43,000 <br /> hours of assistive <br />technology computer skills <br /> training
                         </>}
                         />
                     </div>
-                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-10 justify-center">
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-3 lg:my-8 sm:my-3 md:my-3 lgjustify-center">
                         <ImpactsCard
                         title={<>
                             Computer Labs for <br /> the Blind Program
                         </>}
                         description={<>
-                          currently in partnership with <br />schools for the blind in Siaya,<br />Thika, Meru and Mombasa counties
+                          currently in partnership with <br />schools for the blind in Siaya,<br />Thika, Meru and Mombasa <br />counties
                         </>}
                         />
                          <ImpactsCard
@@ -66,14 +66,18 @@ export default function ImpactSection()
                             Digital Accessibility <br />Research and <br />Development
                         </div>}
                         />
-                         <ImpactsCard
-                        title={<>
-                        Assistive technology <br /> Training Hours
-                        </>}
-                        description={<>
-                        Provided more than 43,000 <br /> hours of assistive technology computer skills training
-                        </>}
+                          <ImpactsCard
+                        title={<div className="py-5">
+                            Inclusive Libraries
+                        </div>
+                        
+                    }
+                    description={<>
+                    Our Reading Spaces <br /> Library
+                    </>}
                         />
+                        
+                        
                     </div>           
         </>
     )

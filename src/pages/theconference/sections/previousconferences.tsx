@@ -3,7 +3,7 @@ import { ArrowRightIcon } from "@heroicons/react/24/solid";
 export default function PreviousConference() {
     return (
         <>
-            <h4 className="text-5xl font-semibold py-8 container">
+            <h4 className="text-5xl font-semibold py-8 container mt-10">
                 About Previous Conferences
             </h4>
             <div>
@@ -50,14 +50,14 @@ export default function PreviousConference() {
                             <div>
                                 <div className="flex mb-10">
                                     <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full">
-                                        2022 Gallerly
+                                        2022 Gallery
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
                                             stroke="currentColor"
                                         />
                                     </button>
                                 </div>
-                                <div className="grid gap-6 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
+                                <div className="grid gap-6 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
                                             <h4 className="text-[32px] font-semibold mt-1">Launch</h4>
@@ -142,14 +142,14 @@ export default function PreviousConference() {
                             <div>
                                 <div className="flex mb-5">
                                     <button className="text-dark rounded border-4 border-primary p-3 ml-auto rounded-full ">
-                                        2022 Gallerly
+                                        2022 Gallery
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
                                             stroke="currentColor"
                                         />
                                     </button>
                                 </div>
-                                <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
+                                <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
                                             <h4 className="text-[32px] font-semibold my-3">+1583</h4>
@@ -226,14 +226,14 @@ export default function PreviousConference() {
                             <div>
                                 <div className="flex mb-5">
                                     <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full ">
-                                        2022 Gallerly
+                                        2022 Gallery
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
                                             stroke="currentColor"
                                         />
                                     </button>
                                 </div>
-                                <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 grid-rows-3">
+                                <div className="grid gap-4 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
                                     <Conferencecard title={
                                         <>
                                             <h4 className="text-[32px] font-semibold my-3">6300</h4>

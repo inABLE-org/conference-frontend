@@ -30,7 +30,7 @@ export default function Footer() {
                   The Conference
                 </h2>
                 <ul className="mt-4 mb-8" aria-labelledby="footerTitle1">
-                  <FooterNavItem href="/theconference/about" name="About the conference" />
+                  <FooterNavItem href="/theconference" name="About the conference" />
                   <FooterNavItem href="/agenda" name="Agenda" />
                   <FooterNavItem href="/speakers" name="Speakers" />
                   <FooterNavItem href="/sponsors" name="Sponsors" />

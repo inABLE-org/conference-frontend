@@ -19,24 +19,24 @@ export default function About() {
                                     </h1>
                                 </div>
                                 <div>
-                                    <p className="text-white font-medium lg:-ml-[200px] py-8 text-base leading-29">To take digital accessibility and assistive technology in Africa to the next level, inABLE has begun organizing the fourth annual <a className="underline" href="https://inclusiveafrica.org/">Inclusive Africa Conference </a>scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually. The agenda discussions will focus on promoting the advancement of digital accessibility and assistive technology for persons with disabilities in Africa.</p>
+                                    <p className="text-white font-medium lg:-ml-20  py-8 text-base leading-29">To take digital accessibility and assistive technology in Africa to the next level, inABLE has begun organizing the fourth annual <a className="underline" href="https://inclusiveafrica.org/">Inclusive Africa Conference </a>scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually. The agenda discussions will focus on promoting the advancement of digital accessibility and assistive technology for persons with disabilities in Africa.</p>
                                 </div>
                             </div>
                         </div>
                         <div className="text-white pt-1 pb-3">
                             <div className="flex flex-col items-center justify-center ">
                                 <ul className="lg:flex md:flex">
-                                    <li className="sm:text-center">
+                                    <li className="text-center">
                                         <a href="#organizer" onClick={() => setOpenTab(1)} className={` text-xl font-normal ${openTab === 1 ? "border-b-4 border-secondary  mx-3" : ""} inline-block px-4 py-2`}>
                                             The organizer
                                         </a>
                                     </li>
-                                    <li className="sm:text-center">
+                                    <li className="text-center">
                                         <a href="#conference" onClick={() => setOpenTab(2)} className={`text-xl font-normal ${openTab === 2 ? "border-b-4 border-secondary  mx-3" : ""} inline-block px-4 py-2`}>
                                             About the Conference
                                         </a>
                                     </li>
-                                    <li className="sm:text-center">
+                                    <li className="text-center">
                                         <a href="#previous" onClick={() => setOpenTab(3)} className={`text-xl font-normal ${openTab === 3 ? "border-b-4 border-secondary  mx-3" : ""} inline-block px-4 py-2`}>
                                             About Previous Conference
                                         </a>
@@ -68,7 +68,7 @@ export default function About() {
                     </div>
                 </div>
                 <div className="container" id="conference">
-                    <h2 className="text-5xl font-semibold mb-10">
+                    <h2 className="text-5xl font-semibold mb-8">
                         Relevance
                     </h2>
                     <RelevanceCard
@@ -78,7 +78,7 @@ export default function About() {
                             </h3>
                         }
                         impactdescription={
-                            <p className="ml-7 py-3">
+                            <p className="ml-16 mr-8 py-2">
                                 The failure to provide accessible products and services in
                                 education, employment, financial services and other sectors is a
                                 global issue. During the COVID-19 pandemic, people were asked to
@@ -97,7 +97,7 @@ export default function About() {
 
                     <RelevanceCard
                         impactname={
-                            <h3 className="text-4xl px-9 py-12">
+                            <h3 className="text-4xl px-9 py-6">
                                 <span className="font-semibold">UNCRPD</span><br />
                                 <span className="text-xl">
                                     (UN Convention on the <br />Rights of Persons with disabilities)
@@ -105,7 +105,7 @@ export default function About() {
                             </h3>
                         }
                         impactdescription={
-                            <p className="ml-10 py-3">
+                            <p className="ml-16 mr-8 mt-3">
                                 The <a className="underline decoration-2" href="https://www.un.org/disabilities/documents/accessibility_and_development_june2013.pdf">UN Convention on the Rights of Persons with disabilities </a>
                                 addresses accessibility in its resolution adopted by the <a className="underline decoration-2" href="http://www.un-documents.net/a48r96.htm">General Assembly </a>
                                 in 1993 by recognizing “the importance of accessibility
@@ -120,14 +120,14 @@ export default function About() {
                         impactname={<h3 className="text-5xl py-8 ml-8 text-5xl font-semibold">SDG</h3>}
                         impactdescription={
                             <span className="py-5">
-                                <p className="ml-10">
+                                <p className="ml-16 mr-8">
                                     Goal 10 of the SDGs aims to ensure equal opportunity and reduced
                                     inequalities for all by 2030, to empower and promote the social,
                                     economic and political inclusion of all, irrespective of age,
                                     sex, disability, race, ethnicity, origin, religion or economic
                                     or other status.
                                 </p>
-                                <p className="mt-5 ml-10">
+                                <p className="ml-16 mr-8 mt-3">
                                     During this Post- Covid period, how do we take advantage of the
                                     lesson learned in the last three years to ensure that no one is
                                     left behind?
@@ -155,19 +155,19 @@ export default function About() {
                 <div className="container">
                     <div className="grid grid-cols-1 md:grid-cols-2 gap-0 mt-20">
                         <div className="">
-                            <h3 className="text-5xl font-semibold ml-5">Objectives</h3>
-                            <p className="my-5">
-                                Since the first Inclusive Africa Conference in 2020, the purpose
-                                of this annual event is to promote the advancement of digital
-                                accessibility and assistive technology for persons with
-                                disabilities in Africa. Over the last three years this event has
-                                created a platform for disability and assistive technology for
-                                persons with disabilities in Africa. Over the last three years
-                                this event has created a platform for disability
+                            <h3 className="text-5xl font-semibold">Objectives</h3>
+                            <p className="mb-5 mt-8">
+                                Since the first Inclusive Africa Conference in 2020, the <br /> purpose
+                                of this annual event is to promote the <br />advancement of digital
+                                accessibility and assistive< br />technology for persons with
+                                disabilities in Africa. Over the <br /> last three years this event has
+                                created a platform for <br />disability and assistive technology for
+                                persons with <br />disabilities in Africa. Over the last three years
+                                this event <br /> has created a platform for disability
                             </p>
                             <img className="mt-16 pt-16" src="../assets/img/spiner.png" />
                         </div>
-                        <div className="mt-10">
+                        <div >
                             <ObjectiveCard
                                 objectiveNumber={<h5>01</h5>}
                                 objectiveName={
@@ -229,8 +229,8 @@ export default function About() {
                 </div>
                 <PreviousConference />
                 <div className="mt-10 py-10 text-center">
-                    <h2 className="text-5xl">Other Meetings & conferences</h2>
-                    <p className="mt-10 mb-12">
+                    <h2 className="text-5xl font-semibold">Other Meetings & conferences</h2>
+                    <p className="mt-10 mb-12 text-xl">
                         The organization has organized similar meetings and conferences in the
                         previous years
                     </p>
