@@ -385,6 +385,7 @@ export default function Album() {
                 alt={selectedPhoto.title}
                 className="h-[50vw] sm:h-[35vw] rounded overflow-hidden"
                 imgClass="object-cover"
+                unoptimized
               />
             </div>
             <ShuffleButton />
