@@ -115,7 +115,7 @@ export default function PreviousConference() {
                                 <h3 className="text-dark font-semibold text-[64px]">2021</h3>
                                 <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-dark font-bold text-xl my-3">Live Watch parties In:</h4>
-                                <div className="grid lg:grid-cols-3 md:grid-cols-2 my-4 text-dark lg:w-[450px]">
+                                <div className="grid lg:grid-cols-3 md:grid-cols-2 my-4 text-dark lg:w-[450px] ml-5">
                                     <div className="lg:ml-5">
                                         <ul className="list-disc">
                                             <li>Kenya</li>
@@ -198,7 +198,7 @@ export default function PreviousConference() {
                                 <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In:</h4>
                                 <div>
-                                    <div className="grid lg:grid-cols-3 md:grid-cols-2 my-3 text-dark lg:w-[450px] text-white">
+                                    <div className="grid lg:grid-cols-3 md:grid-cols-2 my-3 text-dark lg:w-[450px] text-white ml-5">
                                         <div className="h-full">
                                             <ul className="list-disc lg:ml-6">
                                                 <li>Kenya</li>
