@@ -68,7 +68,7 @@ export default function About() {
                     </div>
                 </div>
                 <div className="container" id="conference">
-                    <h2 className="text-5xl font-semibold mb-8">
+                    <h2 className="text-5xl font-semibold mb-8 mt-5">
                         Relevance
                     </h2>
                     <RelevanceCard

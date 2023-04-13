@@ -44,7 +44,7 @@ export default function ImpactSection()
                         </>}
                         />
                     </div>
-                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-3 lg:my-8 sm:my-3 md:my-3 lgjustify-center">
+                    <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-3 lg:my-8 sm:my-3 md:my-3  lgjustify-center">
                         <ImpactsCard
                         title={<>
                             Computer Labs for <br /> the Blind Program
