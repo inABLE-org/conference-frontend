@@ -11,7 +11,7 @@ export default function PreviousConference() {
                     <div className="container">
                         <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
                             <div>
-                                <h3 className="text-white font-semibold text-[64px]">2022</h3>
+                                <h3 className="text-white font-semibold text-[64px] mb-10">2022</h3>
                                 <img src="../assets/img/conference2022.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In</h4>
                                 <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-[-30px] mt-3 text-white lg:w-[430px] ml-5">
@@ -48,8 +48,8 @@ export default function PreviousConference() {
                                 </div>
                             </div>
                             <div>
-                                <div className="flex mb-10">
-                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full">
+                                <div className="flex mb-14">
+                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full mt-7">
                                         2022 Gallery
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
@@ -110,10 +110,10 @@ export default function PreviousConference() {
                 </div>
                 <div>
                     <div className="container">
-                        <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
+                        <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-10">
                             <div>
-                                <h3 className="text-dark font-semibold text-[64px]">2021</h3>
-                                <img src="../assets/img/conference2022.png" />
+                                <h3 className="text-dark font-semibold text-[64px] mb-10">2021</h3>
+                                <img src="../assets/img/conference2021.png" />
                                 <h4 className="text-dark font-bold text-xl my-3">Live Watch parties In:</h4>
                                 <div className="grid lg:grid-cols-3 md:grid-cols-2 my-4 text-dark lg:w-[450px] ml-5">
                                     <div className="lg:ml-5">
@@ -140,11 +140,11 @@ export default function PreviousConference() {
                                 <a href="#" className="border-b border-b-2 border-b-secondary font-medium">Knowledge Document </a>
                             </div>
                             <div>
-                                <div className="flex mb-5">
-                                    <button className="text-dark rounded border-4 border-primary p-3 ml-auto rounded-full ">
+                                <div className="flex py-5">
+                                    <button className="text-dark rounded border-4 border-primary p-3 ml-auto rounded-full mb-10">
                                         2022 Gallery
                                         <ArrowRightIcon
-                                            className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
+                                            className="ml-4 h-5 w-5 inline-flex stroke-[1.5] "
                                             stroke="currentColor"
                                         />
                                     </button>
@@ -192,10 +192,10 @@ export default function PreviousConference() {
                 </div>
                 <div className="bg-gradient-to-b from-primary to-primary-1">
                     <div className="container">
-                        <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-5">
+                        <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-4 py-8">
                             <div>
-                                <h3 className="text-white font-semibold text-[64px]">2020</h3>
-                                <img src="../assets/img/conference2022.png" />
+                                <h3 className="text-white font-semibold text-[64px] mb-12">2020</h3>
+                                <img src="../assets/img/conference2020.png" />
                                 <h4 className="text-white font-bold text-xl my-3">Live Watch parties In:</h4>
                                 <div>
                                     <div className="grid lg:grid-cols-3 md:grid-cols-2 my-3 text-dark lg:w-[450px] text-white ml-5">
@@ -224,8 +224,8 @@ export default function PreviousConference() {
                                 </div>
                             </div>
                             <div>
-                                <div className="flex mb-5">
-                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full ">
+                                <div className="flex mb-16">
+                                    <button className="text-white rounded border-4 border-white p-3 ml-auto rounded-full mt-5">
                                         2022 Gallery
                                         <ArrowRightIcon
                                             className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"

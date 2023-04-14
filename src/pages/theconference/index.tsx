@@ -228,34 +228,12 @@ export default function About() {
                     </div>
                 </div>
                 <PreviousConference />
-                <div className="mt-10 py-10 text-center">
-                    <h2 className="text-5xl font-semibold">Other Meetings & conferences</h2>
-                    <p className="mt-10 mb-12 text-xl">
-                        The organization has organized similar meetings and conferences in the
-                        previous years
+                <div className="mt-10 py-20 text-center">
+                    <h2 className="text-5xl font-semibold">Register Now</h2>
+                    <p className="mt-10 mb-12  font-medium">
+                    We at <a className="underline" href="https://inable.org/">inABLE</a> are pleased to invite you to the <a className="underline" href="https://www.inclusiveafrica.org/">4th Annual Inclusive Africa Conference</a>. Register Now! Limited slots available!
                     </p>
-                    <div className="flex justify-center py-10">
-                        <div className="grid gap-20 lg:grid-cols-3 md:grid-cols-2 sm:grid-cols-1">
-                            <div className="mb-4">
-                                <img
-                                    src="../assets/img/conferencelogo.png"
-                                    alt="Inclusive Africa Logo"
-                                />
-                            </div>
-                            <div className="mb-4">
-                                <img
-                                    src="../assets/img/conferencelogo.png"
-                                    alt="Inclusive Africa Logo"
-                                />
-                            </div>
-                            <div>
-                                <img
-                                    src="../assets/img/conferencelogo.png"
-                                    alt="Inclusive Africa Logo"
-                                />
-                            </div>
-                        </div>
-                    </div>
+                    <a className="bg-secondary text-white rounded-full px-12 py-3 font-semibold text-xl">Register</a>
                 </div>
             </Layout>
         </>
