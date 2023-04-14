@@ -50,7 +50,7 @@ export default function Footer() {
                 </h2>
                 <ul className="mt-4 mb-8" aria-labelledby="footerTitle2">
                   <FooterNavItem href="/media" name="Press Releases" />
-                  <FooterNavItem href="/media?media=1" name="Resources" />
+                  <FooterNavItem href="/media?media=1" name="News Links" />
                   <FooterNavItem href="/media?media=2" name="Photo Albums" />
                 </ul>
               </div>

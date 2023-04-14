@@ -14,7 +14,7 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
     >
       <div className="h-[18.2vw] w-[18vw] md:h-[7.75vw] md:w-[7.7vw] rounded-full border-secondary-2 border-4 overflow-hidden mx-auto flex items-center justify-center">
         <CustomImage
-          src={`https://cms.inclusiveafrica.org/assets/${speaker.photo.id}`}
+          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${speaker.photo.id}`}
           alt={speaker.first_name + " potrait"}
           className="min-h-[18.2vw] min-w-[18vw] md:min-h-[7.75vw] md:min-w-[7.7vw]"
         />

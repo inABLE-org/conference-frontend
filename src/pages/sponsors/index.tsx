@@ -90,7 +90,7 @@ export default function Home() {
                     >
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
-                        src={`https://cms.inclusiveafrica.org/assets/${partner.logo.id}`}
+                        src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${partner.logo.id}`}
                         alt={`${partner.name} logo`}
                         className="mx-auto mb-5"
                       />
