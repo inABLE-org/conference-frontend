@@ -228,7 +228,7 @@ export default function About() {
                     </div>
                 </div>
                 <PreviousConference />
-                <div className="lg:py-[150px] md:py-16 sm:py-16 text-center">
+                <div className="py-[150px] text-center">
                     <h2 className="text-5xl font-semibold">Register Now</h2>
                     <p className="mt-10 mb-16  font-medium">
                     We at <a className="underline" href="https://inable.org/">inABLE</a> are pleased to invite you to the <a className="underline" href="https://www.inclusiveafrica.org/">4th Annual Inclusive Africa Conference</a>. Register Now! Limited slots available!
