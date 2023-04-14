@@ -213,7 +213,7 @@ export default function Home() {
             <div className="overflow-clip">
               {data && (
                 <CustomImage
-                  src={`https://cms.inclusiveafrica.org/assets/${data.config[0].hero_image.id}`}
+                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.config[0].hero_image.id}`}
                   alt={data.config[0].hero_image.title}
                   className="hidden lg:block min-h-[50vw] 2xl:min-h-[45vw] w-full"
                 />

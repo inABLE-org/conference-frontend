@@ -112,7 +112,7 @@ export default function Nav({ pageTitle }: NavProps) {
                   href="/media"
                   className="sm:min-w-[10rem]"
                 />
-                <DropDownItem name="Resources" href="/media?media=1" />
+                <DropDownItem name="News Links" href="/media?media=1" />
                 <DropDownItem name="Photo Albums" href="/media?media=2" />
               </NavDropDown>
             </ul>

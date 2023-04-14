@@ -39,7 +39,7 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                 {moderator.length > 0 && (
                   <div className="mx-auto sm:mx-0 sm:pb-11 text-center sm:text-left">
                     <CustomImage
-                      src={`https://cms.inclusiveafrica.org/assets/${moderator[0].conference_speakers_id.photo.id}`}
+                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${moderator[0].conference_speakers_id.photo.id}`}
                       alt={`${moderator[0].conference_speakers_id.first_name}`}
                       className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
                     />
@@ -81,7 +81,7 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                               className="flex flex-col space-y-2 items-center sm:items-start"
                             >
                               <CustomImage
-                                src={`https://cms.inclusiveafrica.org/assets/${conference_speakers_id.photo.id}`}
+                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}`}
                                 alt={`${conference_speakers_id.first_name}`}
                                 className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden"
                               />

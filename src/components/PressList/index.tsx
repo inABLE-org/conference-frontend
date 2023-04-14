@@ -53,7 +53,7 @@ export default function PressList() {
               )}
               {press.banner && press.banner.type.includes("image") && (
                 <NextImage
-                  src={`https://cms.inclusiveafrica.org/assets/${press.banner.id}`}
+                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${press.banner.id}`}
                   alt={press.banner.title}
                   className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] 2xl:max-h-[12vw]"
                   imgClass="object-cover"
@@ -63,7 +63,7 @@ export default function PressList() {
                 <div className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] 2xl:max-h-[12vw]">
                   <video className="w-full max-h-full" controls>
                     <source
-                      src={`https://cms.inclusiveafrica.org/assets/${press.banner.id}`}
+                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${press.banner.id}`}
                     />
                     Your browser does not support the video tag.
                   </video>

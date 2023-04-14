@@ -53,7 +53,7 @@ const AlbumCard = ({
         <NextImage
           src={
             src
-              ? `https://cms.inclusiveafrica.org/assets/${src}`
+              ? `${process.env.NEXT_PUBLIC_MEDIA_LINK}/${src}`
               : "/assets/icons/album.svg"
           }
           alt={title}
@@ -380,7 +380,7 @@ export default function Album() {
             <ShuffleButton direction="prev" />
             <div className="flex-grow px-14">
               <NextImage
-                src={`https://cms.inclusiveafrica.org/assets/${selectedPhoto.id}`}
+                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${selectedPhoto.id}`}
                 alt={selectedPhoto.title}
                 className="h-[50vw] sm:h-[35vw] rounded overflow-hidden"
                 imgClass="object-cover"
