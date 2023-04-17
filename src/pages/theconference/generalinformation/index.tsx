@@ -75,7 +75,7 @@ export default function Agenda() {
               className="mt-16 shadow-gi-card bg-white"
               aria-labelledby="dayTitle"
             >
-              {data && (
+              {data && data.conference_information[0] && (
                 <>
                   <ConferenceInformation
                     title="Location"

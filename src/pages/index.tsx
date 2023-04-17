@@ -14,6 +14,7 @@ import { Inter } from "next/font/google";
 import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import NextImage from "@/components/NextImage";
+import Link from "next/link";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -240,7 +241,7 @@ export default function Home() {
             </div>
           </div>
         </div>
-        <div className="container">
+        <div className="container xl2:px-28 xl:px-20 2xl:px-24">
           <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-5 bg-white py-12 pl-11 pr-8 -mt-20 shadow-md">
             <div className="flex items-center text-sm font-medium">
               <CalendarIcon
@@ -354,62 +355,61 @@ export default function Home() {
               </ul>
             </div>
           </div>
-        </div>
-        <div className="container grid sm:grid-cols-2 xl:grid-cols-4 gap-6 my-16">
-          {data && data.CTA.length && (
-            <>
-              {data.CTA.map((cta: CTAInfo, key: number) => {
-                return (
-                  <CTACard
-                    key={key}
-                    title={cta.title}
-                    description={cta.description}
-                    linkText={cta.link_text}
-                    link={cta.link}
-                  />
-                );
-              })}
-            </>
-          )}
+          <div className="grid sm:grid-cols-2 xl:grid-cols-4 gap-6 my-16">
+            {data && data.CTA.length > 0 && (
+              <>
+                {data.CTA.map((cta: CTAInfo, key: number) => {
+                  return (
+                    <CTACard
+                      key={key}
+                      title={cta.title}
+                      description={cta.description}
+                      linkText={cta.link_text}
+                      link={cta.link}
+                    />
+                  );
+                })}
+              </>
+            )}
+          </div>
         </div>
         <div className="bg-gradient-to-b from-primary to-primary-1 py-32">
           {data && (
-            <div className="container grid md:grid-cols-2 text-ash gap-5 lg:gap-24 lg:px-0">
+            <div className="container grid lg:grid-cols-2 text-ash gap-5 lg:gap-28 xl:px-0">
               <div className="md:flex items-center">
-                <div>
+                <div className="w-full">
                   {!data.conference_press[0].banner && (
                     <NextImage
                       src="/assets/icons/album.svg"
-                      className="h-[50vw] md:max-h-[24.5vw] rounded overflow-hidden"
+                      className="h-[50vw] lg:max-h-[24.5vw] rounded overflow-hidden"
                       imgClass="object-cover"
                     />
                   )}
                   {data.conference_press[0].banner &&
                     data.conference_press[0].banner.type.includes("image") && (
                       <NextImage
-                        src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                        src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_press[0].banner.id}`}
                         alt={data.conference_press[0].banner.title}
-                        className="h-[50vw] md:max-h-[24.5vw] rounded overflow-hidden"
+                        className="h-[50vw] lg:max-h-[24.5vw] rounded overflow-hidden"
                         imgClass="object-cover"
                       />
                     )}
                   {data.conference_press[0].banner &&
                     data.conference_press[0].banner.type.includes("video") && (
                       <>
-                        <div className="h-[50vw] md:max-h-[24.5vw]">
+                        <div className="h-[50vw] lg:max-h-[24.5vw] xl2:max-h-[23vw] 2xl:max-h-[15vw]">
                           <video
                             className="w-full max-h-full rounded"
                             controls
                             aria-label={`${data.conference_press[0].banner.title} video`}
                           >
                             <source
-                              src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                              src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_press[0].banner.id}`}
                             />
                             Your browser does not support the video tag.
                           </video>
                         </div>
-
-                        <div className="mt-8">
+                        <div className="2xl:mt-5">
                           <a
                             href={`/media/transcript?media=${data.conference_press[0].id}`}
                             className="font-bold text-[0.8125em] border-b-2 pb-[0.125rem]"
@@ -429,7 +429,7 @@ export default function Home() {
                   {data.conference_press[0].title}
                 </h2>
                 <div
-                  className="font-medium mb-24"
+                  className="font-medium mb-24 all-underline"
                   dangerouslySetInnerHTML={{
                     __html: data.conference_press[0].excerpt,
                   }}
@@ -455,9 +455,12 @@ export default function Home() {
             This conference is possible thanks to our sponsors and partners
           </p>
           {data && <SponsorsDisplay />}
-          <a href="#" className="border-b-3 border-secondary font-medium">
+          <Link
+            href={"/sponsors"}
+            className="border-b-3 border-secondary font-medium"
+          >
             View all Partners and sponsors
-          </a>
+          </Link>
         </div>
       </Layout>
     </>

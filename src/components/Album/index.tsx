@@ -53,7 +53,7 @@ const AlbumCard = ({
         <NextImage
           src={
             src
-              ? `${process.env.NEXT_PUBLIC_MEDIA_LINK}/${src}`
+              ? `${process.env.NEXT_PUBLIC_MEDIA_LINK}/${src}?key=thumb`
               : "/assets/icons/album.svg"
           }
           alt={title}
@@ -103,22 +103,22 @@ export default function Album() {
       try {
         const { conference_album }: any = await Fetcher(
           `query {
-          conference_album(sort: "-year", filter: { status: { _eq: "published" } }) {
-            id
-            title
-            type
-            year
-            date_created
-            photos {
+            conference_album(sort: "-year", filter: { status: { _eq: "published" } }) {
               id
-              directus_files_id {
+              title
+              type
+              year
+              date_created
+              photos {
                 id
-                title
+                directus_files_id {
+                  id
+                  title
+                }
               }
             }
           }
-        }
-        `
+          `
         );
 
         setAlbumList(conference_album);
@@ -173,6 +173,7 @@ export default function Album() {
       <button
         className="bg-ash-3 rounded-full h-fit p-3 "
         onClick={() => shufflePhoto(direction === "prev" ? "prev" : "next")}
+        aria-label={direction === "prev" ? "Previous photo" : "Next Photo"}
       >
         {direction === "prev" ? (
           <ChevronLeftIcon
@@ -361,25 +362,21 @@ export default function Album() {
       {selectedPhoto && (
         <>
           <div className="font-medium text-xl">
-            <ArrowLeftIcon
-              className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-              stroke="currentColor"
-            />
             <button
-              className="ml-4"
               type="button"
               onClick={() => setSelectedPhoto(null)}
               aria-label="Back to Album"
             >
+              <ArrowLeftIcon
+                className="ml-4 h-5 w-5 inline-flex stroke-[1.5] mr-4"
+                stroke="currentColor"
+              />
               Go Back
             </button>
           </div>
-          <h2 className="font-medium text-[2rem] mb-8 mt-4">
-            {selectedPhoto.title}
-          </h2>
-          <div className="flex justify-between items-center">
+          <div className="flex justify-between items-center mt-12">
             <ShuffleButton direction="prev" />
-            <div className="flex-grow px-14">
+            <div className="flex-grow px-14" aria-live="polite">
               <NextImage
                 src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${selectedPhoto.id}`}
                 alt={selectedPhoto.title}
@@ -390,6 +387,9 @@ export default function Album() {
             </div>
             <ShuffleButton />
           </div>
+          <p className="mt-16 lg:w-11/12 lg:px-8 mx-auto">
+            {selectedPhoto.title}
+          </p>
           <div className="flex justify-center mt-5 space-x-3 sm:hidden">
             <ShuffleButton direction="prev" />
             <ShuffleButton />
