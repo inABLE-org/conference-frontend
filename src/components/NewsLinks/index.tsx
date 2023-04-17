@@ -41,14 +41,19 @@ export default function NewsLinks() {
 
   const NewsItems = ({ year, type }: { year: string; type: string }) => {
     return (
-      <ul className="list-disc ml-8">
+      <ul className="list-disc ml-8 space-y-3">
         {data.conference_news
           .filter((news: News) => news.year === year && news.type === type)
           .map((news: News, key: number) => {
             return (
               <li key={key}>
                 <span className="font-bold">{news.owner}</span> -{" "}
-                <a href={news.link} className="text-link underline">
+                <a
+                  href={news.link}
+                  target={"_blank"}
+                  className="text-link underline"
+                  aria-label={`${news.title}(Opens in a new tab)`}
+                >
                   {news.title}
                 </a>
               </li>
@@ -60,7 +65,7 @@ export default function NewsLinks() {
 
   return (
     <>
-      {years.length &&
+      {years.length > 0 &&
         years.map((year: string) => {
           return (
             <>

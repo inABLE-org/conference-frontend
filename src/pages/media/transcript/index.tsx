@@ -9,15 +9,15 @@ export default function Transcript() {
   const { media } = router.query;
   const { data }: any = useSWR(
     [
-      `query fetch_transcript($id: Float) {
-      conference_press(filter: { id: { _eq: $id } }) {
-        banner {
-          id
-          title
-          description
+      `query fetch_transcript($id: GraphQLStringOrFloat) {
+        conference_press(filter: { id: { _eq: $id } }) {
+          banner {
+            id
+            title
+            description
+          }
         }
-      }
-    }`,
+      }`,
       { id: Number(media) },
     ],
     ([url, token]) => Fetcher(url, token)

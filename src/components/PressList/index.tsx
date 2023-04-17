@@ -1,6 +1,7 @@
 import useSWR from "swr";
 import { Fetcher } from "@/components/fetcher";
 import NextImage from "@/components/NextImage";
+import { useRouter } from "next/router";
 
 export type DirectusFile = {
   id: string;
@@ -17,6 +18,7 @@ type Press = {
 };
 
 export default function PressList() {
+  const router = useRouter();
   const { data }: any = useSWR(
     `query {
       conference_press(sort: "-date", filter: { status: { _eq: "published" } }) {
@@ -42,7 +44,12 @@ export default function PressList() {
           return (
             <li
               key={key}
-              className="shadow-agenda-card pb-7 flex flex-col justify-between bg-white space-y-5"
+              className="shadow-agenda-card pb-7 flex flex-col justify-between bg-white space-y-5 hover:cursor-pointer"
+              onClick={
+                press.banner && press.banner.type.includes("image")
+                  ? () => router.push(`/media/press_release?press=${press.id}`)
+                  : () => {}
+              }
             >
               {!press.banner && (
                 <NextImage
@@ -73,6 +80,12 @@ export default function PressList() {
               <div className="px-5 flex space-x-4">
                 <p
                   className="font-medium line-clamp-4"
+                  onClick={
+                    press.banner && press.banner.type.includes("video")
+                      ? () =>
+                          router.push(`/media/press_release?press=${press.id}`)
+                      : () => {}
+                  }
                   dangerouslySetInnerHTML={{
                     __html: press.excerpt,
                   }}

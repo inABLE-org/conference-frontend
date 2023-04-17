@@ -20,11 +20,6 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
       </h2>
       <dl className="mt-16" aria-labelledby={`${new Date(date).getTime()}`}>
         {agendaList.map((conference_agenda: AgendaInfo, key: number) => {
-          const moderator = conference_agenda.speakers.filter(
-            ({ conference_speakers_id }: ConferenceSpeaker) =>
-              conference_speakers_id.moderator
-          );
-
           return (
             <div
               key={key}
@@ -36,17 +31,17 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                   <span className="sr-only">to</span>
                   {formatTime(conference_agenda.end_time)}
                 </div>
-                {moderator.length > 0 && (
+                {conference_agenda.moderator && (
                   <div className="mx-auto sm:mx-0 sm:pb-11 text-center sm:text-left">
                     <CustomImage
-                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${moderator[0].conference_speakers_id.photo.id}`}
-                      alt={`${moderator[0].conference_speakers_id.first_name}`}
+                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
+                      alt={`${conference_agenda.moderator.first_name}`}
                       className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
                     />
                     <h3 className="font-semibold">Moderator</h3>
                     <a
-                      href={`/speakers/${moderator[0].conference_speakers_id.id}`}
-                    >{`${moderator[0].conference_speakers_id.first_name} ${moderator[0].conference_speakers_id.second_name}`}</a>
+                      href={`/speakers/${conference_agenda.moderator.id}`}
+                    >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
                   </div>
                 )}
               </dt>
@@ -58,7 +53,7 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                   <p className="my-9">{conference_agenda.description}</p>
                   {conference_agenda.speakers.length > 0 && (
                     <h3 className="font-medium text-2xl mb-6">
-                      {conference_agenda.speakers.length - moderator.length}
+                      {conference_agenda.speakers.length}
                       <span id={`speakerTitle-${conference_agenda.id}`}>
                         {" "}
                         SPEAKERS

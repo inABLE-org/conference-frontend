@@ -4,8 +4,11 @@ import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
+import { useRef } from "react";
 
 export default function Home() {
+  const linkButton = useRef<HTMLAnchorElement>(null);
+
   const { data }: any = useSWR(
     `query {
       conference_sponsors(
@@ -86,7 +89,8 @@ export default function Home() {
                   return (
                     <li
                       key={key}
-                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between"
+                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between hover:cursor-pointer"
+                      onClick={() => linkButton.current?.click()}
                     >
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
@@ -95,6 +99,7 @@ export default function Home() {
                         className="mx-auto mb-5"
                       />
                       <a
+                        ref={linkButton}
                         href={partner.website}
                         target={"_blank"}
                         aria-label={`${partner.name} (Opens in a new tab)`}

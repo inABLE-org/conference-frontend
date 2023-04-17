@@ -35,11 +35,9 @@ export default function Speakers() {
         second_name
         organization
         key_note
-        moderator
         role
-        Country
-        photo
-        {
+        country
+        photo {
           id
           title
         }
@@ -63,7 +61,7 @@ export default function Speakers() {
               enim ad minim veniam, quis nostrud'
             />
             <Tabs
-              tabList={["All Speakers", "Keynote Speakers"]}
+              tabList={["Keynote Speakers", "All Speakers"]}
               className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
               onTabSwith={setActiveTab}
             />
@@ -78,7 +76,7 @@ export default function Speakers() {
               data.conference_speakers
                 .filter(
                   (speaker: SpeakerInfo) =>
-                    (speaker.key_note && activeTab === 1) || activeTab === 0
+                    (speaker.key_note && activeTab === 0) || activeTab === 1
                 )
                 .map((speaker: SpeakerInfo, key: number) => (
                   <li key={key}>

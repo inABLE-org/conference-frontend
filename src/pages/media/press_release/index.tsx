@@ -5,12 +5,12 @@ import { useRouter } from "next/router";
 import { Fetcher } from "@/components/fetcher";
 import NextImage from "@/components/NextImage";
 
-export default function Transcript() {
+export default function PressRelease() {
   const router = useRouter();
   const { press } = router.query;
   const { data }: any = useSWR(
     [
-      `query fetch_press($id: Float) {
+      `query fetch_press($id: GraphQLStringOrFloat) {
         conference_press(filter: { id: { _eq: $id } }) {
           id
           title
@@ -57,7 +57,7 @@ export default function Transcript() {
               {data.conference_press[0].banner &&
                 data.conference_press[0].banner.type.includes("image") && (
                   <NextImage
-                    src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                    src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_press[0].banner.id}`}
                     alt={data.conference_press[0].banner.title}
                     className="h-[50vw] md:max-h-[40vw]"
                     imgClass="object-contain"
@@ -73,7 +73,7 @@ export default function Transcript() {
                         aria-label={`${data.conference_press[0].banner.title} video`}
                       >
                         <source
-                          src={`https://cms.inclusiveafrica.org/assets/${data.conference_press[0].banner.id}`}
+                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_press[0].banner.id}`}
                         />
                         Your browser does not support the video tag.
                       </video>
@@ -90,12 +90,13 @@ export default function Transcript() {
                   </>
                 )}
             </div>
-            <div className="my-7"
+            <div
+              className="my-7 media-links"
               dangerouslySetInnerHTML={{
                 __html: data.conference_press[0].content,
               }}
             ></div>
-            <div className="space-y-7">
+            <div className="space-y-7 media-links">
               {data.conference_press[0].about_inable && (
                 <div>
                   <h2 className="text-xl font-semibold">About inABLE</h2>

@@ -6,7 +6,7 @@ export default function Footer() {
   return (
     <>
       <footer className="bg-gradient-to-b from-primary-1 to-primary text-white">
-        <div className="mx-auto container lg:px-0 pt-20 pb-14">
+        <div className="container xl:px-0 pt-20 pb-14">
           <div className="md:flex md:justify-between">
             <div className="mr-24">
               <a href="https://www.inclusiveafrica.org/">

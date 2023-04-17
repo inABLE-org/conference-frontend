@@ -19,6 +19,7 @@ export type AgendaInfo = {
   description: string;
   start_time: string;
   end_time: string;
+  moderator: SpeakerInfo;
   speakers: ConferenceSpeaker[];
 };
 
@@ -46,13 +47,21 @@ export default function Agenda() {
         description
         start_time
         end_time
+        moderator {
+          id
+          first_name
+          second_name
+          photo {
+            id
+            title
+          }
+        }
         speakers {
           conference_speakers_id {
             id
             first_name
             second_name
             organization
-            moderator
             role
             photo {
               id
