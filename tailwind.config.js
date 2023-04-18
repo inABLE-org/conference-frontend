@@ -48,6 +48,7 @@ module.exports = {
       boxShadow: {
         card: "0px 0px 16px rgba(16, 24, 40, 0.3)",
         "agenda-card": "0px 0px 4px rgba(0, 0, 0, 0.25)",
+        "about-card": "0px 0px 6px rgba(0, 0, 0, 0.25)",
         "gi-card": "0px 0px 16px rgba(0, 0, 0, 0.25)",
       },
       borderWidth: {

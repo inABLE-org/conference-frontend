@@ -1,12 +1,12 @@
-export default function Conferencecard(
-    props:{
-        title?:JSX.Element,
-    }
-)
-{
-    return(
-        <div className="rounded-lg bg-white shadow text-center py-5 mb-5">
-          {props.title}
-        </div>
-    )
+export default function Conferencecard(props: {
+  title?: JSX.Element;
+  className?: string;
+}) {
+  return (
+    <div
+      className={`rounded-2xl bg-white flex flex-col items-center text-center py-6 space-y-3 ${props.className}`}
+    >
+      {props.title}
+    </div>
+  );
 }
