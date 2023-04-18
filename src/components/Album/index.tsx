@@ -1,6 +1,6 @@
 import { Fetcher } from "@/components/fetcher";
 import NextImage from "@/components/NextImage";
-import { useEffect, useMemo, useState } from "react";
+import { useEffect, useState } from "react";
 import { DirectusImage } from "../Sponsors";
 import {
   ArrowLeftIcon,
@@ -46,7 +46,7 @@ const AlbumCard = ({
 }: CardProps) => {
   return (
     <li
-      className="flex flex-col space-y-5 justify-between hover:cursor-pointer"
+      className="flex flex-col space-y-5 justify-between hover:cursor-pointer h-full"
       onClick={noTitle ? () => {} : onClick}
     >
       <button onClick={onClick}>
@@ -84,13 +84,22 @@ const album_types = [
   { type: "parties", title: "Watch Parties in Africa" },
 ];
 
-export default function Album() {
+export default function Album({
+  ...albumProps
+}: {
+  album: string;
+  year: string;
+}) {
   const [albumList, setAlbumList] = useState<ConferenceAlbum[] | []>([]);
+
   const [selectedType, setSelectedType] = useState<{
     type: string;
     title: string;
-  } | null>(null);
-  const [selectedYear, setSelectedYear] = useState("");
+  } | null>(
+    album_types.find((_album) => _album.type === albumProps.album) || null
+  );
+
+  const [selectedYear, setSelectedYear] = useState(albumProps.year);
   const [selectedAlbum, setSelectedAlbum] = useState<ConferenceAlbum | null>(
     null
   );
@@ -140,7 +149,7 @@ export default function Album() {
     );
   }
 
-  const albums = useMemo(() => {
+  useEffect(() => {
     const new_list = albumList.filter(
       (_album) =>
         _album.type === selectedType?.type && _album.year === selectedYear
@@ -148,7 +157,6 @@ export default function Album() {
     if (new_list.length === 1) {
       setSelectedAlbum(new_list[0]);
     }
-    return new_list;
   }, [selectedYear, albumList, selectedType]);
 
   const shufflePhoto = (direction = "next") => {
@@ -262,7 +270,7 @@ export default function Album() {
               )}
             </ul>
             <h2 className="font-medium text-[2rem] mb-8 mt-4">
-              {selectedType.title} {selectedYear ? ` - ${selectedYear}` : ""}{" "}
+              {selectedType.title} {selectedYear ? ` - ${selectedYear}` : ""}
               {selectedAlbum ? `, ${selectedAlbum.title}` : ""}
             </h2>
           </nav>
@@ -270,7 +278,7 @@ export default function Album() {
       )}
 
       {albumList.length > 0 && !selectedPhoto && (
-        <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 font-medium mt-11 gap-5">
+        <ul className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 font-medium mt-11 gap-x-7 gap-y-16">
           {!selectedType &&
             album_types.map((_type, key: number) => (
               <AlbumCard
@@ -330,21 +338,27 @@ export default function Album() {
               />
             ))}
           {selectedType &&
+            selectedYear &&
             !selectedAlbum &&
-            albums.length > 1 &&
-            albums.map((_album, key: number) => (
-              <AlbumCard
-                key={key}
-                title={`${_album.title}`}
-                src={_album?.photos[0]?.directus_files_id!.id}
-                dateItems={`${formatDate(_album?.date_created)} . ${
-                  _album.photos.length
-                } items`}
-                onClick={() => {
-                  setSelectedAlbum(_album);
-                }}
-              />
-            ))}
+            albumList
+              .filter(
+                (_album) =>
+                  _album.type === selectedType?.type &&
+                  _album.year == selectedYear
+              )
+              .map((_album, key: number) => (
+                <AlbumCard
+                  key={key}
+                  title={`${_album.title}`}
+                  src={_album?.photos[0]?.directus_files_id!.id}
+                  dateItems={`${formatDate(_album?.date_created)} . ${
+                    _album.photos.length
+                  } items`}
+                  onClick={() => {
+                    setSelectedAlbum(_album);
+                  }}
+                />
+              ))}
           {selectedAlbum &&
             selectedAlbum.photos.map(({ directus_files_id }, key: number) => (
               <AlbumCard

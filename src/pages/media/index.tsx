@@ -16,7 +16,14 @@ export type DirectusFile = {
 
 export default function Agenda() {
   const router = useRouter();
-  let default_tab = Number(router.query.media);
+  const { media, album = "", year = "" } = router.query;
+  let default_tab = Number(media);
+
+  const default_album = {
+    album: String(album),
+    year: String(year),
+  };
+  
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
@@ -48,7 +55,7 @@ export default function Agenda() {
         <TabPanel className="container pt-24 pb-28" activeTab={activeTab}>
           {activeTab === 0 && <PressList />}
           {activeTab === 1 && <NewsLinks />}
-          {activeTab === 2 && <Album />}
+          {activeTab === 2 && <Album {...default_album} />}
         </TabPanel>
       </Layout>
     </>

@@ -108,7 +108,8 @@ export default function Footer() {
                 <span className="mr-10">
                   © Inclusive Africa Conference 2023
                 </span>
-                <ul className="md:inline-flex">
+                <ul className="hidden">
+                {/* <ul className="md:inline-flex"> */}
                   <li>
                     <a
                       href="#responsive-header"

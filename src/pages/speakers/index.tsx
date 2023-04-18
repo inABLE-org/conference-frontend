@@ -79,9 +79,7 @@ export default function Speakers() {
                     (speaker.key_note && activeTab === 0) || activeTab === 1
                 )
                 .map((speaker: SpeakerInfo, key: number) => (
-                  <li key={key}>
-                    <Speaker {...speaker} />
-                  </li>
+                  <Speaker key={key} {...speaker} />
                 ))}
           </ul>
         </TabPanel>

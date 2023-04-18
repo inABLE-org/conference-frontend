@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
+import { Bars3Icon } from "@heroicons/react/24/solid";
 import CustomImage from "../CustomImage";
 import NavItem from "./NavItem";
 import NavDropDown from "./NavDropDown";
@@ -70,7 +70,7 @@ export default function Nav({ pageTitle }: NavProps) {
               <NavDropDown
                 id="TheConferenceMenu"
                 name="The Conference"
-                current={currentPath.includes("theconference")}
+                current={currentPath != null && currentPath.includes("theconference")}
               >
                 <DropDownItem
                   name="About the conference"
