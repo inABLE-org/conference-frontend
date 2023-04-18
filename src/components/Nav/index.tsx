@@ -70,9 +70,12 @@ export default function Nav({ pageTitle }: NavProps) {
               <NavDropDown
                 id="TheConferenceMenu"
                 name="The Conference"
-                current={currentPath === "/theconference/generalinformation"}
+                current={currentPath.includes("theconference")}
               >
-                <DropDownItem name="About the conference" href="#" />
+                <DropDownItem
+                  name="About the conference"
+                  href="/theconference"
+                />
                 <DropDownItem
                   name="Conference Information"
                   href="/theconference/generalinformation"
