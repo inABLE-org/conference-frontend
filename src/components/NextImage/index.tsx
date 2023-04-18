@@ -15,7 +15,7 @@ export default function NextImage({
   id = "",
   className = "",
   imgClass = "",
-  unoptimized = false,
+  unoptimized=false
 }: NextImageProps) {
   return (
     <div className={`relative ${className}`}>

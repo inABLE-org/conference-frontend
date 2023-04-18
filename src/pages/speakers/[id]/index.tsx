@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import React, { useState } from "react";
+import React from "react";
 import { Fetcher } from "@/utils/fetcher";
 import BackButton from "@/components/BackButton";
 import CustomImage from "@/components/CustomImage";
@@ -43,6 +43,7 @@ export default function Speakers() {
             speakers: { conference_speakers_id: { id: { _eq: $id } } }
           }
         ) {
+          id
           title
           description
           start_time
@@ -93,7 +94,7 @@ export default function Speakers() {
             {data && (
               <>
                 <CustomImage
-                  src={`https://cms.inclusiveafrica.org/assets/${data.conference_speakers[0].photo.id}:`}
+                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_speakers[0].photo.id}:`}
                   alt={data.conference_speakers[0].first_name + " potrait"}
                   className="h-[28vw] w-[28vw] sm:h-[11.8vw] sm:w-[11.8vw] mx-auto rounded-full overflow-hidden mt-8"
                 />

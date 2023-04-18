@@ -7,16 +7,15 @@ export default function BackButton() {
   return (
     <>
       <div className="font-medium text-xl">
-        <ArrowLeftIcon
-          className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-          stroke="currentColor"
-        />
         <button
-          className="ml-4"
           type="button"
           onClick={() => router.back()}
           aria-label="Back to previous page"
         >
+          <ArrowLeftIcon
+            className="h-5 w-5 inline-flex stroke-[1.5] mr-4"
+            stroke="currentColor"
+          />
           Go Back
         </button>
       </div>

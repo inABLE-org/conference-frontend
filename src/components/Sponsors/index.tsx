@@ -34,7 +34,7 @@ export default function Sponsors({ title, sponsors, border }: SponsorsProps) {
             <li key={key}>
               <a href={sponsor.website} target={"_blank"}>
                 <CustomImage
-                  src={`https://cms.inclusiveafrica.org/assets/${sponsor.logo.id}`}
+                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${sponsor.logo.id}`}
                   alt={`${sponsor.name} logo(Opens in a new tab)`}
                   className="h-12 w-36 flex-grow mx-auto"
                 />

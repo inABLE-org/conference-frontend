@@ -18,9 +18,7 @@ export default function NavDropDown({
   return (
     <>
       <li
-        className={`py-2 px-1 ${
-          current ? "border-b-3 border-secondary-1" : ""
-        }`}
+        className={`pt-2 px-1`}
       >
         <div className="relative lg:inline-block">
           <div>
@@ -33,7 +31,9 @@ export default function NavDropDown({
               aria-controls={`MenuFor${id}`}
               onClick={() => setExpanded(!expanded)}
             >
-              {name}
+              <span className={current ? "border-b-3 border-secondary-1 pb-2" : ""}>
+                {name}
+              </span>
               <ChevronDownIcon
                 className="h-6 w-5 text-secondary-1 stroke-[1.5] ml-2"
                 stroke="currentColor"

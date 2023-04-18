@@ -20,15 +20,9 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
       </h2>
       <dl className="mt-16" aria-labelledby={`${new Date(date).getTime()}`}>
         {agendaList.map((conference_agenda: AgendaInfo, key: number) => {
-          const moderator = conference_agenda.speakers.filter(
-            ({ conference_speakers_id }: ConferenceSpeaker) =>
-              conference_speakers_id.moderator
-          );
-
           return (
             <div
               key={key}
-              tabIndex={0}
               className="md:flex bg-white shadow-agenda-card mb-16 hover:border-2 hover:border-secondary-2"
             >
               <dt className="relative flex flex-col items-center justify-between text-2xl px-4 xl:px-0 py-11 lg:w-[30%]">
@@ -37,17 +31,17 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                   <span className="sr-only">to</span>
                   {formatTime(conference_agenda.end_time)}
                 </div>
-                {moderator.length > 0 && (
+                {conference_agenda.moderator && (
                   <div className="mx-auto sm:mx-0 sm:pb-11 text-center sm:text-left">
                     <CustomImage
-                      src={`https://cms.inclusiveafrica.org/assets/${moderator[0].conference_speakers_id.photo.id}`}
-                      alt={`${moderator[0].conference_speakers_id.first_name}`}
+                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
+                      alt={`${conference_agenda.moderator.first_name}`}
                       className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
                     />
-                    <h4 className="font-semibold">Moderator</h4>
+                    <h3 className="font-semibold">Moderator</h3>
                     <a
-                      href={`/speakers/${moderator[0].conference_speakers_id.id}`}
-                    >{`${moderator[0].conference_speakers_id.first_name} ${moderator[0].conference_speakers_id.second_name}`}</a>
+                      href={`/speakers/${conference_agenda.moderator.id}`}
+                    >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
                   </div>
                 )}
               </dt>
@@ -59,13 +53,16 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                   <p className="my-9">{conference_agenda.description}</p>
                   {conference_agenda.speakers.length > 0 && (
                     <h3 className="font-medium text-2xl mb-6">
-                      {conference_agenda.speakers.length - moderator.length}
-                      <span id="speakerTitle"> SPEAKERS</span>
+                      {conference_agenda.speakers.length}
+                      <span id={`speakerTitle-${conference_agenda.id}`}>
+                        {" "}
+                        SPEAKERS
+                      </span>
                     </h3>
                   )}
                   <ul
                     className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
-                    aria-label="speakerTitle"
+                    aria-label={`speakerTitle-${conference_agenda.id}`}
                   >
                     {conference_agenda.speakers.map(
                       (
@@ -79,16 +76,18 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                               className="flex flex-col space-y-2 items-center sm:items-start"
                             >
                               <CustomImage
-                                src={`https://cms.inclusiveafrica.org/assets/${conference_speakers_id.photo.id}`}
+                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}`}
                                 alt={`${conference_speakers_id.first_name}`}
                                 className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden"
                               />
-                              <a
-                                href={`/speakers/${conference_speakers_id.id}`}
-                                className="font-semibold"
-                              >
-                                {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
-                              </a>
+                              <h4>
+                                <a
+                                  href={`/speakers/${conference_speakers_id.id}`}
+                                  className="font-semibold"
+                                >
+                                  {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
+                                </a>
+                              </h4>
                               <p>{conference_speakers_id.role}</p>
                               <p>{conference_speakers_id.organization}</p>
                             </li>

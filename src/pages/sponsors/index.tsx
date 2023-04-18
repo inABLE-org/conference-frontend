@@ -2,11 +2,13 @@ import useSWR from "swr";
 import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
+import { useRef } from "react";
 
 export default function Home() {
+  const linkButton = useRef<HTMLAnchorElement>(null);
+
   const { data }: any = useSWR(
     `query {
       conference_sponsors(
@@ -31,7 +33,6 @@ export default function Home() {
       <Layout pageTitle="Sponsors">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
             <PageTitle
               title="Sponsors and partners"
               underlineClass="border-4 border-secondary-2 w-9/12 mx-auto"
@@ -88,15 +89,17 @@ export default function Home() {
                   return (
                     <li
                       key={key}
-                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between"
+                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between hover:cursor-pointer"
+                      onClick={() => linkButton.current?.click()}
                     >
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
-                        src={`https://cms.inclusiveafrica.org/assets/${partner.logo.id}`}
+                        src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${partner.logo.id}`}
                         alt={`${partner.name} logo`}
                         className="mx-auto mb-5"
                       />
                       <a
+                        ref={linkButton}
                         href={partner.website}
                         target={"_blank"}
                         aria-label={`${partner.name} (Opens in a new tab)`}

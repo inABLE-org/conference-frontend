@@ -45,7 +45,7 @@ export default function Nav({ pageTitle }: NavProps) {
             <CustomImage
               src={"/assets/img/logo.png"}
               alt="inclusive africa 2023 logo"
-              className="h-14 w-44 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
+              className="h-14 w-44 lg:h-[3.7vw] lg:w-[12.6vw] 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
             />
           </Link>
           <div className="block lg:hidden">
@@ -65,7 +65,7 @@ export default function Nav({ pageTitle }: NavProps) {
               expanded ? "" : "hidden"
             } w-full lg:flex lg:flex-col-reverse xl:flex-row lg:w-auto lg:items-end`}
           >
-            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-20">
+            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20">
               <NavItem href="/" name="Home" current={currentPath === "/"} />
               <NavDropDown
                 id="TheConferenceMenu"
@@ -112,15 +112,15 @@ export default function Nav({ pageTitle }: NavProps) {
               >
                 <DropDownItem
                   name="Press Releases"
-                  href="#"
+                  href="/media"
                   className="sm:min-w-[10rem]"
                 />
-                <DropDownItem name="Resources" href="#" />
-                <DropDownItem name="Photo Albums" href="#" />
+                <DropDownItem name="News Links" href="/media?media=1" />
+                <DropDownItem name="Photo Albums" href="/media?media=2" />
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
-              <form
+              {/* <form
                 className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9"
                 role="search"
                 aria-label="Sitewide"
@@ -146,7 +146,7 @@ export default function Nav({ pageTitle }: NavProps) {
                     stroke="currentColor"
                   />
                 </button>
-              </form>
+              </form> */}
               <a
                 target={"_blank"}
                 href="https://hopin.com/events/inclusive-africa-2023/registration"

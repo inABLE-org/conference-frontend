@@ -3,7 +3,6 @@ import Layout from "@/components/Layout";
 import React, { useState } from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
-import BackButton from "@/components/BackButton";
 import PageTitle from "@/components/PageTitle";
 import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
@@ -36,11 +35,9 @@ export default function Speakers() {
         second_name
         organization
         key_note
-        moderator
         role
-        Country
-        photo
-        {
+        country
+        photo {
           id
           title
         }
@@ -54,7 +51,6 @@ export default function Speakers() {
       <Layout pageTitle="Speakers">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <BackButton />
             <PageTitle
               title="Speakers"
               underlineClass="border-4 border-secondary-2"
@@ -65,7 +61,7 @@ export default function Speakers() {
               enim ad minim veniam, quis nostrud'
             />
             <Tabs
-              tabList={["All Speakers", "Keynote Speakers"]}
+              tabList={["Keynote Speakers", "All Speakers"]}
               className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
               onTabSwith={setActiveTab}
             />
@@ -80,7 +76,7 @@ export default function Speakers() {
               data.conference_speakers
                 .filter(
                   (speaker: SpeakerInfo) =>
-                    (speaker.key_note && activeTab === 1) || activeTab === 0
+                    (speaker.key_note && activeTab === 0) || activeTab === 1
                 )
                 .map((speaker: SpeakerInfo, key: number) => (
                   <li key={key}>
