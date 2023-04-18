@@ -8,8 +8,8 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
     router.push(`/speakers/${speaker.id}`);
   };
   return (
-    <div
-      className=" bg-white rounded-lg shadow-agenda-card hover:bg-primary hover:text-white py-6 hover:cursor-pointer"
+    <li
+      className=" bg-white rounded-lg shadow-agenda-card hover:bg-primary hover:text-white py-6 hover:cursor-pointer h-full"
       onClick={() => viewSpeaker()}
     >
       <div className="h-[18.2vw] w-[18vw] md:h-[7.75vw] md:w-[7.7vw] rounded-full border-secondary-2 border-4 overflow-hidden mx-auto flex items-center justify-center">
@@ -29,6 +29,6 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
         <span>{speaker.organization}</span>
         <span>{speaker.Country}</span>
       </p>
-    </div>
+    </li>
   );
 }

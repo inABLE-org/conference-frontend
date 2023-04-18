@@ -13,7 +13,7 @@ export default function Speakers() {
   const { id } = router.query;
   const { data }: any = useSWR(
     [
-      `query fethSpeaker($id: Float) {
+      `query fethSpeaker($id: GraphQLStringOrFloat) {
         conference_speakers(
           limit: 1
           filter: {
@@ -26,10 +26,10 @@ export default function Speakers() {
           first_name
           second_name
           organization
-          moderator
           key_note
           role
-          Country
+          linkedIn
+          country
           photo {
             id
             title
@@ -48,13 +48,21 @@ export default function Speakers() {
           description
           start_time
           end_time
+          moderator {
+            id
+            first_name
+            second_name
+            photo {
+              id
+              title
+            }
+          }
           speakers {
             conference_speakers_id {
               id
               first_name
               second_name
               organization
-              moderator
               role
               photo {
                 id
@@ -101,7 +109,7 @@ export default function Speakers() {
                 <p className="text-center mt-4 mb-9 text-xl flex space-y-3 flex-col">
                   <span className="flex items-center justify-center">
                     {data.conference_speakers[0].role}{" "}
-                    <a href={data.conference_speakers[0].linkedin}>
+                    <a href={data.conference_speakers[0].linkedIn}>
                       <CustomImage
                         src={"/assets/icons/Group 6407.svg"}
                         alt={
@@ -115,7 +123,7 @@ export default function Speakers() {
                   <span className="text-base font-bold">
                     {data.conference_speakers[0].organization}
                   </span>
-                  <span>{data.conference_speakers[0].Country}</span>
+                  <span>{data.conference_speakers[0].country}</span>
                   <span className="bg-ash-4 rounded-3xl w-fit mx-auto text-black px-2 text-base">
                     {data.conference_speakers[0].key_note
                       ? "Keynote"

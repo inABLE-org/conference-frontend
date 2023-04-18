@@ -18,7 +18,7 @@ export default function PreviousConference() {
                 </a>
               </h3>
               <Link
-                href="/media?media=1&album=main&year=2022"
+                href="/media?media=2&album=main&year=2022"
                 className="border-2 border-white py-2 px-3 rounded-full font-medium text-xl h-fit"
               >
                 2022 Gallery
@@ -159,7 +159,7 @@ export default function PreviousConference() {
                   2021
                 </a>
               </h3>
-              <Link
+              {/* <Link
                 href="/media?media=1&album=main&year=2021"
                 className="border-2 border-black py-2 px-3 rounded-full font-medium text-xl h-fit"
               >
@@ -168,7 +168,7 @@ export default function PreviousConference() {
                   className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
                   stroke="currentColor"
                 />
-              </Link>
+              </Link> */}
             </div>
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-28 pt-12">
               <div>
@@ -277,7 +277,7 @@ export default function PreviousConference() {
                   2020
                 </a>
               </h3>
-              <Link
+              {/* <Link
                 href="/media?media=1&album=main&year=2020"
                 className="border-2 border-white py-2 px-3 rounded-full font-medium text-xl h-fit"
               >
@@ -286,7 +286,7 @@ export default function PreviousConference() {
                   className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
                   stroke="currentColor"
                 />
-              </Link>
+              </Link> */}
             </div>
             <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-28 pt-12">
               <div>

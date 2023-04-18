@@ -1,43 +1,20 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import React, { useState } from "react";
-import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
-import TopParagraph from "@/components/TopParagraph";
-import Tabs from "@/components/Tabs";
 import { DirectusImage } from "@/components/Sponsors";
-import TabPanel from "@/components/Tabs/TabPanel";
+import NextImage from "@/components/NextImage";
 
-export type SpeakerInfo = {
-  id: string;
-  first_name: string;
-  second_name: string;
-  organization: string;
-  role: string;
-  Country: string;
-  key_note: Boolean;
-  moderator: Boolean;
-  photo: DirectusImage;
-  linkedin: string;
-};
-
-export default function Speakers() {
-  const [activeTab, setActiveTab] = useState(0);
-
+export default function ATVillage() {
   const { data }: any = useSWR(
     `query {
-      conference_speakers(
-        filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
-      ) {
+      conference_innovators(filter: { status: { _eq: "published" } }) {
         id
         first_name
-        second_name
-        organization
-        key_note
-        role
-        country
-        photo {
+        last_name
+        title
+        description
+        banner {
           id
           title
         }
@@ -76,7 +53,57 @@ export default function Speakers() {
             investors will also come together in a closed-door event during the
             Conference.
           </p>
-          <h1 className="text-2xl font-medium mt-9">Meet the AT Innovators</h1>
+          <h1 className="text-2xl font-medium mt-9" id="atTitle">
+            Meet the AT Innovators
+          </h1>
+          <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 sm:gap-y-20 space-y-20 sm:space-y-0 pt-16 px-2">
+            {data &&
+              data.conference_innovators.map(
+                (
+                  innovator: {
+                    first_name: string;
+                    last_name: string;
+                    title: string;
+                    description: string;
+                    banner: DirectusImage;
+                  },
+                  key: number
+                ) => {
+                  return (
+                    <li
+                      key={key}
+                      className="shadow-agenda-card pb-7 bg-white space-y-5 hover:cursor-pointer h-full"
+                    >
+                      {!innovator.banner && (
+                        <NextImage
+                          src="/assets/icons/album.svg"
+                          className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw]  2xl:max-h-[12vw]"
+                          imgClass="object-cover"
+                        />
+                      )}
+                      {innovator.banner && (
+                        <NextImage
+                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${innovator.banner.id}`}
+                          alt={innovator.banner.title}
+                          className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] 2xl:max-h-[12vw]"
+                          imgClass="object-cover"
+                          unoptimized
+                        />
+                      )}
+                      <div className="p-4 pt-0  space-y-3">
+                        <h2 className="font-medium">{`${innovator.first_name} ${innovator.last_name}`}</h2>
+                        <h3 className="font-medium">{innovator.title}</h3>
+                        <p
+                          dangerouslySetInnerHTML={{
+                            __html: innovator.description,
+                          }}
+                        ></p>
+                      </div>
+                    </li>
+                  );
+                }
+              )}
+          </ul>
         </div>
       </Layout>
     </>
