@@ -36,7 +36,7 @@ export default function Sponsors({ title, sponsors, border }: SponsorsProps) {
                 <CustomImage
                   src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${sponsor.logo.id}`}
                   alt={`${sponsor.name} logo(Opens in a new tab)`}
-                  className="h-12 w-36 flex-grow mx-auto"
+                  className="h-20 w-64 flex-grow mx-auto"
                 />
               </a>
             </li>

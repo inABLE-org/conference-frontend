@@ -119,10 +119,15 @@ export default function Agenda() {
                   Rate
                 </p>
                 <p>Book Here </p>
-                <ul className="list-disc ml-8">
+                <ul className="list-disc ml-8 media-links">
                   <li>Contact: Stella at Radisson Blu Hotel</li>
                   <li>Phone Number: +254 708 177 111</li>
-                  <li>E-mail: stella.njuguna@radissonblunairobi.com</li>
+                  <li>
+                    E-mail:{" "}
+                    <a href="mailto:reservations.nairobi@radissonblunairobi.com">
+                      reservations.nairobi@radissonblunairobi.com
+                    </a>
+                  </li>
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Services Available">
