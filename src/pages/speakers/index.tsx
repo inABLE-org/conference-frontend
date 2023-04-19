@@ -4,7 +4,6 @@ import React, { useState } from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
-import TopParagraph from "@/components/TopParagraph";
 import Tabs from "@/components/Tabs";
 import { DirectusImage } from "@/components/Sponsors";
 import TabPanel from "@/components/Tabs/TabPanel";
@@ -51,15 +50,9 @@ export default function Speakers() {
       <Layout pageTitle="Speakers">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <PageTitle
-              title="Speakers"
-              underlineClass="border-4 border-secondary-2"
-            />
-            <TopParagraph
-              text='"Lorem ipsum dolor sit amet, consectetur adipiscing elit, sed
-              do eiusmod tempor incididunt ut labore et dolore magna aliqua. Ut
-              enim ad minim veniam, quis nostrud'
-            />
+            <div className="mb-12">
+              <PageTitle title="Speakers" />
+            </div>
             <Tabs
               tabList={["Keynote Speakers", "All Speakers"]}
               className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
