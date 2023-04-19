@@ -212,7 +212,7 @@ export default function Home() {
                     Register
                   </a>
                   <a
-                    href={`/media ${
+                    href={`/media${
                       data
                         ? `/press_release?press=${data.conference_press[0].id}`
                         : ""

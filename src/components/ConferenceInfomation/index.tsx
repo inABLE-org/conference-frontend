@@ -11,7 +11,7 @@ export default function ConferenceInformation({
 }: ConferenceInformationProps) {
   return (
     <>
-      <div className={`lg:flex ${background ? background : ""}`}>
+      <div className={`lg:flex media-links ${background ? background : ""}`}>
         <dt className="font-bold text-32px pr-11 pt-12 lg:py-12 lg:w-[40%]">
           <h2 className="text-center lg:text-end">{title}</h2>
         </dt>
