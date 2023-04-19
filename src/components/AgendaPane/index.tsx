@@ -85,8 +85,7 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                           <h3 className="font-semibold mb-6">venue:</h3>
                           <p>
                             {
-                              conference_agenda.venue[0].conference_venues_id
-                                .name
+                              conference_agenda.venue[0].conference_venues_id?.name
                             }
                           </p>
                         </div>
@@ -102,7 +101,7 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                             {conference_agenda.breakouts
                               .map(
                                 ({ conference_venues_id }: ConferenceVenue) =>
-                                  conference_venues_id.name
+                                  conference_venues_id?.name
                               )
                               .join(", ")}
                           </p>

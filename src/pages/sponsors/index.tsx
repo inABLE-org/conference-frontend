@@ -72,6 +72,17 @@ export default function Home() {
               />
             )}
           </div>
+          <div className="mt-16">
+            {data && (
+              <Sponsors
+                title="Bronze Sponsors"
+                sponsors={data.conference_sponsors.filter(
+                  (sponsor: Sponsor) => sponsor.type === "Bronze"
+                )}
+                border
+              />
+            )}
+          </div>
           <h2 className="font-semibold text-5xl mt-24 mb-16" id="partnersTitle">
             Partners
           </h2>
