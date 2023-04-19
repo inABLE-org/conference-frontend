@@ -5,6 +5,7 @@ import ObjectiveCard from "@/components/Cardutilities/Objectivecard";
 import { useState } from "react";
 import PreviousConference from "./sections/previousconferences";
 import NextImage from "@/components/NextImage";
+import PageTitle from "@/components/PageTitle";
 export default function About() {
   const [openTab, setOpenTab] = useState(1);
 
@@ -14,61 +15,46 @@ export default function About() {
         <span className="hidden" id="newTab">
           Opens in a new Tab
         </span>
-        <div className="w-100 bg-gradient-to-b from-primary to-primary-1 text-white pb-6">
+        <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <div className="md:flex md:space-x-8 items-center pb-16">
-              <h1 className=" text-5xl font-semibold md:w-6/12 xl:w-4/12 leading-tight">
-                The Annual Inclusive Africa Conference
-              </h1>
-              <p className="font-medium md:w-6/12 xl:w-7/12 leading-normal">
-                To take digital accessibility and assistive technology in Africa
-                to the next level, inABLE has begun organizing the fourth annual{" "}
-                <a className="underline" href="https://inclusiveafrica.org/">
-                  Inclusive Africa Conference{" "}
+            <div className="mb-12">
+              <PageTitle title="The Annual Inclusive Africa Conference" />
+            </div>
+            <ul className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl">
+              <li>
+                <a
+                  href="#organizer"
+                  onClick={() => setOpenTab(1)}
+                  className={`${
+                    openTab === 1 ? "border-b-5 border-secondary-2" : ""
+                  } px-8 pb-1`}
+                >
+                  The organizer
                 </a>
-                scheduled on May 29 – 31, 2023 in Nairobi, Kenya, and virtually.
-                The agenda discussions will focus on promoting the advancement
-                of digital accessibility and assistive technology for persons
-                with disabilities in Africa.
-              </p>
-            </div>
-            <div className="flex flex-col items-center justify-center">
-              <ul className="lg:flex md:flex md:space-x-10">
-                <li className="text-center">
-                  <a
-                    href="#organizer"
-                    onClick={() => setOpenTab(1)}
-                    className={` text-xl font-normal ${
-                      openTab === 1 ? "border-b-5 border-secondary-1" : ""
-                    } inline-block px-4 py-2`}
-                  >
-                    The organizer
-                  </a>
-                </li>
-                <li className="text-center">
-                  <a
-                    href="#conference"
-                    onClick={() => setOpenTab(2)}
-                    className={`text-xl font-normal ${
-                      openTab === 2 ? "border-b-4 border-secondary" : ""
-                    } inline-block px-4 py-2`}
-                  >
-                    About the Conference
-                  </a>
-                </li>
-                <li className="text-center">
-                  <a
-                    href="#previous"
-                    onClick={() => setOpenTab(3)}
-                    className={`text-xl font-normal ${
-                      openTab === 3 ? "border-b-4 border-secondary" : ""
-                    } inline-block px-4 py-2`}
-                  >
-                    About Previous Conference
-                  </a>
-                </li>
-              </ul>
-            </div>
+              </li>
+              <li>
+                <a
+                  href="#conference"
+                  onClick={() => setOpenTab(2)}
+                  className={`${
+                    openTab === 2 ? "border-b-5 border-secondary-2" : ""
+                  } px-8 pb-1`}
+                >
+                  About the Conference
+                </a>
+              </li>
+              <li>
+                <a
+                  href="#previous"
+                  onClick={() => setOpenTab(3)}
+                  className={`${
+                    openTab === 3 ? "border-b-5 border-secondary-2" : ""
+                  } px-8 pb-1`}
+                >
+                  About Previous Conference
+                </a>
+              </li>
+            </ul>
           </div>
         </div>
         <div className="container pt-9">

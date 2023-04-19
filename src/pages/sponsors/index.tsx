@@ -3,7 +3,6 @@ import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
-import TopParagraph from "@/components/TopParagraph";
 import { useRef } from "react";
 
 export default function Home() {
@@ -33,11 +32,9 @@ export default function Home() {
       <Layout pageTitle="Sponsors">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <PageTitle
-              title="Sponsors and partners"
-              underlineClass="border-4 border-secondary-2 w-9/12 mx-auto"
-            />
-            <TopParagraph text="This conference is possible thanks to our sponsors and partners" />
+            <div className="mb-12">
+              <PageTitle title="Sponsors and partners" />
+            </div>
           </div>
         </div>
         <div className="container py-40 text-center">

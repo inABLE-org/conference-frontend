@@ -47,6 +47,10 @@ module.exports = {
         link: {
           DEFAULT: "#0052B4",
         },
+        sucess: {
+          DEFAULT: "#14AE5C",
+          1: "#068C45",
+        },
       },
       fontFamily: {
         sans: ["var(--font-poppins)", ...defaultTheme.fontFamily.sans],

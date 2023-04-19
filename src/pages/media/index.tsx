@@ -23,7 +23,7 @@ export default function Agenda() {
     album: String(album),
     year: String(year),
   };
-  
+
   const [activeTab, setActiveTab] = useState(0);
 
   useEffect(() => {
@@ -41,7 +41,7 @@ export default function Agenda() {
       <Layout pageTitle="Media">
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
-            <div className="mb-8">
+            <div className="mb-12">
               <PageTitle title="Media" />
             </div>
             <Tabs

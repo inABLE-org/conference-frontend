@@ -1,9 +1,11 @@
-import { AgendaInfo, ConferenceSpeaker } from "@/pages/agenda";
+import { AgendaInfo, ConferenceSpeaker, ConferenceVenue } from "@/pages/agenda";
 import CustomImage from "../CustomImage";
+import NextImage from "../NextImage";
 
 type AgendaPaneProps = {
   date: string;
   agendaList: AgendaInfo[];
+  draft?: Boolean | null;
 };
 
 const formatTime = (_date: string) =>
@@ -12,38 +14,50 @@ const formatTime = (_date: string) =>
     minute: "numeric",
   }).format(new Date(_date));
 
-export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
+export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps) {
   return (
     <>
-      <h2 className="font-medium text-[2em]" id={`${new Date(date).getTime()}`}>
-        {date}
-      </h2>
-      <dl className="mt-16" aria-labelledby={`${new Date(date).getTime()}`}>
+      <div className="font-medium">
+        <h2 className="text-[2em]" id={`${new Date(date).getTime()}`}>
+          {date}
+        </h2>
+        {draft && (
+          <p>
+            Please note that this is a draft agenda and is subject to change
+          </p>
+        )}
+      </div>
+      <dl className="mt-11" aria-labelledby={`${new Date(date).getTime()}`}>
         {agendaList.map((conference_agenda: AgendaInfo, key: number) => {
+          const time_now = new Date();
+          const ongoing =
+            new Date(conference_agenda.start_time) <= time_now &&
+            new Date(conference_agenda.end_time) > time_now;
           return (
             <div
               key={key}
-              className="md:flex bg-white shadow-agenda-card mb-16 hover:border-2 hover:border-secondary-2"
+              className={`md:flex bg-white shadow-agenda-card mb-16 hover:border-2 border-secondary-2 ${
+                ongoing ? "border-2" : ""
+              }`}
             >
-              <dt className="relative flex flex-col items-center justify-between text-2xl px-4 xl:px-0 py-11 lg:w-[30%]">
-                <div className="w-fit mx-auto pb-3">
+              <dt className="relative flex flex-col items-center justify-between text-2xl px-4 xl:px-0 pt-11 lg:w-[30%]">
+                <div className="w-fit mx-auto py-3">
+                  {ongoing && (
+                    <span className="absolute top-0 bg-sucess-1 text-white flex px-3 py-1 font-semibold">
+                      <NextImage
+                        src="/assets/icons/live.svg"
+                        alt="transcript"
+                        className="h-8 w-8 inline-flex mr-3"
+                        imgClass="object-none"
+                        unoptimized
+                      />
+                      Ongoing
+                    </span>
+                  )}
                   {formatTime(conference_agenda.start_time)} -{" "}
                   <span className="sr-only">to</span>
                   {formatTime(conference_agenda.end_time)}
                 </div>
-                {conference_agenda.moderator && (
-                  <div className="mx-auto sm:mx-0 sm:pb-11 text-center sm:text-left">
-                    <CustomImage
-                      src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
-                      alt={`${conference_agenda.moderator.first_name}`}
-                      className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
-                    />
-                    <h3 className="font-semibold">Moderator</h3>
-                    <a
-                      href={`/speakers/${conference_agenda.moderator.id}`}
-                    >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
-                  </div>
-                )}
               </dt>
               <dd className="border-l-[0.015625rem] py-9 w-full">
                 <div className="mx-auto  max-w-[93%]">
@@ -51,8 +65,53 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                     {conference_agenda.title}
                   </h3>
                   <p className="my-9">{conference_agenda.description}</p>
+                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mb-12">
+                    {conference_agenda.moderator && (
+                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start">
+                        <h3 className="font-medium text-xl">Moderator</h3>
+                        <CustomImage
+                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
+                          alt={`${conference_agenda.moderator.first_name}`}
+                          className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
+                        />
+                        <a
+                          href={`/speakers/${conference_agenda.moderator.id}`}
+                        >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
+                      </div>
+                    )}
+                    {conference_agenda.venue.length > 0 && (
+                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start justify-end">
+                        <div>
+                          <h3 className="font-semibold mb-6">venue:</h3>
+                          <p>
+                            {
+                              conference_agenda.venue[0].conference_venues_id
+                                .name
+                            }
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                    {conference_agenda.breakouts.length > 0 && (
+                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start justify-end sm:col-span-2">
+                        <div>
+                          <h3 className="font-semibold mb-6">
+                            Breakout Sessions:
+                          </h3>
+                          <p>
+                            {conference_agenda.breakouts
+                              .map(
+                                ({ conference_venues_id }: ConferenceVenue) =>
+                                  conference_venues_id.name
+                              )
+                              .join(", ")}
+                          </p>
+                        </div>
+                      </div>
+                    )}
+                  </div>
                   {conference_agenda.speakers.length > 0 && (
-                    <h3 className="font-medium text-2xl mb-6">
+                    <h3 className="font-medium text-xl mb-6">
                       {conference_agenda.speakers.length}
                       <span id={`speakerTitle-${conference_agenda.id}`}>
                         {" "}
@@ -73,7 +132,7 @@ export default function AgendaPane({ date, agendaList }: AgendaPaneProps) {
                           return (
                             <li
                               key={key}
-                              className="flex flex-col space-y-2 items-center sm:items-start"
+                              className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start"
                             >
                               <CustomImage
                                 src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}`}

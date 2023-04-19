@@ -30,7 +30,10 @@ export default function Footer() {
                   The Conference
                 </h2>
                 <ul className="mt-4 mb-8" aria-labelledby="footerTitle1">
-                  <FooterNavItem href="/theconference" name="About the conference" />
+                  <FooterNavItem
+                    href="/theconference"
+                    name="About the conference"
+                  />
                   <FooterNavItem href="/agenda" name="Agenda" />
                   <FooterNavItem href="/speakers" name="Speakers" />
                   <FooterNavItem href="/sponsors" name="Sponsors" />
@@ -84,7 +87,7 @@ export default function Footer() {
                 </p>
                 <div className="flex justify-center mt-11">
                   <a
-                    href="#"
+                    href="http://eepurl.com/ipkOew"
                     className="rounded-lg border-[2.5px] border-secondary py-2 px-4 text-sm"
                   >
                     Subscribe to our newsletter
@@ -109,7 +112,7 @@ export default function Footer() {
                   © Inclusive Africa Conference 2023
                 </span>
                 <ul className="hidden">
-                {/* <ul className="md:inline-flex"> */}
+                  {/* <ul className="md:inline-flex"> */}
                   <li>
                     <a
                       href="#responsive-header"

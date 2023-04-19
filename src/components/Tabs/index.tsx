@@ -7,6 +7,7 @@ type TabProps = {
   className?: string;
   labelledby?: string;
   label?: string;
+  highlited?: number | undefined;
 };
 
 export default function Tabs({
@@ -16,6 +17,7 @@ export default function Tabs({
   labelledby = "",
   label = "",
   onTabSwith,
+  highlited,
 }: TabProps) {
   const [activeTab, setActiveTab] = useState(selectedTab);
 
@@ -60,13 +62,18 @@ export default function Tabs({
               tabIndex={key === activeTab ? 0 : -1}
               id={`tab-${key}`}
               key={key}
-              className={`px-8 pb-1 hover:cursor-pointer ${
+              className={`relative px-8 pb-1 hover:cursor-pointer ${
                 key === activeTab ? "border-b-5 border-secondary-2" : ""
               }`}
               onKeyDown={(e) => switchTab(e, key)}
               onClick={() => updateActiveTab(key)}
             >
               {tab}
+              {key === highlited && (
+                <span className="text-sucess text-9xl inline-flex h-3 w-3 overflow-hidden bg-sucess rounded-full top-0 right-4 absolute">
+                  .
+                </span>
+              )}
             </li>
           );
         })}
