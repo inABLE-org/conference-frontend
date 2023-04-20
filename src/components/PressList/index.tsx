@@ -69,7 +69,11 @@ export default function PressList() {
               )}
               {press.banner && press.banner.type.includes("video") && (
                 <div className="h-[50vw] sm:max-h-[25vw] lg:max-h-[15.7vw] 2xl:max-h-[12vw]">
-                  <video className="w-full max-h-full" controls>
+                  <video
+                    className="w-full max-h-full"
+                    controls
+                    aria-label={`${press.banner.title} video`}
+                  >
                     <source
                       src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${press.banner.id}`}
                     />
@@ -77,7 +81,20 @@ export default function PressList() {
                   </video>
                 </div>
               )}
-              <div className="px-5 flex space-x-4">
+              <div className="px-5 flex flex-row-reverse">
+                {press.banner && press.banner.type.includes("video") && (
+                  <a
+                    href={`/media/transcript?media=${press.id}`}
+                    className="border border-ash-5 px-2 py-2 h-10 w-10 ml-4"
+                  >
+                    <NextImage
+                      src="/assets/icons/transcription 1.svg"
+                      alt="transcript"
+                      className="h-5 w-5"
+                      imgClass="object-none"
+                    />
+                  </a>
+                )}
                 <p
                   className="font-medium line-clamp-4"
                   onClick={
@@ -90,19 +107,6 @@ export default function PressList() {
                     __html: press.excerpt,
                   }}
                 ></p>
-                {press.banner && press.banner.type.includes("video") && (
-                  <a
-                    href={`/media/transcript?media=${press.id}`}
-                    className="border border-ash-5 px-2 py-2 h-10 w-10"
-                  >
-                    <NextImage
-                      src="/assets/icons/transcription 1.svg"
-                      alt="transcript"
-                      className="h-5 w-5"
-                      imgClass="object-none"
-                    />
-                  </a>
-                )}
               </div>
               <a
                 href={`/media/press_release?press=${press.id}`}

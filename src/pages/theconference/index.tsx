@@ -12,9 +12,6 @@ export default function About() {
   return (
     <>
       <Layout pageTitle="About The Conference">
-        <span className="hidden" id="newTab">
-          Opens in a new Tab
-        </span>
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <div className="mb-12">

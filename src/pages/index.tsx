@@ -205,9 +205,10 @@ export default function Home() {
                 </p>
                 <div className="text-xs sm:text-xl font-semibold text-white pb-5 flex">
                   <a
+                    target="_blank"
                     href="https://hopin.com/events/inclusive-africa-2023/registration"
-                    className="rounded-3xl bg-secondary py-2 px-3 sm:px-12 mr-9"
-                    aria-describedby="pageTitle"
+                    className="rounded-3xl bg-secondary pt-3 sm:py-2 px-3 sm:px-12 mr-9"
+                    aria-describedby="pageTitle newTab"
                   >
                     Register
                   </a>
@@ -287,6 +288,8 @@ export default function Home() {
                 Hosted By <br />
                 <a
                   className="underline"
+                  target="_blank"
+                  aria-describedby="newTab"
                   href={`${data ? data.config[0].host_website : ""} `}
                 >
                   {data ? data.config[0].host : ""}{" "}
