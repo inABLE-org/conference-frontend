@@ -7,6 +7,7 @@ import CustomImage from "@/components/CustomImage";
 import { useRouter } from "next/router";
 import { AgendaInfo, formatDate } from "@/pages/agenda";
 import AgendaPane from "@/components/AgendaPane";
+import NextImage from "@/components/NextImage";
 
 export default function Speakers() {
   const router = useRouter();
@@ -101,10 +102,12 @@ export default function Speakers() {
             <BackButton />
             {data && (
               <>
-                <CustomImage
-                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_speakers[0].photo.id}:`}
+                <NextImage
+                  src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.conference_speakers[0].photo.id}?key=thumb`}
                   alt={data.conference_speakers[0].first_name + " potrait"}
                   className="h-[28vw] w-[28vw] sm:h-[11.8vw] sm:w-[11.8vw] mx-auto rounded-full overflow-hidden mt-8"
+                  imgClass="object-cover"
+                  unoptimized
                 />
                 <p className="text-center mt-4 mb-9 text-xl flex space-y-3 flex-col">
                   <span className="flex items-center justify-center">
