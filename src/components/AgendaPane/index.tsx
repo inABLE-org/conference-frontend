@@ -80,10 +80,14 @@ export default function AgendaPane({
                     {conference_agenda.moderator && (
                       <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start">
                         <h3 className="font-medium text-xl">Moderator</h3>
-                        <CustomImage
-                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
-                          alt={`${conference_agenda.moderator.first_name}`}
-                          className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
+                        <NextImage
+                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}?key=potrait`}
+                          alt={
+                            conference_agenda.moderator.first_name + " potrait"
+                          }
+                          className="h-[25vw] w-[25vw] md:h-[11vw] md:w-[11vw] xl:h-20 xl:w-20 rounded-full overflow-hidden"
+                          imgClass="object-cover"
+                          unoptimized
                         />
                         <a
                           href={`/speakers/${conference_agenda.moderator.id}`}
@@ -91,7 +95,14 @@ export default function AgendaPane({
                       </div>
                     )}
                     {conference_agenda.venue.length > 0 && (
-                      <div className="flex flex-col space-y-2 justify-end">
+                      <div
+                        className={`flex flex-col space-y-2 justify-end ${
+                          conference_agenda.moderator &&
+                          conference_agenda.breakouts.length > 0
+                            ? ""
+                            : "sm:col-span-2"
+                        }`}
+                      >
                         <div>
                           <h3 className="font-semibold mb-6">Venue:</h3>
                           <p>
@@ -105,11 +116,11 @@ export default function AgendaPane({
                     )}
                     {conference_agenda.breakouts.length > 0 && (
                       <div className="flex flex-col space-y-2 justify-end sm:col-span-2">
-                        <div>
-                          <h3 className="font-semibold mb-6">
-                            Breakout Sessions:
-                          </h3>
+                        <div className="min-h-[6rem]">
                           <p>
+                            <span className="font-semibold mb-6">
+                              Breakout Sessions:
+                            </span>{" "}
                             {conference_agenda.breakouts
                               .map(
                                 ({ conference_venues_id }: ConferenceVenue) =>
@@ -145,10 +156,14 @@ export default function AgendaPane({
                               key={key}
                               className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start"
                             >
-                              <CustomImage
-                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}`}
-                                alt={`${conference_speakers_id.first_name}`}
-                                className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden"
+                              <NextImage
+                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}?key=potrait`}
+                                alt={
+                                  conference_speakers_id.first_name + " potrait"
+                                }
+                                className="h-[25vw] w-[25vw] md:h-[11vw] md:w-[11vw] xl:h-20 xl:w-20 rounded-full overflow-hidden"
+                                imgClass="object-cover"
+                                unoptimized
                               />
                               <h4>
                                 <a

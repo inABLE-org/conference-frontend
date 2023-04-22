@@ -4,9 +4,7 @@ import React, { useState } from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
-import Tabs from "@/components/Tabs";
 import { DirectusImage } from "@/components/Sponsors";
-import TabPanel from "@/components/Tabs/TabPanel";
 
 export type SpeakerInfo = {
   id: string;
@@ -14,7 +12,7 @@ export type SpeakerInfo = {
   second_name: string;
   organization: string;
   role: string;
-  Country: string;
+  country: string;
   key_note: Boolean;
   moderator: Boolean;
   photo: DirectusImage;
@@ -27,6 +25,7 @@ export default function Speakers() {
   const { data }: any = useSWR(
     `query {
       conference_speakers(
+        sort: "order"
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
         id
@@ -53,29 +52,38 @@ export default function Speakers() {
             <div className="mb-12">
               <PageTitle title="Speakers" />
             </div>
-            <Tabs
-              tabList={["Keynote Speakers", "All Speakers"]}
-              className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
-              onTabSwith={setActiveTab}
-            />
           </div>
         </div>
-        <TabPanel className="container py-28" activeTab={activeTab}>
+        <div className="container py-28">
+          <h2 className="mb-12 text-5xl font-semibold text-center">
+            KeyNote Speakers
+          </h2>
           <ul
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16"
             aria-labelledby={`tab-${activeTab}`}
           >
             {data &&
               data.conference_speakers
-                .filter(
-                  (speaker: SpeakerInfo) =>
-                    (speaker.key_note && activeTab === 0) || activeTab === 1
-                )
+                .filter((speaker: SpeakerInfo) => speaker.key_note)
                 .map((speaker: SpeakerInfo, key: number) => (
                   <Speaker key={key} {...speaker} />
                 ))}
           </ul>
-        </TabPanel>
+          <h2 className="mb-12 mt-28 text-5xl font-semibold text-center">
+            Session Speakers
+          </h2>
+          <ul
+            className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-9"
+            aria-labelledby={`tab-${activeTab}`}
+          >
+            {data &&
+              data.conference_speakers
+                .filter((speaker: SpeakerInfo) => !speaker.key_note)
+                .map((speaker: SpeakerInfo, key: number) => (
+                  <Speaker key={key} {...speaker} />
+                ))}
+          </ul>
+        </div>
       </Layout>
     </>
   );

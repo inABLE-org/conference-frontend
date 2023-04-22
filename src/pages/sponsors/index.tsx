@@ -10,11 +10,20 @@ export default function Home() {
 
   const { data }: any = useSWR(
     `query {
-      conference_sponsors(
-        filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
+      conference_sponsor_types(
+        sort: "level"
+        filter: { status: { _eq: "published" }, name: { _neq: "Partner" } }
       ) {
         name
-        type
+        level
+      }
+      conference_sponsors(
+        filter: {  status: { _eq: "published" }, year: { _eq: 2023 } }
+      ) {
+        name
+        level {
+          name
+        }
         main
         logo {
           id
@@ -39,50 +48,19 @@ export default function Home() {
         </div>
         <div className="container py-40 text-center">
           <h2 className="font-semibold text-5xl">Sponsors</h2>
-          <div className="mt-16">
-            {data && (
+          {data &&
+            data.conference_sponsor_types.map((_type: {
+              name: string
+            }, key:number) => (
               <Sponsors
-                title="Platinum Sponsors"
+              key={key}
+                title={`${_type.name} Sponsors`}
                 sponsors={data.conference_sponsors.filter(
-                  (sponsor: Sponsor) => sponsor.type === "Platinum"
+                  (sponsor: Sponsor) => sponsor.level.name === _type.name
                 )}
                 border
               />
-            )}
-          </div>
-          <div className="mt-16">
-            {data && (
-              <Sponsors
-                title="Gold Sponsors"
-                sponsors={data.conference_sponsors.filter(
-                  (sponsor: Sponsor) => sponsor.type === "Gold"
-                )}
-                border
-              />
-            )}
-          </div>
-          <div className="mt-16">
-            {data && (
-              <Sponsors
-                title="Silver Sponsors"
-                sponsors={data.conference_sponsors.filter(
-                  (sponsor: Sponsor) => sponsor.type === "Silver"
-                )}
-                border
-              />
-            )}
-          </div>
-          <div className="mt-16">
-            {data && (
-              <Sponsors
-                title="Bronze Sponsors"
-                sponsors={data.conference_sponsors.filter(
-                  (sponsor: Sponsor) => sponsor.type === "Bronze"
-                )}
-                border
-              />
-            )}
-          </div>
+            ))}
           <h2 className="font-semibold text-5xl mt-24 mb-16" id="partnersTitle">
             Partners
           </h2>
@@ -92,7 +70,7 @@ export default function Home() {
           >
             {data &&
               data.conference_sponsors
-                .filter((sponsor: Sponsor) => sponsor.type === "Partner")
+                .filter((sponsor: Sponsor) => sponsor.level.name === "Partner")
                 .map((partner: Sponsor, key: number) => {
                   return (
                     <li
