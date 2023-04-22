@@ -96,7 +96,7 @@ export default function PressList() {
                   </a>
                 )}
                 <p
-                  className="font-medium line-clamp-4"
+                  className="font-medium line-clamp-4 overflow-hidden"
                   onClick={
                     press.banner && press.banner.type.includes("video")
                       ? () =>

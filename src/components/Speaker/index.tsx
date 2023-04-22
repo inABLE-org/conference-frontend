@@ -15,7 +15,7 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
       <NextImage
         src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${speaker.photo.id}?key=potrait`}
         alt={speaker.first_name + " potrait"}
-        className="h-[18.2vw] w-[18vw] md:h-[7.75vw] md:w-[7.7vw] rounded-full border-secondary-2 border-4 overflow-hidden mx-auto"
+        className="h-[38vw] w-[38vw] sm:h-[17vw] sm:w-[17vw] lg:h-28 lg:w-28 rounded-full border-secondary-2 border-4 overflow-hidden mx-auto"
         imgClass="object-cover"
         unoptimized
       />
@@ -27,7 +27,7 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
       <p className="text-center mt-4 text-base flex space-y-4 flex-col">
         <span>{speaker.role}</span>
         <span>{speaker.organization}</span>
-        <span>{speaker.Country}</span>
+        <span>{speaker.country}</span>
       </p>
     </li>
   );

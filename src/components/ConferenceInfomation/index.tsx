@@ -16,7 +16,7 @@ export default function ConferenceInformation({
           <h2 className="text-center lg:text-end">{title}</h2>
         </dt>
         <dd
-          className="font-medium text-xl border-l-[0.015625rem] py-12 px-2  lg:w-[60%]"
+          className="font-medium text-xl border-l-[0.015625rem] py-12 px-2  lg:w-[60%] pl-8"
           dangerouslySetInnerHTML={{
             __html: info,
           }}
