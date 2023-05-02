@@ -80,7 +80,7 @@ export default function Contactus() {
                                     className='form-input border border-black w-full mb-7 rounded py-3 pl-5'
                                     type="text"
                                     autoComplete="given_name"
-                                    name="user_name"
+                                    name="from_name"
                                 /><br />
                                 <label
                                     htmlFor="email">
@@ -89,7 +89,7 @@ export default function Contactus() {
                                     type="email"
                                     className='form-input border border-black w-full rounded pl-5 py-3 mb-7'
                                     id="email"
-                                    name="user_email" /> <br />
+                                    name="reply_to" /> <br />
                                 <label
                                     htmlFor="message">
                                     <span className='inline-block text-primary'>*</span>Message</label> <br />
