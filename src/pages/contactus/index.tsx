@@ -24,17 +24,18 @@ export default function Contactus() {
                 console.log(result.text);
                 console.log("Message sent");
                 setMessage('Thanks, your message has been sent');
-                // Clear input fields
-                const nameInput = form.current?.elements.namedItem('user_name') as HTMLInputElement;
-                const emailInput = form.current?.elements.namedItem('user_email') as HTMLInputElement;
-                const messageInput = form.current?.elements.namedItem('message') as HTMLTextAreaElement;
+                form.current?.reset();
 
             }, (error) => {
                 console.log(error.text);
                 setMessage('There was an error sending your email,Please try again');
             });
     };
-
+    function clearform() {
+        if (form.current) {
+            form.current.reset();
+        }
+    }
     return (
         <>
             <Layout>
@@ -72,29 +73,31 @@ export default function Contactus() {
                         <div>
                             <form className="bg-white shadow py-10 px-10 rounded-md" onSubmit={sendEmail} ref={form}>
                                 <h2 className='text-4xl font-semibold'>Contact us</h2>
-                                <p><span className='inline-block text-primary mt-8 mb-3'>*</span>Required Fields</p>
+                                <p><span className='inline-block text-secondary mt-8 mb-3 text-secondary font-bold'>*</span>Required Fields</p>
                                 <p className="text-secondary mb-3" role="alert">{message}</p>
-                                <label htmlFor='fullname'>Name</label><br />
+                                <label htmlFor='fullname' className='text-xl'>Full Name</label><br />
                                 <input
                                     id="fullname"
                                     className='form-input border border-black w-full mb-7 rounded py-3 pl-5'
                                     type="text"
-                                    autoComplete="given_name"
+                                    autoComplete="name"
                                     name="from_name"
                                 /><br />
-                                <label
-                                    htmlFor="email">
-                                    <span className='inline-block text-primary'>*</span>Email</label> <br />
+                                <label className='text-xl'><span className='text-secondary font-bold'>*</span>Email</label>
                                 <input
                                     type="email"
+                                    required
                                     className='form-input border border-black w-full rounded pl-5 py-3 mb-7'
                                     id="email"
+                                    autoComplete='email'
                                     name="reply_to" /> <br />
                                 <label
+                                    className='text-xl'
                                     htmlFor="message">
-                                    <span className='inline-block text-primary'>*</span>Message</label> <br />
+                                    <span className='text-secondary font-bold'>*</span>Message</label> <br />
                                 <textarea
                                     id="message"
+                                    required
                                     className='form-input border border-black w-full pl-5 py-3 rounded min-h-[130px] mb-7'
                                     name="message" /><br />
                                 <div className="flex">
@@ -102,7 +105,9 @@ export default function Contactus() {
                                         type="submit"
                                         className='font-semibold text-sm bg-secondary text-white px-8 py-4 mr-10 rounded'>SEND MESSAGE</button>
                                     <button
+                                        onClick={clearform}
                                         className='border font-semibold text-sm border-black px-8 py-4 rounded'>Cancel</button>
+
                                 </div>
                             </form>
                         </div>
