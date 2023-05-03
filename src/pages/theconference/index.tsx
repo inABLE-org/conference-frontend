@@ -12,9 +12,6 @@ export default function About() {
   return (
     <>
       <Layout pageTitle="About The Conference">
-        <span className="hidden" id="newTab">
-          Opens in a new Tab
-        </span>
         <div className="bg-gradient-to-b from-primary to-primary-1 pt-10 pb-4 text-white">
           <div className="container">
             <div className="mb-12">
@@ -59,7 +56,7 @@ export default function About() {
         </div>
         <div className="container pt-9">
           <div id="organizer" className={`${openTab === 1}`}>
-            <h1 className="mb-9 text-5xl font-semibold">Organizer</h1>
+            <h2 className="mb-9 text-5xl font-semibold">Organizer</h2>
             <p className="text-start font-medium">
               <a
                 href="https://inable.org/"

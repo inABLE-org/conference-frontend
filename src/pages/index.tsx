@@ -56,78 +56,18 @@ export default function Home() {
         link_text
         link
       }
-      platinum: conference_sponsors(
+      conference_sponsors(
         limit: 4
-        filter: {
-          status: { _eq: "published" }
-          type: { _eq: "Platinum" }
-          year: { _eq: 2023 }
-        }
+        sort: "level"
+        filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
         name
+        level {
+          name
+        }
         logo {
           id
           description
-        }
-        website
-      }
-      gold: conference_sponsors(
-        limit: 4
-        filter: {
-          status: { _eq: "published" }
-          type: { _eq: "Gold" }
-          year: { _eq: 2023 }
-        }
-      ) {
-        name
-        logo {
-          id
-          title
-        }
-        website
-      }
-      silver: conference_sponsors(
-        limit: 4
-        filter: {
-          status: { _eq: "published" }
-          type: { _eq: "Silver" }
-          year: { _eq: 2023 }
-        }
-      ) {
-        name
-        logo {
-          id
-          title
-        }
-        website
-      }
-      bronze: conference_sponsors(
-        limit: 4
-        filter: {
-          status: { _eq: "published" }
-          type: { _eq: "Bronze" }
-          year: { _eq: 2023 }
-        }
-      ) {
-        name
-        logo {
-          id
-          title
-        }
-        website
-      }
-      jubilee: conference_sponsors(
-        limit: 4
-        filter: {
-          status: { _eq: "published" }
-          type: { _eq: "Jubilee" }
-          year: { _eq: 2023 }
-        }
-      ) {
-        name
-        logo {
-          id
-          title
         }
         website
       }
@@ -149,33 +89,6 @@ export default function Home() {
     `,
     Fetcher
   );
-
-  const SponsorsDisplay = () => {
-    let title = "Platinum Sponsors";
-    let _list: Sponsor[] = data.platinum;
-
-    if (!_list.length) {
-      title = "Gold Sponsors";
-      _list = data.gold;
-    }
-
-    if (!_list.length) {
-      title = "Silver Sponsors";
-      _list = data.silver;
-    }
-
-    if (!_list.length) {
-      title = "Bronze Sponsors";
-      _list = data.bronze;
-    }
-
-    if (!_list.length) {
-      title = "Jubilee Sponsors";
-      _list = data.bronze;
-    }
-
-    return <Sponsors title={title} sponsors={_list} />;
-  };
 
   return (
     <>
@@ -205,14 +118,15 @@ export default function Home() {
                 </p>
                 <div className="text-xs sm:text-xl font-semibold text-white pb-5 flex">
                   <a
+                    target="_blank"
                     href="https://hopin.com/events/inclusive-africa-2023/registration"
-                    className="rounded-3xl bg-secondary py-2 px-3 sm:px-12 mr-9"
-                    aria-describedby="pageTitle"
+                    className="rounded-3xl bg-secondary pt-3 sm:py-2 px-3 sm:px-12 mr-9"
+                    aria-describedby="pageTitle newTab"
                   >
                     Register
                   </a>
                   <a
-                    href={`/media ${
+                    href={`/media${
                       data
                         ? `/press_release?press=${data.conference_press[0].id}`
                         : ""
@@ -287,6 +201,8 @@ export default function Home() {
                 Hosted By <br />
                 <a
                   className="underline"
+                  target="_blank"
+                  aria-describedby="newTab"
                   href={`${data ? data.config[0].host_website : ""} `}
                 >
                   {data ? data.config[0].host : ""}{" "}
@@ -454,7 +370,15 @@ export default function Home() {
           <p className="text-xl py-9">
             This conference is possible thanks to our sponsors and partners
           </p>
-          {data && <SponsorsDisplay />}
+          {data && (
+            <Sponsors
+              title={`${data.conference_sponsors[0]?.level.name} Sponsors`}
+              sponsors={data.conference_sponsors.filter(
+                (sponsor: Sponsor) =>
+                  sponsor.level.name === data.conference_sponsors[0]?.level.name
+              )}
+            />
+          )}
           <Link
             href={"/sponsors"}
             className="border-b-3 border-secondary font-medium"

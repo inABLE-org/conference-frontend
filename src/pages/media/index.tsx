@@ -30,7 +30,7 @@ export default function Agenda() {
     if (
       typeof default_tab === "number" &&
       default_tab >= 0 &&
-      default_tab <= 3
+      default_tab <= 2
     ) {
       setActiveTab(default_tab);
     }

@@ -1,6 +1,6 @@
 import { SpeakerInfo } from "@/pages/speakers";
 import { useRouter } from "next/router";
-import CustomImage from "../CustomImage";
+import NextImage from "../NextImage";
 
 export default function Speaker({ ...speaker }: SpeakerInfo) {
   const router = useRouter();
@@ -12,13 +12,13 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
       className=" bg-white rounded-lg shadow-agenda-card hover:bg-primary hover:text-white py-6 hover:cursor-pointer h-full"
       onClick={() => viewSpeaker()}
     >
-      <div className="h-[18.2vw] w-[18vw] md:h-[7.75vw] md:w-[7.7vw] rounded-full border-secondary-2 border-4 overflow-hidden mx-auto flex items-center justify-center">
-        <CustomImage
-          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${speaker.photo.id}`}
-          alt={speaker.first_name + " potrait"}
-          className="min-h-[18.2vw] min-w-[18vw] md:min-h-[7.75vw] md:min-w-[7.7vw]"
-        />
-      </div>
+      <NextImage
+        src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${speaker.photo.id}?key=potrait`}
+        alt={speaker.first_name + " potrait"}
+        className="h-[38vw] w-[38vw] sm:h-[17vw] sm:w-[17vw] lg:h-28 lg:w-28 rounded-full border-secondary-2 border-4 overflow-hidden mx-auto"
+        imgClass="object-cover"
+        unoptimized
+      />
       <h2 className="font-medium text-xl text-center mt-6">
         <a href={`/speakers/${speaker.id}`}>
           {speaker.first_name + " " + speaker.second_name}
@@ -27,7 +27,7 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
       <p className="text-center mt-4 text-base flex space-y-4 flex-col">
         <span>{speaker.role}</span>
         <span>{speaker.organization}</span>
-        <span>{speaker.Country}</span>
+        <span>{speaker.country}</span>
       </p>
     </li>
   );

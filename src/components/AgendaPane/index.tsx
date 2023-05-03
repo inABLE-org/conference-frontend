@@ -14,7 +14,11 @@ const formatTime = (_date: string) =>
     minute: "numeric",
   }).format(new Date(_date));
 
-export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps) {
+export default function AgendaPane({
+  date,
+  agendaList,
+  draft,
+}: AgendaPaneProps) {
   return (
     <>
       <div className="font-medium">
@@ -40,8 +44,8 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                 ongoing ? "border-2" : ""
               }`}
             >
-              <dt className="relative flex flex-col items-center justify-between text-2xl px-4 xl:px-0 pt-11 lg:w-[30%]">
-                <div className="w-fit mx-auto py-3">
+              <dt className="relative flex flex-col items-start md:items-center justify-between text-2xl px-4 xl:px-0 pt-11 md:w-[30%]">
+                <div className="w-fit md:mx-auto py-3">
                   {ongoing && (
                     <span className="absolute top-0 bg-sucess-1 text-white flex px-3 py-1 font-semibold">
                       <NextImage
@@ -54,9 +58,16 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                       Ongoing
                     </span>
                   )}
-                  {formatTime(conference_agenda.start_time)} -{" "}
-                  <span className="sr-only">to</span>
-                  {formatTime(conference_agenda.end_time)}
+                  {conference_agenda.start_time !=
+                  conference_agenda.end_time ? (
+                    <>
+                      {formatTime(conference_agenda.start_time)} -{" "}
+                      <span className="sr-only">to</span>
+                      {formatTime(conference_agenda.end_time)}
+                    </>
+                  ) : (
+                    formatTime(conference_agenda.start_time)
+                  )}
                 </div>
               </dt>
               <dd className="border-l-[0.015625rem] py-9 w-full">
@@ -69,10 +80,14 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                     {conference_agenda.moderator && (
                       <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start">
                         <h3 className="font-medium text-xl">Moderator</h3>
-                        <CustomImage
-                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}`}
-                          alt={`${conference_agenda.moderator.first_name}`}
-                          className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden mx-auto sm:mx-0"
+                        <NextImage
+                          src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}?key=potrait`}
+                          alt={
+                            conference_agenda.moderator.first_name + " potrait"
+                          }
+                          className="h-[25vw] w-[25vw] md:h-[11vw] md:w-[11vw] xl:h-20 xl:w-20 rounded-full overflow-hidden"
+                          imgClass="object-cover"
+                          unoptimized
                         />
                         <a
                           href={`/speakers/${conference_agenda.moderator.id}`}
@@ -80,24 +95,32 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                       </div>
                     )}
                     {conference_agenda.venue.length > 0 && (
-                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start justify-end">
+                      <div
+                        className={`flex flex-col space-y-2 justify-end ${
+                          conference_agenda.moderator &&
+                          conference_agenda.breakouts.length > 0
+                            ? ""
+                            : "sm:col-span-2"
+                        }`}
+                      >
                         <div>
-                          <h3 className="font-semibold mb-6">venue:</h3>
+                          <h3 className="font-semibold mb-6">Venue:</h3>
                           <p>
                             {
-                              conference_agenda.venue[0].conference_venues_id?.name
+                              conference_agenda.venue[0].conference_venues_id
+                                ?.name
                             }
                           </p>
                         </div>
                       </div>
                     )}
                     {conference_agenda.breakouts.length > 0 && (
-                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start justify-end sm:col-span-2">
-                        <div>
-                          <h3 className="font-semibold mb-6">
-                            Breakout Sessions:
-                          </h3>
+                      <div className="flex flex-col space-y-2 justify-end sm:col-span-2">
+                        <div className="min-h-[6rem]">
                           <p>
+                            <span className="font-semibold mb-6">
+                              Breakout Sessions:
+                            </span>{" "}
                             {conference_agenda.breakouts
                               .map(
                                 ({ conference_venues_id }: ConferenceVenue) =>
@@ -133,10 +156,14 @@ export default function AgendaPane({ date, agendaList, draft }: AgendaPaneProps)
                               key={key}
                               className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start"
                             >
-                              <CustomImage
-                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}`}
-                                alt={`${conference_speakers_id.first_name}`}
-                                className="min-h-[25vw] w-[25vw] md:min-h-[5.1vw] md:w-[5.1vw] rounded-full overflow-hidden"
+                              <NextImage
+                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}?key=potrait`}
+                                alt={
+                                  conference_speakers_id.first_name + " potrait"
+                                }
+                                className="h-[25vw] w-[25vw] md:h-[11vw] md:w-[11vw] xl:h-20 xl:w-20 rounded-full overflow-hidden"
+                                imgClass="object-cover"
+                                unoptimized
                               />
                               <h4>
                                 <a

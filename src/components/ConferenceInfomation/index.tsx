@@ -11,12 +11,12 @@ export default function ConferenceInformation({
 }: ConferenceInformationProps) {
   return (
     <>
-      <div className={`lg:flex ${background ? background : ""}`}>
+      <div className={`lg:flex media-links ${background ? background : ""}`}>
         <dt className="font-bold text-32px pr-11 pt-12 lg:py-12 lg:w-[40%]">
           <h2 className="text-center lg:text-end">{title}</h2>
         </dt>
         <dd
-          className="font-medium text-xl border-l-[0.015625rem] py-12 px-2  lg:w-[60%]"
+          className="font-medium text-xl border-l-[0.015625rem] py-12 px-2  lg:w-[60%] pl-8"
           dangerouslySetInnerHTML={{
             __html: info,
           }}

@@ -112,47 +112,65 @@ export default function Agenda() {
                   Jomo Kenyatta International Airport. Accessible Shuttle
                   Service is available upon request.
                 </p>
-                <p>
-                  Hotel reservations can be made at the Radisson Blu Hotel under
-                  “Inclusive Africa Conference”.{" "}
-                  <span className="font-bold">*$140 USD</span> on BB/night Group
-                  Rate
-                </p>
+                <p>Hotel reservations can be made at the Radisson Blu Hotel</p>
+                <ul className="list-disc ml-8 media-links">
+                  <li>
+                    <strong>Group:</strong> Inclusive Africa Conference
+                  </li>
+                  <li>
+                    <strong>Rate: *$140 USD</strong> Bed & Breakfast/night
+                  </li>
+                </ul>
                 <p>Book Here </p>
-                <ul className="list-disc ml-8">
-                  <li>Contact: Stella at Radisson Blu Hotel</li>
-                  <li>Phone Number: +254 708 177 111</li>
-                  <li>E-mail: stella.njuguna@radissonblunairobi.com</li>
+                <ul className="list-disc ml-8 media-links">
+                  <li>
+                    <strong>Contact:</strong> Stella at Radisson Blu Hotel
+                  </li>
+                  <li>
+                    <strong>Phone Number:</strong> +254 708 177 111
+                  </li>
+                  <li>
+                    <strong>E-mail:</strong>{" "}
+                    <a href="mailto:reservations.nairobi@radissonblunairobi.com">
+                      reservations.nairobi@radissonblunairobi.com
+                    </a>
+                  </li>
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Services Available">
-                <p>
-                  There will be a dedicated Accessibility Desk at Radisson Blu
-                  Hotel lobby and a Registration Desk, outside the conference
-                  hall on the ground floor. They will offer several services,
-                  including signages on all levels, sighted conference guiding
-                  by ushers, and Sign Language Interpretation during
-                  registration, breaks and showcase Area visits. The ushers,
-                  Sign Language interpreters and French interpreters will be
-                  identified by uniform and badges.
-                </p>
-                <p>
-                  The Conference Agenda in accessible format will be available
-                  for download on the website and sent to all registered
-                  participants via email the week of the conference.
-                </p>
-                <p>
-                  Universal Sign Language interpretation will be provided at all
-                  levels of the conference (lobby registration desk and all
-                  sessions).
-                </p>
-                <p>
-                  Live Captioning will be available in all sessions on screen.
-                  <br />
-                  Should you have a service animal, kindly let us know in
-                  advance for planning purposes. <br /> Language translations
-                  (French and English) will be available.
-                </p>
+                <ul className="list-disc ml-8 space-y-3">
+                  <li>
+                    There will be a dedicated Accessibility Desk at Radisson Blu
+                    Hotel lobby and a Registration Desk, outside the conference
+                    hall on the ground floor. They will offer several services,
+                    including signages on all levels, sighted conference guiding
+                    by ushers, and Sign Language Interpretation during
+                    registration, breaks and showcase Area visits. The ushers,
+                    Sign Language interpreters and French interpreters will be
+                    identified by uniform and badges.
+                  </li>
+                  <li>
+                    The Conference Agenda in accessible format will be available
+                    for download on the website and sent to all registered
+                    participants via email the week of the conference.
+                  </li>
+                  <li>
+                    Universal Sign Language interpretation will be provided at
+                    all levels of the conference (lobby registration desk and
+                    all sessions).
+                  </li>
+                  <li>
+                    Live Captioning will be available in all sessions on screen.
+                  </li>
+                  <li>
+                    Should you have a service animal, kindly let us know in
+                    advance for planning purposes.
+                  </li>
+                  <li>
+                    Language translations (French and English) will be
+                    available.
+                  </li>
+                </ul>
               </GeneralInformation>
               <GeneralInformation title="Wheelchair Accessible Taxi Services">
                 <p>
@@ -169,7 +187,7 @@ export default function Agenda() {
                     Hill offers valet parking upon request and is available at
                     the hotel entrance.
                   </li>
-                  <li>To book, kindly reach them on +254 (0) 709 810 000</li>
+                  <li>To book, kindly reach them on +254 709 810 000</li>
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Currency & Exchange">

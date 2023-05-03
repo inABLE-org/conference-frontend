@@ -25,6 +25,9 @@ export default function Nav({ pageTitle }: NavProps) {
         <link rel="icon" href="/favicon.ico" />
       </Head>
       <header className="md:sticky top-0 z-10">
+        <span className="hidden" id="newTab">
+          Opens in a new Tab
+        </span>
         <div className={`bg-primary ${skipVisible ? "" : "sr-only"}`}>
           <div className="container pb-6 pt-2">
             <a
@@ -70,7 +73,9 @@ export default function Nav({ pageTitle }: NavProps) {
               <NavDropDown
                 id="TheConferenceMenu"
                 name="The Conference"
-                current={currentPath != null && currentPath.includes("theconference")}
+                current={
+                  currentPath != null && currentPath.includes("theconference")
+                }
               >
                 <DropDownItem
                   name="About the conference"
@@ -151,7 +156,8 @@ export default function Nav({ pageTitle }: NavProps) {
                 target={"_blank"}
                 href="https://hopin.com/events/inclusive-africa-2023/registration"
                 className="rounded bg-secondary p-2"
-                aria-label="Register for Inclusive Africa 2023(Opens in a new Tab)"
+                aria-label="Register for Inclusive Africa 2023"
+                aria-describedby="newTab"
               >
                 Register
               </a>
