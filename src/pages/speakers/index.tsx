@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import React, { useState } from "react";
+import React from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
@@ -20,8 +20,6 @@ export type SpeakerInfo = {
 };
 
 export default function Speakers() {
-  const [activeTab, setActiveTab] = useState(0);
-
   const { data }: any = useSWR(
     `query {
       conference_speakers(
@@ -55,12 +53,15 @@ export default function Speakers() {
           </div>
         </div>
         <div className="container py-28">
-          <h2 className="mb-12 text-5xl font-semibold text-center">
+          <h2
+            className="mb-12 text-5xl font-semibold text-center"
+            id="keyNoteTitle"
+          >
             KeyNote Speakers
           </h2>
           <ul
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16"
-            aria-labelledby={`tab-${activeTab}`}
+            aria-labelledby="keyNoteTitle"
           >
             {data &&
               data.conference_speakers
@@ -69,12 +70,15 @@ export default function Speakers() {
                   <Speaker key={key} {...speaker} />
                 ))}
           </ul>
-          <h2 className="mb-12 mt-28 text-5xl font-semibold text-center">
+          <h2
+            className="mb-12 mt-28 text-5xl font-semibold text-center"
+            id="sessionTittle"
+          >
             Session Speakers
           </h2>
           <ul
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-9"
-            aria-labelledby={`tab-${activeTab}`}
+            aria-labelledby="sessionTittle"
           >
             {data &&
               data.conference_speakers

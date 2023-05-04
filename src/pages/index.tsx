@@ -8,6 +8,7 @@ import {
   HomeIcon,
   MapPinIcon,
   UserGroupIcon,
+  XMarkIcon,
 } from "@heroicons/react/24/solid";
 
 import { Inter } from "next/font/google";
@@ -15,6 +16,7 @@ import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import NextImage from "@/components/NextImage";
 import Link from "next/link";
+import CountDown from "@/components/CountDown";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -93,6 +95,7 @@ export default function Home() {
   return (
     <>
       <Layout>
+        <CountDown />
         <div className="bg-gradient-to-b from-primary to-primary-1">
           <div className="lg:grid grid-cols-2">
             <div className="pl-14 flex items-center">
@@ -102,7 +105,7 @@ export default function Home() {
                   className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-white mb-9 sm:leading-[4.840625rem] md:mt-3 lg:mt-0`}
                 >
                   Inclusive{" "}
-                  <span className="text-secondary-1 inline-block">
+                  <span className="text-secondary-1 inline-block" role="text">
                     Africa
                     <CustomImage
                       src={"/assets/icons/Vector.png"}

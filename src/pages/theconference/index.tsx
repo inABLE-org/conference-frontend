@@ -25,6 +25,7 @@ export default function About() {
                   className={`${
                     openTab === 1 ? "border-b-5 border-secondary-2" : ""
                   } px-8 pb-1`}
+                  aria-current={openTab === 1 ? "location" : false}
                 >
                   The organizer
                 </a>
@@ -36,6 +37,7 @@ export default function About() {
                   className={`${
                     openTab === 2 ? "border-b-5 border-secondary-2" : ""
                   } px-8 pb-1`}
+                  aria-current={openTab === 2 ? "location" : false}
                 >
                   About the Conference
                 </a>
@@ -47,6 +49,7 @@ export default function About() {
                   className={`${
                     openTab === 3 ? "border-b-5 border-secondary-2" : ""
                   } px-8 pb-1`}
+                  aria-current={openTab === 3 ? "location" : false}
                 >
                   About Previous Conference
                 </a>
@@ -73,9 +76,9 @@ export default function About() {
               program for blind and low-vision youth in Kenya to provide digital
               skills training to the disadvantaged youth.
             </p>
-            <h2 className="mt-16 text-[2rem] font-semibold">
+            <h3 className="mt-16 text-[2rem] font-semibold">
               InABLE&apos;s Impact
-            </h2>
+            </h3>
             <ImpactSection />
           </div>
           <div id="conference">
@@ -162,7 +165,7 @@ export default function About() {
                 }
               />
             </div>
-            <h3 className="text-5xl font-semibold mt-32 mb-7">Impact</h3>
+            <h2 className="text-5xl font-semibold mt-32 mb-7">Impact</h2>
             <p className="text-start font-medium">
               Since the first Inclusive Africa Conference in 2020, the purpose
               of this annual event is to promote the advancement of digital
@@ -181,7 +184,7 @@ export default function About() {
 
             <div className="md:flex pt-40 space-x-9 3xl:items-center">
               <div className="md:w-5/12">
-                <h3 className="text-5xl font-semibold">Objectives</h3>
+                <h2 className="text-5xl font-semibold">Objectives</h2>
                 <p className="mt-12 font-medium">
                   Since the first Inclusive Africa Conference in 2020, the
                   purpose of this annual event is to promote the advancement of
@@ -286,6 +289,7 @@ export default function About() {
             href="https://hopin.com/events/inclusive-africa-2023/registration"
             target={"_blank"}
             aria-describedby="newTab"
+            aria-label="Register for the 4th Annual Inclusive Africa Conference"
             className="bg-secondary text-white rounded-full px-12 py-3  font-semibold text-xl"
           >
             Register
