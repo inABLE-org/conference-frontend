@@ -18,6 +18,7 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
     } catch (error: any) {
       if (typeof error.message === 'string') {
         res.status(400).json({ message: "Error occured" })
+        console.log(error.message)
       }
     }
   } else {

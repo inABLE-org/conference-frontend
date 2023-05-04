@@ -1,5 +1,6 @@
 import React, { useRef, useState, FormEvent } from 'react';
 import Layout from "@/components/Layout";
+import { Fetcher } from '@/utils/fetcher';
 import {
     MapPinIcon,
     EnvelopeIcon,
@@ -12,12 +13,13 @@ type FormValues = {
     message: string;
   };
 export default function Contactus() {  
+    const [response, setResponse] = useState("");
+    const [sending, setSending] = useState(false);
     const resetForm = () => {
         formRefs.current.name.value = "";
         formRefs.current.email.value = "";
         formRefs.current.message.value = "";
       };
-    const [response, setResponse] = useState("");
     const formRefs = useRef<Record<string, HTMLInputElement | HTMLTextAreaElement>>({});
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -37,8 +39,35 @@ export default function Contactus() {
                 Accept: "application/json",
               },
             });
+            //save data to CMS
+            if (!sending) {
+                setSending(true);
+                  const MessageCreated: any = await Fetcher(
+                    `
+                    mutation CreateConferenceContactMessage($name: String!, $email: String!, $message: String!) {
+                        create_conference_contact_messages_item(data: {
+                            name: $name,
+                            email: $email,
+                            message: $message,
+                        }) {
+                            name
+                            email
+                            message
+                        }
+                    }
+                `,
+                    {
+                      name: formRefs.current.name.value,
+                      email:formRefs.current.email.value,
+                      message:formRefs.current.message.value
+                    }
+                  );
+          
+                  
+                }
             const data = await res.json();
-            setResponse(data.message); // update response state with the message from the API
+            //set status message to response 
+            setResponse(data.message);
             resetForm()
           } catch (error) {
             console.error(error);
