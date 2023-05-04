@@ -3,10 +3,11 @@ export default function Conferencecard(props: {
   className?: string;
 }) {
   return (
-    <div
+    <p
+      role="text"
       className={`rounded-2xl bg-white flex flex-col items-center text-center py-6 space-y-3 ${props.className}`}
     >
       {props.title}
-    </div>
+    </p>
   );
 }

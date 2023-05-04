@@ -5,15 +5,18 @@ import Link from "next/link";
 export default function PreviousConference() {
   return (
     <div id="previous">
-      <h4 className="text-5xl font-semibold mt-48 mb-12 container">
+      <h2 className="text-5xl font-semibold mt-48 mb-12 container">
         About Previous Conferences
-      </h4>
+      </h2>
       <div>
         <div className="bg-gradient-to-b from-primary to-primary-1">
           <div className="container py-20">
             <div className="flex flex-col sm:flex-row text-white justify-between items-center">
               <h3 className="font-semibold text-[64px]">
-                <a href="https://www.inclusiveafrica.org/media/press_release?press=16">
+                <a
+                  href="https://www.inclusiveafrica.org/media/press_release?press=16"
+                  aria-label="2022 conference"
+                >
                   2022
                 </a>
               </h3>
@@ -92,57 +95,63 @@ export default function PreviousConference() {
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-2xl font-semibold">Launch:</h4>
-                        <p className="text-xl xl:text-start px-1">
+                        <span className="text-2xl font-semibold">Launch:</span>
+                        <span className="text-xl xl:text-start px-1">
                           KS2952 ICT Accessibility Standards for products &
                           services
-                        </p>
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">+2465</h4>
-                        <p className="font-medium text-2xl">Registrations</p>
+                        <span className="text-[2rem] font-semibold">+2465</span>
+                        <span className="font-medium text-2xl">
+                          Registrations
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">14</h4>
-                        <p className="font-medium text-2xl">Country partners</p>
+                        <span className="text-[2rem] font-semibold">14</span>
+                        <span className="font-medium text-2xl">
+                          Country partners
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">522</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[2rem] font-semibold">522</span>
+                        <span className="font-medium text-2xl">
                           Watch Parties Attendance
-                        </p>
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">64</h4>
-                        <p className="font-medium text-2xl xl:px-4">
+                        <span className="text-[2rem] font-semibold">64</span>
+                        <span className="font-medium text-2xl xl:px-4">
                           Country by registration
-                        </p>
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">63 / 17</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[2rem] font-semibold">
+                          63 / 17
+                        </span>
+                        <span className="font-medium text-2xl">
                           Speakers Countries
-                        </p>
+                        </span>
                       </>
                     }
                   />
@@ -155,7 +164,10 @@ export default function PreviousConference() {
           <div className="container py-20">
             <div className="flex flex-col sm:flex-row justify-between items-center">
               <h3 className="font-semibold text-[64px]">
-                <a href="https://www.inclusiveafrica.org/media/press_release?press=11">
+                <a
+                  href="https://www.inclusiveafrica.org/media/press_release?press=11"
+                  aria-label="2021 conference"
+                >
                   2021
                 </a>
               </h3>
@@ -217,8 +229,10 @@ export default function PreviousConference() {
                     className="shadow-about-card"
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">+1583</h4>
-                        <p className="font-medium text-2xl">Registration</p>
+                        <span className="text-[2rem] font-semibold">+1583</span>
+                        <span className="font-medium text-2xl">
+                          Registration
+                        </span>
                       </>
                     }
                   />
@@ -226,8 +240,10 @@ export default function PreviousConference() {
                     className="shadow-about-card"
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">8</h4>
-                        <p className="font-medium text-2xl">Country partners</p>
+                        <span className="text-[2rem] font-semibold">8</span>
+                        <span className="font-medium text-2xl">
+                          Country partners
+                        </span>
                       </>
                     }
                   />
@@ -235,10 +251,10 @@ export default function PreviousConference() {
                     className="shadow-about-card"
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold">375</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[32px] font-semibold">375</span>
+                        <span className="font-medium text-2xl">
                           Watch Parties Attendance
-                        </p>
+                        </span>
                       </>
                     }
                   />
@@ -246,10 +262,10 @@ export default function PreviousConference() {
                     className="shadow-about-card"
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">42</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[2rem] font-semibold">42</span>
+                        <span className="font-medium text-2xl">
                           Countries By Registrations
-                        </p>
+                        </span>
                       </>
                     }
                   />
@@ -257,10 +273,12 @@ export default function PreviousConference() {
                     className="shadow-about-card"
                     title={
                       <>
-                        <h4 className="text-[2rem] font-semibold">39 / 12</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[2rem] font-semibold">
+                          39 / 12
+                        </span>
+                        <span className="font-medium text-2xl">
                           Speakers Countries
-                        </p>
+                        </span>
                       </>
                     }
                   />
@@ -273,7 +291,10 @@ export default function PreviousConference() {
           <div className="container py-20">
             <div className="flex flex-col sm:flex-row text-white justify-between items-center">
               <h3 className="font-semibold text-[64px]">
-                <a href="https://www.inclusiveafrica.org/media/press_release?press=3">
+                <a
+                  href="https://www.inclusiveafrica.org/media/press_release?press=3"
+                  aria-label="2020 conference"
+                >
                   2020
                 </a>
               </h3>
@@ -336,48 +357,60 @@ export default function PreviousConference() {
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold my-3">6300</h4>
-                        <p className="font-medium text-2xl">Registrations</p>
+                        <span className="text-[32px] font-semibold my-3">
+                          6300
+                        </span>
+                        <span className="font-medium text-2xl">
+                          Registrations
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold my-3">8</h4>
-                        <p className="font-medium text-2xl">Country partners</p>
+                        <span className="text-[32px] font-semibold my-3">
+                          8
+                        </span>
+                        <span className="font-medium text-2xl">
+                          Country partners
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold my-3">302</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[32px] font-semibold my-3">
+                          302
+                        </span>
+                        <span className="font-medium text-2xl">
                           Watch Parties Attendance
-                        </p>
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold my-3">70</h4>
-                        <p className="font-medium text-2xl">
+                        <span className="text-[32px] font-semibold my-3">
+                          70
+                        </span>
+                        <span className="font-medium text-2xl">
                           Countries By Registrations
-                        </p>
+                        </span>
                       </>
                     }
                   />
                   <Conferencecard
                     title={
                       <>
-                        <h4 className="text-[32px] font-semibold my-3">
+                        <span className="text-[32px] font-semibold my-3">
                           27 / 14
-                        </h4>
-                        <p className="font-medium text-2xl">
+                        </span>
+                        <span className="font-medium text-2xl">
                           Speakers Countries
-                        </p>
+                        </span>
                       </>
                     }
                   />
