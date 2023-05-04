@@ -19,12 +19,15 @@ export default function Speaker({ ...speaker }: SpeakerInfo) {
         imgClass="object-cover"
         unoptimized
       />
-      <h2 className="font-medium text-xl text-center mt-6">
+      <h3 className="font-medium text-xl text-center mt-6">
         <a href={`/speakers/${speaker.id}`}>
           {speaker.first_name + " " + speaker.second_name}
         </a>
-      </h2>
-      <p className="text-center mt-4 text-base flex space-y-4 flex-col">
+      </h3>
+      <p
+        className="text-center mt-4 text-base flex space-y-4 flex-col"
+        role="text"
+      >
         <span>{speaker.role}</span>
         <span>{speaker.organization}</span>
         <span>{speaker.country}</span>
