@@ -9,10 +9,10 @@ export default async function handler(req: NextApiRequest, res: NextApiResponse)
         ...mailOptions,
         text: "This is a test String",
         subject:"Inclusive Africa (Contact us Page)",
-        html: `<h1>Email from Inclusive Africa Contact us Page<h1><br>
-               <p>Name: ${data.name}</p>
-               <p>Email: ${data.email}</p>
-               <p>Message: ${data.message}</p>`
+        html: `<h1 style="font-size:20px;margin-bottom:0px;">Email from Inclusive Africa Contact us Page<h1><br>
+               <p style="font-size:16px;margin-bottom:0px;">Name: ${data.name}</p>
+               <a style="font-size:16px;margin-bottom:0px" href="mailto:${data.email}">Email: ${data.email}</a>
+               <p style="font-size:12px;margin-bottom:0px">Message: ${data.message}</p>`
       })
       res.status(400).json({ message: "Thanks Your Message was sent Successfully" })
     } catch (error: any) {
