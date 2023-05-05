@@ -11,15 +11,15 @@ type FormValues = {
     name: string;
     email: string;
     message: string;
-  };
-export default function Contactus() {  
+};
+export default function Contactus() {
     const [response, setResponse] = useState("");
     const [sending, setSending] = useState(false);
     const resetForm = () => {
         formRefs.current.name.value = "";
         formRefs.current.email.value = "";
         formRefs.current.message.value = "";
-      };
+    };
     const formRefs = useRef<Record<string, HTMLInputElement | HTMLTextAreaElement>>({});
     const onSubmit = async (event: FormEvent<HTMLFormElement>) => {
         event.preventDefault();
@@ -28,28 +28,29 @@ export default function Contactus() {
             name: formRefs.current.name.value,
             email: formRefs.current.email.value,
             message: formRefs.current.message.value,
-          };
-          try {
+        };
+        try {
             setResponse("Sending your message.....")
             const res = await fetch("/api/contact", {
-              method: "POST",
-              body: JSON.stringify(formValues),
-              headers: {
-                "Content-Type": "application/json",
-                Accept: "application/json",
-              },
+                method: "POST",
+                body: JSON.stringify(formValues),
+                headers: {
+                    "Content-Type": "application/json",
+                    Accept: "application/json",
+                },
             });
             //save data to CMS
             if (!sending) {
                 setSending(true);
-                  const MessageCreated: any = await Fetcher(
-                    `
-                    mutation CreateConferenceContactMessage($name: String!, $email: String!, $message: String!) {
+                const MessageCreated: any = await Fetcher(
+                    `mutation CreateConferenceContactMessage($name: String!, $email: String!, $message: String!) {
                         create_conference_contact_messages_item(data: {
+                            status:"published"
                             name: $name,
                             email: $email,
                             message: $message,
                         }) {
+                            status
                             name
                             email
                             message
@@ -57,24 +58,20 @@ export default function Contactus() {
                     }
                 `,
                     {
-                      name: formRefs.current.name.value,
-                      email:formRefs.current.email.value,
-                      message:formRefs.current.message.value
+                        name: formRefs.current.name.value,
+                        email: formRefs.current.email.value,
+                        message: formRefs.current.message.value
                     }
-                  );
-          
-                  
-                }
+                );
+            }
             const data = await res.json();
             //set status message to response 
             setResponse(data.message);
             resetForm()
-          } catch (error) {
-            console.error(error);
+        } catch (error) {
             setResponse("An Error occurred while submitting the form.");
-          }
+        }
     };
-
     return (
         <>
             <Layout>
@@ -107,13 +104,11 @@ export default function Contactus() {
                                         stroke="currentColor"
                                     />
                                         Adlife Plaza, Ring Road, Kilimani<br /> Nairobi, Kenya</p>
-
                                 </div>
-
                             </div>
                         </div>
                         <div>
-                            <form className="bg-white shadow py-10 px-10 rounded-md" onSubmit={onSubmit}>
+                            <form className="bg-white shadow-xl py-10 px-10 rounded-md" onSubmit={onSubmit}>
                                 <h2 className='text-4xl font-semibold'>Contact us</h2>
                                 <p className='font-semibold my-3' role="alert" id="alertresponse">{response}</p>
                                 <p><span className='inline-block text-secondary mt-8 mb-3 text-secondary font-bold'>*</span>Required Fields</p>
@@ -163,7 +158,7 @@ export default function Contactus() {
                                         className='font-semibold text-sm bg-secondary text-white px-8 py-4 mr-10 rounded'>SEND MESSAGE</button>
                                     <button
                                         onClick={resetForm}
-                                        className='border font-semibold text-sm border-black px-8 py-4 rounded'>Cancel</button>
+                                        className='border font-semibold text-sm border-secondary px-8 py-4 rounded'>Cancel</button>
                                 </div>
                             </form>
                         </div>
