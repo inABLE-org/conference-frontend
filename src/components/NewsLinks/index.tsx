@@ -76,44 +76,56 @@ export default function NewsLinks() {
                 className="shadow-gi-card bg-white sm:ml-11 mb-20"
                 aria-labelledby={year}
               >
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">TV Stories</h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="tv" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Radio News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="radio" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Print News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="print" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Digital News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2 lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="digital" />
-                  </div>
-                </li>
+                {data.conference_news.filter(
+                  (news: News) => news.year === year && news.type === "tv").length > 0 && (
+                  <li className="lg:flex border-b-[0.0625rem]">
+                    <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
+                      <h3 className="text-center lg:text-end">TV Stories</h3>
+                    </div>
+                    <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
+                      <NewsItems year={year} type="tv" />
+                    </div>
+                  </li>
+                )}
+                {data.conference_news.filter(
+                  (news: News) => news.year === year && news.type === "radio").length > 0 && (
+                  <li className="lg:flex border-b-[0.0625rem]">
+                    <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
+                      <h3 className="text-center lg:text-end">
+                        Radio News Stories
+                      </h3>
+                    </div>
+                    <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
+                      <NewsItems year={year} type="radio" />
+                    </div>
+                  </li>
+                )}
+                {data.conference_news.filter(
+                  (news: News) => news.year === year && news.type === "print").length > 0 && (
+                  <li className="lg:flex border-b-[0.0625rem]">
+                    <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
+                      <h3 className="text-center lg:text-end">
+                        Print News Stories
+                      </h3>
+                    </div>
+                    <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
+                      <NewsItems year={year} type="print" />
+                    </div>
+                  </li>
+                )}
+                {data.conference_news.filter(
+                  (news: News) => news.type === "digital").length > 0 && (
+                  <li className="lg:flex border-b-[0.0625rem]">
+                    <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
+                      <h3 className="text-center lg:text-end">
+                        Digital News Stories
+                      </h3>
+                    </div>
+                    <div className="font-medium border-l-[0.09375rem] py-6 px-2 lg:w-[70%] xl:w-[76%]">
+                      <NewsItems year={year} type="digital" />
+                    </div>
+                  </li>
+                )}
               </ul>
             </>
           );
