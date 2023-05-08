@@ -142,6 +142,7 @@ export default function AgendaPane({
                     </h3>
                   )}
                   <ul
+                    role="list"
                     className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
                     aria-label={`speakerTitle-${conference_agenda.id}`}
                   >

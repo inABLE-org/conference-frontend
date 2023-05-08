@@ -11,7 +11,7 @@ export default function Footer() {
             <div className="mr-24">
               <a href="https://www.inclusiveafrica.org/">
                 <CustomImage
-                  src={"/assets/img/logo.png"}
+                  src={"/assets/img/Inclusive Africa logo.webp"}
                   alt="inclusive africa 2023 logo"
                   className="h-16 w-56"
                 />

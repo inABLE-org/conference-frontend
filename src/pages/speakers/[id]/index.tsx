@@ -49,6 +49,18 @@ export default function Speakers() {
           description
           start_time
           end_time
+          venue {
+            conference_venues_id {
+              id
+              name
+            }
+          }
+          breakouts {
+            conference_venues_id {
+              id
+              name
+            }
+          }
           moderator {
             id
             first_name
