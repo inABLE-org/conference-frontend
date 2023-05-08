@@ -60,6 +60,7 @@ export default function Speakers() {
             KeyNote Speakers
           </h2>
           <ul
+            role="list"
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16"
             aria-labelledby="keyNoteTitle"
           >
@@ -77,6 +78,7 @@ export default function Speakers() {
             Session Speakers
           </h2>
           <ul
+            role="list"
             className="grid sm:grid-cols-2 xl:grid-cols-4 gap-x-5 gap-y-16 my-9"
             aria-labelledby="sessionTittle"
           >
