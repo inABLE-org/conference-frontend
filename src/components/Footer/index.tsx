@@ -29,7 +29,11 @@ export default function Footer() {
                 <h2 className="font-bold text-xl" id="footerTitle1">
                   The Conference
                 </h2>
-                <ul className="mt-4 mb-8" aria-labelledby="footerTitle1">
+                <ul
+                  className="mt-4 mb-8"
+                  aria-labelledby="footerTitle1"
+                  role="list"
+                >
                   <FooterNavItem
                     href="/theconference"
                     name="About the conference"
@@ -51,7 +55,11 @@ export default function Footer() {
                 <h2 className="font-bold text-xl" id="footerTitle2">
                   Media
                 </h2>
-                <ul className="mt-4 mb-8" aria-labelledby="footerTitle2">
+                <ul
+                  className="mt-4 mb-8"
+                  aria-labelledby="footerTitle2"
+                  role="list"
+                >
                   <FooterNavItem href="/media" name="Press Releases" />
                   <FooterNavItem href="/media?media=1" name="News Links" />
                   <FooterNavItem href="/media?media=2" name="Photo Albums" />
@@ -61,7 +69,11 @@ export default function Footer() {
                 <h2 className="font-bold text-xl" id="footerTitle3">
                   General Information
                 </h2>
-                <ul className="mt-4 mb-8" aria-labelledby="footerTitle3">
+                <ul
+                  className="mt-4 mb-8"
+                  aria-labelledby="footerTitle3"
+                  role="list"
+                >
                   <FooterNavItem
                     href="/theconference/generalinformation"
                     name="Conference Information"
@@ -111,7 +123,7 @@ export default function Footer() {
                 <span className="mr-10">
                   © Inclusive Africa Conference 2023
                 </span>
-                <ul className="hidden">
+                <ul className="hidden" role="list">
                   {/* <ul className="md:inline-flex"> */}
                   <li>
                     <a
@@ -140,7 +152,7 @@ export default function Footer() {
                 </ul>
               </div>
             </div>
-            <ul className="flex space-x-6 items-center">
+            <ul className="flex space-x-6 items-center" role="list">
               <li>
                 <a
                   href="https://www.instagram.com/inableorg/"
