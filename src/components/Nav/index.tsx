@@ -46,7 +46,7 @@ export default function Nav({ pageTitle }: NavProps) {
         >
           <Link href={"/"}>
             <CustomImage
-              src={"/assets/img/logo.png"}
+              src={"/assets/img/Inclusive Africa logo.webp"}
               alt="inclusive africa 2023 logo"
               className="h-14 w-44 lg:h-[3.7vw] lg:w-[12.6vw] 2xl:h-[3.8vw] 2xl:w-[12.2vw]"
             />
@@ -68,7 +68,10 @@ export default function Nav({ pageTitle }: NavProps) {
               expanded ? "" : "hidden"
             } w-full lg:flex lg:flex-col-reverse xl:flex-row lg:w-auto lg:items-end`}
           >
-            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20">
+            <ul
+              role="list"
+              className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20"
+            >
               <NavItem href="/" name="Home" current={currentPath === "/"} />
               <NavDropDown
                 id="TheConferenceMenu"
