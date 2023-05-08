@@ -104,16 +104,18 @@ export default function Home() {
                   id="pageTitle"
                   className={`${inter.variable} font-sans-2 font-bold text-4xl sm:text-5xl md:text-6xl xl:text-[4em] text-white mb-9 sm:leading-[4.840625rem] md:mt-3 lg:mt-0`}
                 >
-                  Inclusive{" "}
-                  <span className="text-secondary-1 inline-block" role="text">
-                    Africa
-                    <CustomImage
-                      src={"/assets/icons/Vector.png"}
-                      alt=""
-                      className="inline-flex h-7 w-5 absolute -top-3 sm:-top-5 md:-top-8 -right-1 sm:-right-2 md:-right-2 lg:-right-4 2xl:-right-2"
-                    />
-                  </span>{" "}
-                  Conference 2023
+                  <span role="text">
+                    Inclusive{" "}
+                    <span className="text-secondary-1 inline-block" role="text">
+                      Africa
+                      <CustomImage
+                        src={"/assets/icons/Vector.png"}
+                        alt=""
+                        className="inline-flex h-7 w-5 absolute -top-3 sm:-top-5 md:-top-8 -right-1 sm:-right-2 md:-right-2 lg:-right-4 2xl:-right-2"
+                      />
+                    </span>{" "}
+                    Conference 2023
+                  </span>
                 </h1>
                 <p className="text-white text-2xl mb-16 pr-12">
                   Taking digital accessibility & assistive technology in Africa
