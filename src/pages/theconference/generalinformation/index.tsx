@@ -132,7 +132,7 @@ export default function Agenda() {
                   <li>
                     <strong>E-mail:</strong>{" "}
                     <a href="mailto:reservations.nairobi@radissonblu.com">
-                      reservations.nairobi@radissonblunairobi.com
+                      reservations.nairobi@radissonblu.com
                     </a>
                   </li>
                 </ul>
