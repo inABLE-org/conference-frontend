@@ -1,5 +1,4 @@
 import { AgendaInfo, ConferenceSpeaker, ConferenceVenue } from "@/pages/agenda";
-import CustomImage from "../CustomImage";
 import NextImage from "../NextImage";
 
 type AgendaPaneProps = {
@@ -94,30 +93,19 @@ export default function AgendaPane({
                         >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
                       </div>
                     )}
-                    {conference_agenda.venue.length > 0 && (
-                      <div
-                        className={`flex flex-col space-y-2 justify-end ${
-                          conference_agenda.moderator &&
-                          conference_agenda.breakouts.length > 0
-                            ? ""
-                            : "sm:col-span-2"
-                        }`}
-                      >
-                        <div>
-                          <h3 className="font-semibold mb-6">Venue:</h3>
-                          <p>
+                    <div className="flex flex-col space-y-2 justify-end sm:col-span-3">
+                      <div>
+                        {conference_agenda.venue.length > 0 && (
+                          <p role="text" className="mb-4">
+                            <span className="font-semibold mb-6">Venue: </span>
                             {
                               conference_agenda.venue[0].conference_venues_id
                                 ?.name
                             }
                           </p>
-                        </div>
-                      </div>
-                    )}
-                    {conference_agenda.breakouts.length > 0 && (
-                      <div className="flex flex-col space-y-2 justify-end sm:col-span-2">
-                        <div className="min-h-[6rem]">
-                          <p>
+                        )}
+                        {conference_agenda.breakouts.length > 0 && (
+                          <p role="text">
                             <span className="font-semibold mb-6">
                               Breakout Sessions:
                             </span>{" "}
@@ -128,17 +116,16 @@ export default function AgendaPane({
                               )
                               .join(", ")}
                           </p>
-                        </div>
+                        )}
                       </div>
-                    )}
+                    </div>
                   </div>
                   {conference_agenda.speakers.length > 0 && (
-                    <h3 className="font-medium text-xl mb-6">
-                      {conference_agenda.speakers.length}
-                      <span id={`speakerTitle-${conference_agenda.id}`}>
-                        {" "}
-                        SPEAKERS
-                      </span>
+                    <h3
+                      className="font-medium text-xl mb-6"
+                      id={`speakerTitle-${conference_agenda.id}`}
+                    >
+                      SPEAKERS
                     </h3>
                   )}
                   <ul
