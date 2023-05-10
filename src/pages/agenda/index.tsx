@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 import { useState } from "react";
 import PageTitle from "@/components/PageTitle";
 import Tabs from "@/components/Tabs";

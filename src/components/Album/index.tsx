@@ -1,4 +1,4 @@
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 import NextImage from "@/components/NextImage";
 import { useEffect, useState } from "react";
 import { DirectusImage } from "../Sponsors";

@@ -8,7 +8,6 @@ import {
   HomeIcon,
   MapPinIcon,
   UserGroupIcon,
-  XMarkIcon,
 } from "@heroicons/react/24/solid";
 
 import { Inter } from "next/font/google";
@@ -60,7 +59,7 @@ export default function Home() {
       }
       conference_sponsors(
         limit: 4
-        sort: "level"
+        sort: "level.level"
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
         name
@@ -161,60 +160,75 @@ export default function Home() {
           </div>
         </div>
         <div className="container xl2:px-28 xl:px-20 2xl:px-24">
-          <div className="relative grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 xl:grid-cols-5 gap-y-5 bg-white py-12 pl-11 pr-8 -mt-20 shadow-md">
-            <div className="flex items-center text-sm font-medium">
-              <CalendarIcon
-                className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
-                stroke="currentColor"
-              />
-              <div>
-                {data ? data.config[0].date : ""} <br />{" "}
-                {data ? data.config[0].time : ""}
+          <div className="relative xl:grid xl:grid-cols-5 gap-y-5 bg-white py-12 pl-11 pr-8 -mt-20 shadow-md">
+            <dl className="xl:col-span-4 grid grid-cols-4">
+              <div className="flex items-center text-sm font-medium">
+                <dt>
+                  <CalendarIcon
+                    className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
+                    stroke="currentColor"
+                  />
+                  <span className="sr-only">Date and Time</span>
+                </dt>
+                <dd>
+                  {data ? data.config[0].date : ""} <br />{" "}
+                  {data ? data.config[0].time : ""}
+                </dd>
               </div>
-            </div>
-            <div className="flex items-center text-sm font-medium">
-              <MapPinIcon
-                className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
-                stroke="currentColor"
-              />
-              <div>
-                {data ? data.config[0].venue : ""} <br />
-                {data ? data.config[0].location : ""}
+              <div className="flex items-center text-sm font-medium">
+                <dt>
+                  <MapPinIcon
+                    className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
+                    stroke="currentColor"
+                    aria-label="location"
+                  />
+                  <span className="sr-only">Location</span>
+                </dt>
+                <dd>
+                  {data ? data.config[0].venue : ""} <br />
+                  {data ? data.config[0].location : ""}
+                </dd>
               </div>
-            </div>
-            <div className="lg:flex items-center text-sm font-medium hidden">
-              <UserGroupIcon
-                className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
-                stroke="currentColor"
-              />
-              <div
-                dangerouslySetInnerHTML={{
-                  __html: `${data ? data.config[0].type : ""} ${
-                    data && data.config[0].type === "Hybrid"
-                      ? "Conference <br /> (In person + Virtual)"
-                      : "<br />"
-                  }`,
-                }}
-              ></div>
-            </div>
-            <div className="flex items-center text-sm font-medium">
-              <HomeIcon
-                className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
-                stroke="currentColor"
-              />
-              <div>
-                Hosted By <br />
-                <a
-                  className="underline"
-                  target="_blank"
-                  aria-describedby="newTab"
-                  href={`${data ? data.config[0].host_website : ""} `}
-                >
-                  {data ? data.config[0].host : ""}{" "}
-                </a>
+              <div className="lg:flex items-center text-sm font-medium hidden">
+                <dt>
+                  <UserGroupIcon
+                    className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
+                    stroke="currentColor"
+                  />
+                  <span className="sr-only">Attendance</span>
+                </dt>
+                <dd
+                  dangerouslySetInnerHTML={{
+                    __html: `${data ? data.config[0].type : ""} ${
+                      data && data.config[0].type === "Hybrid"
+                        ? "Conference <br /> (In person + Virtual)"
+                        : "<br />"
+                    }`,
+                  }}
+                ></dd>
               </div>
-            </div>
-            <div className="md:col-span-full xl:col-span-1">
+              <div className="flex items-center text-sm font-medium">
+                <dt>
+                  <HomeIcon
+                    className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
+                    stroke="currentColor"
+                  />
+                  <span className="sr-only">Host</span>
+                </dt>
+                <dd>
+                  Hosted By <br />
+                  <a
+                    className="underline"
+                    target="_blank"
+                    aria-describedby="newTab"
+                    href={`${data ? data.config[0].host_website : ""} `}
+                  >
+                    {data ? data.config[0].host : ""}{" "}
+                  </a>
+                </dd>
+              </div>
+            </dl>
+            <div className="xl:col-span-1 pt-5 xl:pt-0">
               <h2 className="text-sm font-semibold text-center mb-3">
                 Follow us on Social Media
               </h2>
