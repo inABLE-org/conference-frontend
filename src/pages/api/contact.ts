@@ -1,28 +1,35 @@
-import type { NextApiRequest, NextApiResponse } from 'next'
-import { transporter, mailOptions } from "../../../nodemailerconfig"
+import type { NextApiRequest, NextApiResponse } from "next";
 
-export default async function handler(req: NextApiRequest, res: NextApiResponse) {
+export default async function handler(
+  req: NextApiRequest,
+  res: NextApiResponse
+) {
   if (req.method == "POST") {
-    const data = req.body
+    const sgMail = require("@sendgrid/mail");
+    const data = req.body;
+
     try {
-      await transporter.sendMail({
-        ...mailOptions,
-        text: "This is a test String",
-        subject:"Inclusive Africa (Contact us Page)",
-        html: `<h1 style="font-size:20px;margin-bottom:0px;">Email from Inclusive Africa Contact us Page<h1><br>
-               <p style="font-size:16px;margin-bottom:0px;">Name: ${data.name}</p>
-               <a style="font-size:16px;margin-bottom:0px" href="mailto:${data.email}">Email: ${data.email}</a>
-               <p style="font-size:12px;margin-bottom:0px">Message: ${data.message}</p>`
-      })
-      res.status(400).json({ message: "Thanks Your Message was sent Successfully" })
+      sgMail.setApiKey(process.env.SENDGRID_API_KEY);
+      const msg = {
+        to: process.env.RECEIVER_EMAIL, // Change to your recipient
+        from: process.env.SENDER_EMAIL, // Change to your verified sender
+        subject: "Inclusive Africa (Contact Us Form)",
+        text: `Name: ${data.name}, Email: ${data.email}, Message: ${data.message}`,
+        html: `<h1>Email from Inclusive Africa Contact Us Form</h1>
+                <p>
+                  <strong>Name: </strong> ${data.name} <br />
+                  <strong>Email: </strong><a href="mailto:${data.email}">${data.email}</a>
+                  <br />
+                  <strong>Message: </strong> <br />
+                  ${data.message}
+                </p>`,
+      };
+      await sgMail.send(msg);
+      res.status(200).json({ message: "Email sent" });
     } catch (error: any) {
-      if (typeof error.message === 'string') {
-        res.status(400).json({ message: "Error occured" })
-        console.log(error.message)
-      }
+      console.log(error);
     }
   } else {
     res.status(400).json({ message: "Invalid Request" });
   }
 }
-
