@@ -2,7 +2,7 @@ import useSWR from "swr";
 import Layout from "@/components/Layout";
 import BackButton from "@/components/BackButton";
 import { useRouter } from "next/router";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 
 export default function Transcript() {
   const router = useRouter();

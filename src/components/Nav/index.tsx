@@ -68,7 +68,10 @@ export default function Nav({ pageTitle }: NavProps) {
               expanded ? "" : "hidden"
             } w-full lg:flex lg:flex-col-reverse xl:flex-row lg:w-auto lg:items-end`}
           >
-            <ul className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20">
+            <ul
+              role="list"
+              className="lg:flex-grow lg:flex lg:space-x-10 mr-4 xl2:mr-20"
+            >
               <NavItem href="/" name="Home" current={currentPath === "/"} />
               <NavDropDown
                 id="TheConferenceMenu"

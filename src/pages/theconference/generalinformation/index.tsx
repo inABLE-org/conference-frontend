@@ -1,6 +1,6 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 import { useEffect, useState } from "react";
 import PageTitle from "@/components/PageTitle";
 import Tabs from "@/components/Tabs";
@@ -83,7 +83,7 @@ export default function Agenda() {
                     background="bg-ash-3 bg-opacity-15"
                   />
                   <ConferenceInformation
-                    title="Detailed Directions"
+                    title="Directions"
                     info={data.conference_information[0].directions}
                   />
                   <ConferenceInformation
@@ -113,7 +113,7 @@ export default function Agenda() {
                   Service is available upon request.
                 </p>
                 <p>Hotel reservations can be made at the Radisson Blu Hotel</p>
-                <ul className="list-disc ml-8 media-links">
+                <ul role="list" className="list-disc ml-8 media-links">
                   <li>
                     <strong>Group:</strong> Inclusive Africa Conference
                   </li>
@@ -122,7 +122,7 @@ export default function Agenda() {
                   </li>
                 </ul>
                 <p>Book Here </p>
-                <ul className="list-disc ml-8 media-links">
+                <ul role="list" className="list-disc ml-8 media-links">
                   <li>
                     <strong>Contact:</strong> Stella at Radisson Blu Hotel
                   </li>
@@ -138,7 +138,7 @@ export default function Agenda() {
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Services Available">
-                <ul className="list-disc ml-8 space-y-3">
+                <ul role="list" className="list-disc ml-8 space-y-3">
                   <li>
                     There will be a dedicated Accessibility Desk at Radisson Blu
                     Hotel lobby and a Registration Desk, outside the conference
@@ -181,7 +181,7 @@ export default function Agenda() {
                 </p>
               </GeneralInformation>
               <GeneralInformation title="Parking">
-                <ul className="list-disc ml-8 space-y-3">
+                <ul role="list" className="list-disc ml-8 space-y-3">
                   <li>
                     On-site parking is available for free. Radisson Blu Upper
                     Hill offers valet parking upon request and is available at
@@ -191,7 +191,7 @@ export default function Agenda() {
                 </ul>
               </GeneralInformation>
               <GeneralInformation title="Currency & Exchange">
-                <ul className="list-disc ml-8 space-y-3">
+                <ul role="list" className="list-disc ml-8 space-y-3">
                   <li>
                     The unit currency is the Kenya Shilling. Bank notes are
                     available in denominations of Kes. 50, 100, 200, 500 and
@@ -232,7 +232,7 @@ export default function Agenda() {
           {activeTab === 2 && (
             <>
               <GeneralInformation title="Covid-19 protocols and relevant information">
-                <ul className="list-disc ml-8 space-y-3">
+                <ul role="list" className="list-disc ml-8 space-y-3">
                   <li>
                     The Inclusive Africa Conference is committed to working with
                     the venue, service providers, and vendors to customize a
@@ -304,7 +304,7 @@ export default function Agenda() {
           {activeTab === 3 && (
             <>
               <GeneralInformation title="FAQs on Accessibility">
-                <ul className="pt-9">
+                <ul role="list" className="pt-9">
                   {data &&
                     data.conference_faqs.map((faq: FAQProps, key: number) => (
                       <FAQ

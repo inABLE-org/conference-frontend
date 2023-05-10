@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
@@ -49,22 +49,28 @@ export default function Home() {
         <div className="container py-40 text-center">
           <h2 className="font-semibold text-5xl">Sponsors</h2>
           {data &&
-            data.conference_sponsor_types.map((_type: {
-              name: string
-            }, key:number) => (
-              <Sponsors
-              key={key}
-                title={`${_type.name} Sponsors`}
-                sponsors={data.conference_sponsors.filter(
-                  (sponsor: Sponsor) => sponsor.level.name === _type.name
-                )}
-                border
-              />
-            ))}
+            data.conference_sponsor_types.map(
+              (
+                _type: {
+                  name: string;
+                },
+                key: number
+              ) => (
+                <Sponsors
+                  key={key}
+                  title={`${_type.name} Sponsors`}
+                  sponsors={data.conference_sponsors.filter(
+                    (sponsor: Sponsor) => sponsor.level.name === _type.name
+                  )}
+                  border
+                />
+              )
+            )}
           <h2 className="font-semibold text-5xl mt-24 mb-16" id="partnersTitle">
             Partners
           </h2>
           <ul
+            role="list"
             className="grid sm:grid-cols-2 md:grid-cols-3 xl:grid-cols-4 gap-5"
             aria-labelledby="partnersTitle"
           >
