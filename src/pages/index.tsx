@@ -12,11 +12,11 @@ import {
 } from "@heroicons/react/24/solid";
 
 import { Inter } from "next/font/google";
-import { Fetcher } from "@/components/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import NextImage from "@/components/NextImage";
 import Link from "next/link";
 import CountDown from "@/components/CountDown";
+import { Fetcher } from "@/utils/fetcher";
 
 const inter = Inter({
   subsets: ["latin"],
@@ -218,7 +218,10 @@ export default function Home() {
               <h2 className="text-sm font-semibold text-center mb-3">
                 Follow us on Social Media
               </h2>
-              <ul className="flex space-x-6 items-center justify-center">
+              <ul
+                role="list"
+                className="flex space-x-6 items-center justify-center"
+              >
                 <li>
                   <a
                     href="https://www.instagram.com/inableorg/"
