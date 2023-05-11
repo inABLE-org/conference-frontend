@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 import NextImage from "@/components/NextImage";
 import { useRouter } from "next/router";
 
@@ -38,7 +38,10 @@ export default function PressList() {
   );
 
   return (
-    <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 sm:gap-y-20 space-y-20 sm:space-y-0">
+    <ul
+      role="list"
+      className="sm:grid sm:grid-cols-2 lg:grid-cols-3 gap-x-12 sm:gap-y-20 space-y-20 sm:space-y-0"
+    >
       {data &&
         data.conference_press.map((press: Press, key: number) => {
           return (

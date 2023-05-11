@@ -1,4 +1,4 @@
-import CustomImage from "../CustomImage";
+import NextImage from "../NextImage";
 
 export type DirectusImage = {
   id: string;
@@ -30,17 +30,22 @@ export default function Sponsors({ title, sponsors, border }: SponsorsProps) {
             {title}
           </h3>
           <ul
-            className="grid sm:grid-cols-2 gap-y-11 md:flex md:space-x-16 mx-auto justify-center pt-12 pb-20"
+            role="list"
+            className={`grid gap-y-11 md:flex md:space-x-16 mx-auto justify-center pt-12 pb-20 ${
+              sponsors.length > 1 ? "sm:grid-cols-2" : ""
+            }`}
             aria-label={title}
           >
             {sponsors.map((sponsor: Sponsor, key: number) => {
               return (
                 <li key={key}>
                   <a href={sponsor.website} target={"_blank"}>
-                    <CustomImage
+                    <NextImage
                       src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${sponsor.logo.id}`}
                       alt={`${sponsor.name} logo(Opens in a new tab)`}
-                      className="h-20 w-64 flex-grow mx-auto"
+                      className="h-64 w-64 flex-grow mx-auto"
+                      imgClass="object-contain"
+                      unoptimized
                     />
                   </a>
                 </li>

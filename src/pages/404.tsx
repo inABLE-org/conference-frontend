@@ -6,23 +6,27 @@ import Link from "next/link";
 export default function Custom404() {
   return (
     <>
-      <Layout>
+      <Layout pageTitle="Page Not Found">
         <div className="container pt-44 pb-64">
           <div className="grid lg:grid-cols-2 gap-0">
             <div className="flex items-center">
-              <div className="mb-20 lg:mb-0">
-                <h1 className="mb-5 font-semibold text-6xl text-center">
-                  Page Not Found
-                </h1>
-                <p className="text-center lg:w-9/12 mx-auto">
+              <div className="mb-20 lg:mb-0 text-center">
+                <h1 className="mb-5 font-semibold text-6xl">Page Not Found</h1>
+                <p className="lg:w-9/12 mx-auto">
                   The Link you followed might be broken or the page may have
                   been removed
                 </p>
                 <Link
                   href={"/"}
-                  className="bg-secondary rounded py-4 px-8 font-semibold text-white mx-auto block w-fit mt-10"
+                  className="bg-secondary rounded py-4 px-8 font-semibold text-white mx-1 xs:mx-4 w-fit mt-10 inline-block"
                 >
                   Go to Homepage
+                </Link>
+                <Link
+                  href={"/contactus"}
+                  className="border border-secondary rounded py-4 px-8 font-semibold mx-1 xs:mx-4 w-fit mt-10 text-sm inline-block"
+                >
+                  Contact Us
                 </Link>
               </div>
             </div>

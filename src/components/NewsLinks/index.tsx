@@ -1,5 +1,5 @@
 import useSWR from "swr";
-import { Fetcher } from "@/components/fetcher";
+import { Fetcher } from "@/utils/fetcher";
 
 export type DirectusFile = {
   id: string;
@@ -15,6 +15,13 @@ type News = {
   type: string;
   year: string;
 };
+
+const news_types = [
+  { title: "TV Stories", type: "tv" },
+  { title: "Radio News Stories", type: "radio" },
+  { title: "Print News Stories", type: "print" },
+  { title: "Digital News Stories", type: "digital" },
+];
 
 export default function NewsLinks() {
   const { data }: any = useSWR(
@@ -39,27 +46,45 @@ export default function NewsLinks() {
     );
   }
 
-  const NewsItems = ({ year, type }: { year: string; type: string }) => {
+  const NewsItems = ({
+    year,
+    type,
+  }: {
+    year: string;
+    type: { title: string; type: string };
+  }) => {
+    const type_news = data.conference_news.filter(
+      (news: News) => news.year === year && news.type === type.type
+    );
     return (
-      <ul className="list-disc ml-8 space-y-3">
-        {data.conference_news
-          .filter((news: News) => news.year === year && news.type === type)
-          .map((news: News, key: number) => {
-            return (
-              <li key={key}>
-                <span className="font-bold">{news.owner}</span> -{" "}
-                <a
-                  href={news.link}
-                  target={"_blank"}
-                  className="text-link underline"
-                  aria-label={`${news.title}(Opens in a new tab)`}
-                >
-                  {news.title}
-                </a>
-              </li>
-            );
-          })}
-      </ul>
+      <>
+        {type_news.length > 0 && (
+          <li className="lg:flex border-b-[0.0625rem]">
+            <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
+              <h3 className="text-center lg:text-end">{type.title}</h3>
+            </div>
+            <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
+              <ul role="list" className="list-disc ml-8 space-y-3">
+                {type_news.map((news: News, key: number) => {
+                  return (
+                    <li key={key}>
+                      <span className="font-bold">{news.owner}</span> -{" "}
+                      <a
+                        href={news.link}
+                        target={"_blank"}
+                        className="text-link underline"
+                        aria-label={`${news.title}(Opens in a new tab)`}
+                      >
+                        {news.title}
+                      </a>
+                    </li>
+                  );
+                })}
+              </ul>
+            </div>
+          </li>
+        )}
+      </>
     );
   };
 
@@ -73,47 +98,13 @@ export default function NewsLinks() {
                 {year} NEWS STORIES
               </h2>
               <ul
+                role="list"
                 className="shadow-gi-card bg-white sm:ml-11 mb-20"
                 aria-labelledby={year}
               >
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">TV Stories</h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="tv" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Radio News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="radio" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Print News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2  lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="print" />
-                  </div>
-                </li>
-                <li className="lg:flex border-b-[0.0625rem]">
-                  <div className="font-semibold text-xl pr-11 pl-5 pt-6 lg:pb-10 lg:w-[30%] xl:w-[24%]">
-                    <h3 className="text-center lg:text-end">
-                      Digital News Stories
-                    </h3>
-                  </div>
-                  <div className="font-medium border-l-[0.09375rem] py-6 px-2 lg:w-[70%] xl:w-[76%]">
-                    <NewsItems year={year} type="digital" />
-                  </div>
-                </li>
+                {news_types.map((_type, key) => {
+                  return <NewsItems key={key} year={year} type={_type} />;
+                })}
               </ul>
             </>
           );

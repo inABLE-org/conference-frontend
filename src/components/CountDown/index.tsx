@@ -1,4 +1,5 @@
 import { XMarkIcon } from "@heroicons/react/24/solid";
+import Link from "next/link";
 import { useEffect, useState } from "react";
 
 const countDownDate = new Date("05/29/2023").getTime();
@@ -36,28 +37,28 @@ export default function CountDown() {
             <div className="flex space-x-4 xl:space-x-14 items-center flex-col xl:flex-row">
               <p>The Inclusive Africa Conference will be here in :</p>
               <div className="flex font-bold text-[2rem] space-x-2">
-                <div className="flex flex-col">
+                <p role="text" className="flex flex-col">
                   <span className="text-center">{days}</span>
                   <span className="font-semibold text-xs">Days</span>
-                </div>
+                </p>
                 <span>:</span>
-                <div className="flex flex-col">
+                <p role="text" className="flex flex-col">
                   <span className="text-center">{hours}</span>
                   <span className="font-semibold text-xs">Hours</span>
-                </div>
+                </p>
                 <span>:</span>
-                <div className="flex flex-col">
+                <p role="text" className="flex flex-col">
                   <span className="text-center">{minutes}</span>
                   <span className="font-semibold text-xs">Minutes</span>
-                </div>
+                </p>
                 <span>:</span>
-                <div className="flex flex-col">
+                <p role="text" className="flex flex-col">
                   <span className="text-center">{seconds}</span>
                   <span className="font-semibold text-xs">Seconds</span>
-                </div>
+                </p>
               </div>
             </div>
-            <div className="flex space-x-4 xl:space-x-14 items-center flex-col lg:flex-row">
+            <div className="flex lg:space-x-4 xl:space-x-14 items-center flex-col lg:flex-row">
               <a
                 target="_blank"
                 href="https://hopin.com/events/inclusive-africa-2023/registration"
@@ -66,17 +67,19 @@ export default function CountDown() {
               >
                 Register Now
               </a>
-              <a
-                target="_blank"
-                href="https://hopin.com/events/inclusive-africa-2023/registration"
-                className="border-b-2 border-secondary py-1 h-fit hidden"
-                aria-describedby="pageTitle newTab"
+              <Link
+                href="/contactus"
+                className="border-b-2 border-secondary py-1 my-3 h-fit"
               >
                 Contact Us
-              </a>
+              </Link>
             </div>
           </div>
-          <button className="flex flex-col" onClick={() => setHydrated(false)} aria-label="close timer">
+          <button
+            className="flex flex-col"
+            onClick={() => setHydrated(false)}
+            aria-label="close timer"
+          >
             <span className="text-center w-full">
               <XMarkIcon
                 className="h-7 w-7 stroke-[1.5] mx-auto"
