@@ -36,7 +36,10 @@ export default function CountDown() {
           <div className="flex xl2:w-10/12 justify-between gap-6 sp flex-col md:flex-row">
             <div className="flex space-x-4 xl:space-x-14 items-center flex-col xl:flex-row">
               <p>The Inclusive Africa Conference will be here in :</p>
-              <div className="flex font-bold text-[2rem] space-x-2">
+              <div
+                className="flex font-bold text-[2rem] space-x-2"
+                role="timer"
+              >
                 <p role="text" className="flex flex-col">
                   <span className="text-center">{days}</span>
                   <span className="font-semibold text-xs">Days</span>
