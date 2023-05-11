@@ -30,7 +30,7 @@ type CTAInfo = CTACardProps & {
 
 export default function Home() {
   const { data }: any = useSWR(
-    `query fetchConerenceInfo {
+    `query fetchConferenceInfo {
       config: conference_config(
         limit: 1
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
@@ -167,12 +167,20 @@ export default function Home() {
                   <CalendarIcon
                     className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
                     stroke="currentColor"
+                    aria-label="Date and Time"
+                    aria-hidden="false"
                   />
-                  <span className="sr-only">Date and Time</span>
                 </dt>
                 <dd>
-                  {data ? data.config[0].date : ""} <br />{" "}
-                  {data ? data.config[0].time : ""}
+                  <time
+                    className="block"
+                    dateTime={data ? data.config[0].date : ""}
+                  >
+                    {data ? data.config[0].date : ""}{" "}
+                  </time>
+                  <time dateTime={data ? data.config[0].time : ""}>
+                    {data ? data.config[0].time : ""}
+                  </time>
                 </dd>
               </div>
               <div className="flex items-center text-sm font-medium">
@@ -181,12 +189,16 @@ export default function Home() {
                     className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
                     stroke="currentColor"
                     aria-label="location"
+                    aria-hidden="false"
                   />
-                  <span className="sr-only">Location</span>
                 </dt>
                 <dd>
-                  {data ? data.config[0].venue : ""} <br />
-                  {data ? data.config[0].location : ""}
+                  <span role="text">
+                    <span className="block">
+                      {data ? data.config[0].venue : ""}
+                    </span>
+                    {data ? data.config[0].location : ""}
+                  </span>
                 </dd>
               </div>
               <div className="lg:flex items-center text-sm font-medium hidden">
@@ -194,26 +206,31 @@ export default function Home() {
                   <UserGroupIcon
                     className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
                     stroke="currentColor"
+                    aria-label="Attendance"
+                    aria-hidden="false"
                   />
-                  <span className="sr-only">Attendance</span>
                 </dt>
-                <dd
-                  dangerouslySetInnerHTML={{
-                    __html: `${data ? data.config[0].type : ""} ${
-                      data && data.config[0].type === "Hybrid"
-                        ? "Conference <br /> (In person + Virtual)"
-                        : "<br />"
-                    }`,
-                  }}
-                ></dd>
+                <dd>
+                  <span
+                    role="text"
+                    dangerouslySetInnerHTML={{
+                      __html: `${data ? data.config[0].type : ""} ${
+                        data && data.config[0].type === "Hybrid"
+                          ? 'Conference <span class="block">(In person + Virtual)</span>'
+                          : "<br />"
+                      }`,
+                    }}
+                  ></span>
+                </dd>
               </div>
               <div className="flex items-center text-sm font-medium">
                 <dt>
                   <HomeIcon
                     className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
                     stroke="currentColor"
+                    aria-label="Host"
+                    aria-hidden="false"
                   />
-                  <span className="sr-only">Host</span>
                 </dt>
                 <dd>
                   Hosted By <br />
