@@ -53,8 +53,8 @@ export default function Contactus() {
   return (
     <>
       <Layout pageTitle="Contact Us">
-        <div className="container">
-          <div className="grid lg:grid-cols-2 gap-0 py-20 lg:px-20">
+        <div className="container pt-28 pb-44">
+          <div className="grid lg:grid-cols-2 gap-0 lg:px-20">
             <div className="flex items-center">
               <div className="pb-10">
                 <p className="text-xl font-semibold mb-2">Hey There!</p>
@@ -67,13 +67,18 @@ export default function Contactus() {
                       <PhoneIcon
                         className="h-7 w-7"
                         aria-label="Phone number"
+                        aria-hidden="false"
                       />
                     </dt>
                     <dd>+254 703-619-044</dd>
                   </div>
                   <div className="flex space-x-7">
                     <dt>
-                      <EnvelopeIcon className="h-7 w-7" aria-label="Email" />
+                      <EnvelopeIcon
+                        className="h-7 w-7"
+                        aria-label="Email"
+                        aria-hidden="false"
+                      />
                     </dt>
                     <dd>
                       <a className="underline" href="mailto:a11y@inable.org">
@@ -83,7 +88,11 @@ export default function Contactus() {
                   </div>
                   <div className="flex space-x-7">
                     <dt>
-                      <MapPinIcon className="h-7 w-7" aria-label="Location" />
+                      <MapPinIcon
+                        className="h-7 w-7"
+                        aria-label="Location"
+                        aria-hidden="false"
+                      />
                     </dt>
                     <dd>
                       Adlife Plaza, Ring Road, Kilimani
