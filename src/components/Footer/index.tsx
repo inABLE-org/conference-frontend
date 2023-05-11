@@ -1,6 +1,7 @@
 import { ArrowRightIcon } from "@heroicons/react/24/solid";
 import CustomImage from "../CustomImage";
 import FooterNavItem from "./FooterNavItem";
+import Link from "next/link";
 
 export default function Footer() {
   return (
@@ -90,10 +91,13 @@ export default function Footer() {
               </div>
 
               <div className="col-span-12 lg:col-start-6 lg:col-span-7 xl:col-span-4 lg:pl-5 xl:pl-0">
-                <h2 className="font-bold text-xl">
+                <Link href="/contactus" className="hover:underline">
+                  Contact Us
+                </Link>
+                <h2 className="font-bold text-xl my-4">
                   Subscribe to our newsletter
                 </h2>
-                <p className="mt-4">
+                <p>
                   Taking Digital Accessibility & Assistive Technology in Africa
                   to the Next Level
                 </p>

@@ -43,6 +43,7 @@ module.exports = {
           4: "#EBEBEB",
           5: "#4E4E4E",
           6: "#9A9A9ABF",
+          7: "#7F7F7F",
         },
         link: {
           DEFAULT: "#0052B4",
@@ -50,6 +51,9 @@ module.exports = {
         sucess: {
           DEFAULT: "#14AE5C",
           1: "#068C45",
+        },
+        danger: {
+          DEFAULT: "#D80027",
         },
       },
       fontFamily: {
@@ -61,6 +65,7 @@ module.exports = {
         "agenda-card": "0px 0px 4px rgba(0, 0, 0, 0.25)",
         "about-card": "0px 0px 6px rgba(0, 0, 0, 0.25)",
         "gi-card": "0px 0px 16px rgba(0, 0, 0, 0.25)",
+        "contact-card": "0px 0px 16px rgba(0, 0, 0, 0.13)",
       },
       borderWidth: {
         3: "3px",
