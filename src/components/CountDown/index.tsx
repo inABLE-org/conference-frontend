@@ -31,7 +31,7 @@ export default function CountDown() {
   }, []);
   return (
     <>
-      {hydrated && (
+      {hydrated && countDown > 0 && (
         <div className="bg-white font-semibold flex items-center justify-between py-1 px-1 sm:px-12 flex-col xs:flex-row space-y-6 xs:space-y-0">
           <div className="flex xl2:w-10/12 justify-between gap-6 sp flex-col md:flex-row">
             <div className="flex space-x-4 xl:space-x-14 items-center flex-col xl:flex-row">
