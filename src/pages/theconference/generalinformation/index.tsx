@@ -96,7 +96,7 @@ export default function Agenda() {
                     info={data.conference_information[0].hours}
                   />
                   <ConferenceInformation
-                    title="Hotel Contact"
+                    title="Contacts"
                     info={data.conference_information[0].contact}
                     background="bg-ash-3 bg-opacity-15"
                   />
