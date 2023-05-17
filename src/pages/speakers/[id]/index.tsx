@@ -30,6 +30,7 @@ export default function Speakers() {
           key_note
           role
           linkedIn
+          bio
           country
           photo {
             id
@@ -122,8 +123,8 @@ export default function Speakers() {
                   unoptimized
                 />
                 <p className="text-center mt-4 mb-9 text-xl flex space-y-3 flex-col">
-                  <span className="flex items-center justify-center">
-                    {data.conference_speakers[0].role}{" "}
+                  <span className="flex items-center justify-center text-xl font-bold">
+                    {`${data.conference_speakers[0].first_name} ${data.conference_speakers[0].second_name} `}
                     <a href={data.conference_speakers[0].linkedIn}>
                       <CustomImage
                         src={"/assets/icons/Group 6407.svg"}
@@ -135,7 +136,8 @@ export default function Speakers() {
                       />
                     </a>
                   </span>
-                  <span className="text-base font-bold">
+                  <span>{data.conference_speakers[0].role}</span>
+                  <span className="text-base font-semibold">
                     {data.conference_speakers[0].organization}
                   </span>
                   <span>{data.conference_speakers[0].country}</span>
@@ -150,8 +152,25 @@ export default function Speakers() {
           </div>
         </div>
         <div className="container pt-16">
-          <h1 className="font-semibold text-5xl text-center mb-16">
-            Speakers Sessions
+          {data && data.conference_speakers[0].bio && (
+            <div className="mt-3 bg-white rounded shadow-agenda-card pt-4 pb-8 px-12 mb-16">
+              <h1 className="mt-1 font-medium text-[2rem] mb-5">Bio</h1>
+              <p
+                dangerouslySetInnerHTML={{
+                  __html: data.conference_speakers[0].bio.replace(
+                    /\n/g,
+                    "<br />"
+                  ),
+                }}
+              ></p>
+            </div>
+          )}
+          <h1
+            className={`font-semibold text-[2.5rem] mb-8 ${
+              data && data.conference_speakers[0].bio ? "" : "text-center"
+            }`}
+          >
+            Speaker&apos;s Sessions
           </h1>
           {data &&
             days.map((day: string, key: number) => {
