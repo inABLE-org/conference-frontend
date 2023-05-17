@@ -30,7 +30,7 @@ export default function AgendaPane({
           </p>
         )}
       </div>
-      <dl className="mt-11" aria-labelledby={`${new Date(date).getTime()}`}>
+      <dl className="mt-10" aria-labelledby={`${new Date(date).getTime()}`}>
         {agendaList.map((conference_agenda: AgendaInfo, key: number) => {
           const time_now = new Date();
           const ongoing =
