@@ -150,7 +150,7 @@ export default function Home() {
             </div>
             <div className="overflow-clip lg:min-h-[45vw]">
               {data && (
-                <CustomImage
+                <NextImage
                   src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${data.config[0].hero_image.id}`}
                   alt={data.config[0].hero_image.title}
                   className="hidden lg:block min-h-[50vw] 2xl:min-h-[45vw] w-full"
@@ -161,7 +161,7 @@ export default function Home() {
         </div>
         <div className="container xl2:px-28 xl:px-20 2xl:px-24">
           <div className="relative xl:grid xl:grid-cols-5 gap-y-5 bg-white py-12 pl-11 pr-8 -mt-20 shadow-md">
-            <dl className="xl:col-span-4 grid grid-cols-4">
+            <dl className="xl:col-span-4 grid sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-y-5">
               <div className="flex items-center text-sm font-medium">
                 <dt>
                   <CalendarIcon
@@ -201,7 +201,7 @@ export default function Home() {
                   </span>
                 </dd>
               </div>
-              <div className="lg:flex items-center text-sm font-medium hidden">
+              <div className="items-center text-sm font-medium hidden sm:flex md:hidden lg:flex">
                 <dt>
                   <UserGroupIcon
                     className="h-8 w-8 text-primary-3 stroke-[0.8] mr-3"
