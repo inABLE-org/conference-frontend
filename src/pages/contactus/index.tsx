@@ -99,6 +99,16 @@ export default function Contactus() {
                       <span className="block">Nairobi, Kenya</span>
                     </dd>
                   </div>
+                  <div>
+                    <dt className="mb-3">
+                      For Media Accreditation Contact Lily Ronoh
+                    </dt>
+                    <dd>
+                      <a className="underline" href="mailto:Lily.Ronoh@inable.org">
+                      Lily.Ronoh@inable.org
+                      </a>
+                    </dd>
+                  </div>
                 </dl>
               </div>
             </div>
