@@ -125,7 +125,7 @@ export default function AgendaPane({
                       className="font-medium text-xl mb-6"
                       id={`speakerTitle-${conference_agenda.id}`}
                     >
-                      SPEAKERS
+                      SPEAKER{conference_agenda.speakers.length > 1 && "S"}
                     </h3>
                   )}
                   <ul
