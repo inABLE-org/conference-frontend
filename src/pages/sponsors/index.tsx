@@ -3,10 +3,12 @@ import { Fetcher } from "@/utils/fetcher";
 import Sponsors, { Sponsor } from "@/components/Sponsors";
 import Layout from "@/components/Layout";
 import PageTitle from "@/components/PageTitle";
-import { useRef } from "react";
 
 export default function Home() {
-  const linkButton = useRef<HTMLAnchorElement>(null);
+  const visitPartner = (url: string) => {
+    const newWindow = window.open(url, "_blank", "noopener,noreferrer");
+    if (newWindow) newWindow.opener = null;
+  };
 
   const { data }: any = useSWR(
     `query {
@@ -20,6 +22,7 @@ export default function Home() {
       conference_sponsors(
         filter: {  status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
+        id
         name
         level {
           name
@@ -82,8 +85,8 @@ export default function Home() {
                   return (
                     <li
                       key={key}
-                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between hover:cursor-pointer"
-                      onClick={() => linkButton.current?.click()}
+                      className="bg-white shadow-agenda-card p-6 h-full flex flex-col space-y-5 justify-between hover:cursor-pointer hover:underline"
+                      onClick={() => visitPartner(partner.website)}
                     >
                       {/* eslint-disable @next/next/no-img-element */}
                       <img
@@ -92,9 +95,8 @@ export default function Home() {
                         className="mx-auto mb-5"
                       />
                       <a
-                        ref={linkButton}
-                        href={partner.website}
-                        target={"_blank"}
+                        id={`partner-${partner.id}`}
+                        href={`#partner-${partner.id}`}
                         aria-label={`${partner.name} (Opens in a new tab)`}
                       >
                         {partner.name}

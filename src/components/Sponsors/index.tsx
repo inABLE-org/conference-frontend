@@ -6,6 +6,7 @@ export type DirectusImage = {
 };
 
 export type Sponsor = {
+  id: string;
   name: string;
   level: {
     name: string;
