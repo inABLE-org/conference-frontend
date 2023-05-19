@@ -30,6 +30,7 @@ export default function Home() {
           description
         }
         website
+        country
       }
     }
     `,
@@ -98,6 +99,7 @@ export default function Home() {
                       >
                         {partner.name}
                       </a>
+                      <p className="font-semibold">{partner.country}</p>
                     </li>
                   );
                 })}
