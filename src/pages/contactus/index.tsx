@@ -56,7 +56,7 @@ export default function Contactus() {
         <div className="container pt-28 pb-44">
           <div className="grid lg:grid-cols-2 gap-0 lg:px-20">
             <div className="flex items-center">
-              <div className="pb-10">
+              <div className="pb-10 xl:pb-0">
                 <p className="text-xl font-semibold mb-2">Hey There!</p>
                 <h1 className="font-semibold text-5xl mb-14">
                   Get In Touch With us
@@ -100,6 +100,15 @@ export default function Contactus() {
                     </dd>
                   </div>
                 </dl>
+                <p className="mt-16 pt-3 text-xl">
+                  For Media Accreditation Contact Lily Ronoh{" "}
+                  <a
+                    className="block underline mt-4"
+                    href="mailto:Lily.Ronoh@inable.org"
+                  >
+                    Lily.Ronoh@inable.org
+                  </a>
+                </p>
               </div>
             </div>
             <div>

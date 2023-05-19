@@ -5,7 +5,7 @@ const nextConfig = {
     remotePatterns: [
       {
         protocol: "https",
-        hostname: "cms.inclusiveafrica.org",
+        hostname: "content.inclusiveafrica.org",
       },
       {
         protocol: "https",
