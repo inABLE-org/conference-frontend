@@ -6,6 +6,7 @@ export type DirectusImage = {
 };
 
 export type Sponsor = {
+  id: string;
   name: string;
   level: {
     name: string;
@@ -13,6 +14,7 @@ export type Sponsor = {
   main: boolean;
   logo: DirectusImage;
   website: string;
+  country: string;
 };
 
 type SponsorsProps = {
