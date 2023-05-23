@@ -7,10 +7,6 @@ const nextConfig = {
         protocol: "https",
         hostname: "content.inclusiveafrica.org",
       },
-      {
-        protocol: "https",
-        hostname: "lobster-app-h426k.ondigitalocean.app",
-      },
     ],
   },
 };

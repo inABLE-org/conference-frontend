@@ -120,16 +120,16 @@ export default function AgendaPane({
                       </div>
                     </div>
                   </div>
-                  {!conference_agenda.no_speakers && (
+                  {!conference_agenda.no_speakers &&
                     conference_agenda.speakers.length > 0 && (
                       <h3
                         className="font-medium text-xl mb-6"
                         id={`speakerTitle-${conference_agenda.id}`}
                       >
-                        SPEAKER{conference_agenda.speakers.length > 1 ? "S" : ""}
+                        SPEAKER
+                        {conference_agenda.speakers.length > 1 ? "S" : ""}
                       </h3>
-                    )
-                  )}
+                    )}
                   <ul
                     role="list"
                     className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
