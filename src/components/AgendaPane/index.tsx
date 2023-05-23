@@ -120,7 +120,7 @@ export default function AgendaPane({
                       </div>
                     </div>
                   </div>
-                  {conference_agenda.title !== "Entertainment" && (
+                  {!conference_agenda.no_speakers && (
                     conference_agenda.speakers.length > 0 && (
                       <h3
                         className="font-medium text-xl mb-6"
