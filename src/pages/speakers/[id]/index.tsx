@@ -47,6 +47,7 @@ export default function Speakers() {
         ) {
           id
           title
+          no_speakers
           description
           start_time
           end_time
