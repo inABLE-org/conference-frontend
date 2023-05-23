@@ -39,8 +39,9 @@ export default function AgendaPane({
           return (
             <div
               key={key}
-              className={`md:flex bg-white shadow-agenda-card mb-16 hover:border-2 border-secondary-2 ${ongoing ? "border-2" : ""
-                }`}
+              className={`md:flex bg-white shadow-agenda-card mb-16 hover:border-2 border-secondary-2 ${
+                ongoing ? "border-2" : ""
+              }`}
             >
               <dt className="relative flex flex-col items-start md:items-center justify-between text-2xl px-4 xl:px-0 pt-11 md:w-[30%]">
                 <div className="w-fit md:mx-auto py-3">
@@ -57,7 +58,7 @@ export default function AgendaPane({
                     </span>
                   )}
                   {conference_agenda.start_time !=
-                    conference_agenda.end_time ? (
+                  conference_agenda.end_time ? (
                     <>
                       {formatTime(conference_agenda.start_time)} -{" "}
                       <span className="sr-only">to</span>
