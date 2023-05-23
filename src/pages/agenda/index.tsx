@@ -24,7 +24,7 @@ export type ConferenceVenue = {
 export type AgendaInfo = {
   id: string;
   title: string;
-  no_speakers:Boolean
+  no_speakers:Boolean;
   description: string;
   start_time: string;
   end_time: string;
