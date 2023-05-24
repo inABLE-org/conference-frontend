@@ -140,16 +140,16 @@ export default function AgendaPane({
                         { conference_speakers_id }: ConferenceSpeaker,
                         key: number
                       ) => {
-                        if (!conference_speakers_id.moderator) {
+                        if (!conference_speakers_id?.moderator) {
                           return (
                             <li
                               key={key}
                               className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start"
                             >
                               <NextImage
-                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}?key=potrait`}
+                                src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id?.photo.id}?key=potrait`}
                                 alt={
-                                  conference_speakers_id.first_name + " potrait"
+                                  conference_speakers_id?.first_name + " potrait"
                                 }
                                 className="h-[25vw] w-[25vw] md:h-[11vw] md:w-[11vw] xl:h-20 xl:w-20 rounded-full overflow-hidden"
                                 imgClass="object-cover"
@@ -157,14 +157,14 @@ export default function AgendaPane({
                               />
                               <h4>
                                 <a
-                                  href={`/speakers/${conference_speakers_id.id}`}
+                                  href={`/speakers/${conference_speakers_id?.id}`}
                                   className="font-semibold"
                                 >
-                                  {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
+                                  {`${conference_speakers_id?.first_name} ${conference_speakers_id?.second_name}`}
                                 </a>
                               </h4>
-                              <p>{conference_speakers_id.role}</p>
-                              <p>{conference_speakers_id.organization}</p>
+                              <p>{conference_speakers_id?.role}</p>
+                              <p>{conference_speakers_id?.organization}</p>
                             </li>
                           );
                         }
