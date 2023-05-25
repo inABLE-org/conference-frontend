@@ -140,7 +140,11 @@ export default function AgendaPane({
                         { conference_speakers_id }: ConferenceSpeaker,
                         key: number
                       ) => {
-                        if (!conference_speakers_id.moderator) {
+                        if (
+                          conference_speakers_id &&
+                          conference_speakers_id.id !=
+                            conference_agenda.moderator?.id
+                        ) {
                           return (
                             <li
                               key={key}
