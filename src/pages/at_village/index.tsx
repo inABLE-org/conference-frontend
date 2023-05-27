@@ -11,6 +11,7 @@ export type Innovation = {
   title: string;
   country: string;
   description: string;
+  video_link: string;
   banner: DirectusFile;
 };
 
@@ -24,6 +25,7 @@ export default function ATVillage() {
         title
         country
         description
+        video_link
         banner {
           id
           title
@@ -69,36 +71,50 @@ export default function ATVillage() {
               Meet the AT Innovators
             </h1>
           </div>
-          <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 sm:gap-y-20 space-y-20 sm:space-y-0 pt-14">
+          <ul
+            role="list"
+            className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 sm:gap-y-20 space-y-20 sm:space-y-0 pt-14"
+          >
             {data &&
               data.conference_innovators.map(
                 (innovator: Innovation, key: number) => {
                   return (
                     <li
                       key={key}
-                      className="shadow-agenda-card py-9 bg-white space-y-5 hover:cursor-pointer h-full"
+                      className="shadow-agenda-card pt-9 pb-4 bg-white space-y-5 hover:cursor-pointer h-full flex flex-col justify-between"
                     >
-                      <NextImage
-                        src={
-                          innovator.banner
-                            ? `${process.env.NEXT_PUBLIC_MEDIA_LINK}/${innovator.banner.id}`
-                            : "/assets/icons/album.svg"
-                        }
-                        alt={innovator.banner ? innovator.banner.title : ""}
-                        className="h-14"
-                        imgClass="object-contain"
-                        unoptimized
-                      />
-                      <div className="px-4 pt-6">
-                        <h3 className="font-semibold mb-3">
-                          {innovator.title} ({innovator.country})
-                        </h3>
-                        <div
-                          dangerouslySetInnerHTML={{
-                            __html: innovator.description,
-                          }}
-                        ></div>
+                      <div>
+                        <NextImage
+                          src={
+                            innovator.banner
+                              ? `${process.env.NEXT_PUBLIC_MEDIA_LINK}/${innovator.banner.id}`
+                              : "/assets/icons/album.svg"
+                          }
+                          alt={innovator.banner ? innovator.banner.title : ""}
+                          className="h-14"
+                          imgClass="object-contain"
+                          unoptimized
+                        />
+                        <div className="px-4 pt-6">
+                          <h3 className="font-semibold mb-3">
+                            {innovator.title} ({innovator.country})
+                          </h3>
+                          <div
+                            className="mb-5"
+                            dangerouslySetInnerHTML={{
+                              __html: innovator.description,
+                            }}
+                          ></div>
+                        </div>
                       </div>
+                      <a
+                        className="underline ms-4"
+                        target="_blank"
+                        aria-label={`Watch a YouTube video about ${innovator.title}(Opens in a new tab)`}
+                        href={innovator.video_link}
+                      >
+                        Get to know us more
+                      </a>
                     </li>
                   );
                 }
