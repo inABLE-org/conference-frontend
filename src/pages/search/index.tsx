@@ -137,7 +137,7 @@ export default function Search() {
               About {searchResults.length} Search Results for ”{searchWord}”
             </h2>
             {searchResults.length > 0 && (
-              <ul>
+              <ul role="list">
                 {searchResults.map((_searchItem: SiteSearch, key: number) => {
                   return _searchItem.banner ? (
                     <li
