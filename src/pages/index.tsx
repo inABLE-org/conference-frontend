@@ -42,6 +42,7 @@ export default function Home() {
         type
         host
         host_website
+        agenda_link
         hero_image {
           id
           title
@@ -116,10 +117,19 @@ export default function Home() {
                     Conference 2023
                   </span>
                 </h1>
-                <p className="text-white text-2xl mb-16 pr-12">
+                <p className="text-white text-2xl mb-11 pr-12">
                   Taking digital accessibility & assistive technology in Africa
                   to the next level.
                 </p>
+                {data && (
+                  <a
+                    href={`${data.config[0].agenda_link}?download=`}
+                    className="mb-14 border-b-secondary-1 border-b-3 text-xl font-semibold block text-white w-fit"
+                    download
+                  >
+                    Click to download the agenda
+                  </a>
+                )}
                 <div className="text-xs sm:text-xl font-semibold text-white pb-5 flex">
                   <a
                     target="_blank"
