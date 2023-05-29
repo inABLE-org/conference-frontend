@@ -2,8 +2,17 @@ import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
-import { DirectusImage } from "@/components/Sponsors";
 import NextImage from "@/components/NextImage";
+import { DirectusFile } from "@/utils/searcher";
+
+export type Innovation = {
+  first_name: string;
+  last_name: string;
+  title: string;
+  country: string;
+  description: string;
+  banner: DirectusFile;
+};
 
 export default function ATVillage() {
   const { data }: any = useSWR(
@@ -63,17 +72,7 @@ export default function ATVillage() {
           <ul className="sm:grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-x-5 sm:gap-y-20 space-y-20 sm:space-y-0 pt-14">
             {data &&
               data.conference_innovators.map(
-                (
-                  innovator: {
-                    first_name: string;
-                    last_name: string;
-                    title: string;
-                    country: string;
-                    description: string;
-                    banner: DirectusImage;
-                  },
-                  key: number
-                ) => {
+                (innovator: Innovation, key: number) => {
                   return (
                     <li
                       key={key}

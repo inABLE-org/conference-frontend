@@ -4,7 +4,7 @@ import React from "react";
 import Speaker from "@/components/Speaker";
 import { Fetcher } from "@/utils/fetcher";
 import PageTitle from "@/components/PageTitle";
-import { DirectusImage } from "@/components/Sponsors";
+import { DirectusFile } from "@/utils/searcher";
 
 export type SpeakerInfo = {
   id: string;
@@ -15,7 +15,7 @@ export type SpeakerInfo = {
   country: string;
   key_note: Boolean;
   moderator: Boolean;
-  photo: DirectusImage;
+  photo: DirectusFile;
   linkedin: string;
 };
 
@@ -23,6 +23,7 @@ export default function Speakers() {
   const { data }: any = useSWR(
     `query {
       conference_speakers(
+        limit: -1
         sort: "order"
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
