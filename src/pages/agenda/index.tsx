@@ -64,6 +64,7 @@ export default function Agenda() {
         filter: { status: { _eq: "published" }, year: { _eq: 2023 } }
       ) {
         draft_agenda
+        agenda_link
       }
       conference_agenda(
         sort: "start_time"
@@ -91,6 +92,8 @@ export default function Agenda() {
           id
           first_name
           second_name
+          organization
+          role
           photo {
             id
             title
@@ -143,16 +146,25 @@ export default function Agenda() {
             />
           </div>
         </div>
-        <TabPanel className="container py-20" activeTab={activeTab}>
+        <TabPanel className="container py-16" activeTab={activeTab}>
           {data && (
-            <AgendaPane
-              date={days[activeTab]}
-              draft={data.conference_config[0].draft_agenda}
-              agendaList={data.conference_agenda.filter(
-                (agenda: AgendaInfo) =>
-                  formatDate(agenda.start_time) === days[activeTab]
-              )}
-            />
+            <>
+              <a
+                href={`${data.conference_config[0].agenda_link}?download=`}
+                className="mb-9 text-link-1 underline text-xl font-medium block"
+                download
+              >
+                Click to download the agenda
+              </a>
+              <AgendaPane
+                date={days[activeTab]}
+                draft={data.conference_config[0].draft_agenda}
+                agendaList={data.conference_agenda.filter(
+                  (agenda: AgendaInfo) =>
+                    formatDate(agenda.start_time) === days[activeTab]
+                )}
+              />
+            </>
           )}
         </TabPanel>
       </Layout>

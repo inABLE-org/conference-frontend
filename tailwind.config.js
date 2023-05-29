@@ -48,6 +48,7 @@ module.exports = {
         },
         link: {
           DEFAULT: "#0052B4",
+          1: "#0645AD",
         },
         sucess: {
           DEFAULT: "#14AE5C",
