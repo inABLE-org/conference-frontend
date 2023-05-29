@@ -67,6 +67,8 @@ export default function Speakers() {
             id
             first_name
             second_name
+            organization
+            role
             photo {
               id
               title
@@ -155,7 +157,7 @@ export default function Speakers() {
         <div className="container pt-16">
           {data && data.conference_speakers[0].bio && (
             <div className="mt-3 bg-white rounded shadow-agenda-card pt-4 pb-8 px-12 mb-16">
-              <h1 className="mt-1 font-medium text-[2rem] mb-5">Bio</h1>
+              <h2 className="mt-1 font-medium text-[2rem] mb-5">Bio</h2>
               <p
                 dangerouslySetInnerHTML={{
                   __html: data.conference_speakers[0].bio.replace(
@@ -166,13 +168,13 @@ export default function Speakers() {
               ></p>
             </div>
           )}
-          <h1
+          <h2
             className={`font-semibold text-[2.5rem] mb-8 ${
               data && data.conference_speakers[0].bio ? "" : "text-center"
             }`}
           >
             Speaker&apos;s Sessions
-          </h1>
+          </h2>
           {data &&
             days.map((day: string, key: number) => {
               return (

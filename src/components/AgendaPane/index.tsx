@@ -75,10 +75,43 @@ export default function AgendaPane({
                     {conference_agenda.title}
                   </h3>
                   <p className="my-9">{conference_agenda.description}</p>
-                  <div className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10 mb-12">
+                  {conference_agenda.venue.length > 0 && (
+                    <p role="text" className="mb-4">
+                      <span className="font-semibold mb-6">Venue: </span>
+                      {conference_agenda.venue[0].conference_venues_id?.name}
+                    </p>
+                  )}
+                  {conference_agenda.breakouts.length > 0 && (
+                    <p role="text">
+                      <span className="font-semibold mb-6">
+                        Breakout Sessions:
+                      </span>{" "}
+                      {conference_agenda.breakouts
+                        .map(
+                          ({ conference_venues_id }: ConferenceVenue) =>
+                            conference_venues_id?.name
+                        )
+                        .join(", ")}
+                    </p>
+                  )}
+                  {!conference_agenda.no_speakers &&
+                    conference_agenda.speakers.length > 0 && (
+                      <h4
+                        className="font-medium text-xl mb-5"
+                        id={`speakerTitle-${conference_agenda.id}`}
+                      >
+                        SPEAKER
+                        {conference_agenda.speakers.length > 1 ? "S" : ""}
+                      </h4>
+                    )}
+                  <ul
+                    role="list"
+                    className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
+                    aria-label={`speakerTitle-${conference_agenda.id}`}
+                  >
                     {conference_agenda.moderator && (
-                      <div className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start">
-                        <h3 className="font-medium text-xl">Moderator</h3>
+                      <li className="flex flex-col items-center sm:items-start text-center sm:text-start">
+                        <h5 className="font-medium mb-3">Moderator</h5>
                         <NextImage
                           src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_agenda.moderator.photo.id}?key=potrait`}
                           alt={
@@ -88,53 +121,18 @@ export default function AgendaPane({
                           imgClass="object-cover"
                           unoptimized
                         />
-                        <a
-                          href={`/speakers/${conference_agenda.moderator.id}`}
-                        >{`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}</a>
-                      </div>
+                        <h6>
+                          <a
+                            href={`/speakers/${conference_agenda.moderator.id}`}
+                            className="font-semibold"
+                          >
+                            {`${conference_agenda.moderator.first_name} ${conference_agenda.moderator.second_name}`}
+                          </a>
+                        </h6>
+                        <p>{conference_agenda.moderator.role}</p>
+                        <p>{conference_agenda.moderator.organization}</p>
+                      </li>
                     )}
-                    <div className="flex flex-col space-y-2 justify-end sm:col-span-3">
-                      <div>
-                        {conference_agenda.venue.length > 0 && (
-                          <p role="text" className="mb-4">
-                            <span className="font-semibold mb-6">Venue: </span>
-                            {
-                              conference_agenda.venue[0].conference_venues_id
-                                ?.name
-                            }
-                          </p>
-                        )}
-                        {conference_agenda.breakouts.length > 0 && (
-                          <p role="text">
-                            <span className="font-semibold mb-6">
-                              Breakout Sessions:
-                            </span>{" "}
-                            {conference_agenda.breakouts
-                              .map(
-                                ({ conference_venues_id }: ConferenceVenue) =>
-                                  conference_venues_id?.name
-                              )
-                              .join(", ")}
-                          </p>
-                        )}
-                      </div>
-                    </div>
-                  </div>
-                  {!conference_agenda.no_speakers &&
-                    conference_agenda.speakers.length > 0 && (
-                      <h3
-                        className="font-medium text-xl mb-6"
-                        id={`speakerTitle-${conference_agenda.id}`}
-                      >
-                        SPEAKER
-                        {conference_agenda.speakers.length > 1 ? "S" : ""}
-                      </h3>
-                    )}
-                  <ul
-                    role="list"
-                    className="grid sm:grid-cols-2 lg:grid-cols-3 xl:grid-cols-4 gap-10"
-                    aria-label={`speakerTitle-${conference_agenda.id}`}
-                  >
                     {conference_agenda.speakers.map(
                       (
                         { conference_speakers_id }: ConferenceSpeaker,
@@ -148,7 +146,7 @@ export default function AgendaPane({
                           return (
                             <li
                               key={key}
-                              className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start"
+                              className="flex flex-col space-y-2 items-center sm:items-start text-center sm:text-start mt-7"
                             >
                               <NextImage
                                 src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${conference_speakers_id.photo.id}?key=potrait`}
@@ -159,14 +157,14 @@ export default function AgendaPane({
                                 imgClass="object-cover"
                                 unoptimized
                               />
-                              <h4>
+                              <h5>
                                 <a
                                   href={`/speakers/${conference_speakers_id.id}`}
                                   className="font-semibold"
                                 >
                                   {`${conference_speakers_id.first_name} ${conference_speakers_id.second_name}`}
                                 </a>
-                              </h4>
+                              </h5>
                               <p>{conference_speakers_id.role}</p>
                               <p>{conference_speakers_id.organization}</p>
                             </li>
