@@ -123,20 +123,20 @@ export default function Speakers() {
                   imgClass="object-cover"
                   unoptimized
                 />
+                <div className="flex items-center justify-center mt-6">
+                  <h1 className="text-xl font-bold">{`${data.conference_speakers[0].first_name} ${data.conference_speakers[0].second_name} `}</h1>
+                  <a href={data.conference_speakers[0].linkedIn}>
+                    <CustomImage
+                      src={"/assets/icons/Group 6407.svg"}
+                      alt={
+                        data.conference_speakers[0].first_name +
+                        " LinkedIn account(Opens in a new tab)"
+                      }
+                      className="h-6 w-7 ml-3"
+                    />
+                  </a>
+                </div>
                 <p className="text-center mt-4 mb-9 text-xl flex space-y-3 flex-col">
-                  <span className="flex items-center justify-center text-xl font-bold">
-                    {`${data.conference_speakers[0].first_name} ${data.conference_speakers[0].second_name} `}
-                    <a href={data.conference_speakers[0].linkedIn}>
-                      <CustomImage
-                        src={"/assets/icons/Group 6407.svg"}
-                        alt={
-                          data.conference_speakers[0].first_name +
-                          " LinkedIn account(Opens in a new tab)"
-                        }
-                        className="h-6 w-7 ml-3"
-                      />
-                    </a>
-                  </span>
                   <span>{data.conference_speakers[0].role}</span>
                   <span className="text-base font-semibold">
                     {data.conference_speakers[0].organization}

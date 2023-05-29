@@ -1,12 +1,6 @@
 import useSWR from "swr";
 import { Fetcher } from "@/utils/fetcher";
 
-export type DirectusFile = {
-  id: string;
-  title: string;
-  type: string;
-};
-
 type News = {
   id: number;
   title: string;

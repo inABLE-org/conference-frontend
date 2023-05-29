@@ -2,14 +2,9 @@ import useSWR from "swr";
 import { Fetcher } from "@/utils/fetcher";
 import NextImage from "@/components/NextImage";
 import { useRouter } from "next/router";
+import { DirectusFile } from "@/utils/searcher";
 
-export type DirectusFile = {
-  id: string;
-  title: string;
-  type: string;
-};
-
-type Press = {
+export type Press = {
   id: number;
   title: string;
   excerpt: string;

@@ -1,3 +1,4 @@
+import { DirectusFile } from "@/utils/searcher";
 import NextImage from "../NextImage";
 
 export type DirectusImage = {
@@ -12,7 +13,7 @@ export type Sponsor = {
     name: string;
   };
   main: boolean;
-  logo: DirectusImage;
+  logo: DirectusFile;
   website: string;
   country: string;
 };
