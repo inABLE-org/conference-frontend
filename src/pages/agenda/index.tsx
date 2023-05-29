@@ -1,12 +1,13 @@
 import useSWR from "swr";
 import Layout from "@/components/Layout";
 import { Fetcher } from "@/utils/fetcher";
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import PageTitle from "@/components/PageTitle";
 import Tabs from "@/components/Tabs";
 import TabPanel from "@/components/Tabs/TabPanel";
 import { SpeakerInfo } from "../speakers";
 import AgendaPane from "@/components/AgendaPane";
+import { useSearchParams } from "next/navigation";
 
 export type ConferenceSpeaker = {
   conference_speakers_id: SpeakerInfo;
@@ -24,7 +25,7 @@ export type ConferenceVenue = {
 export type AgendaInfo = {
   id: string;
   title: string;
-  no_speakers:Boolean;
+  no_speakers: Boolean;
   description: string;
   start_time: string;
   end_time: string;
@@ -46,7 +47,16 @@ export const formatDate = (_date: string) =>
   }).format(new Date(_date));
 
 export default function Agenda() {
+  const searchParams = useSearchParams();
+  const day = Number(searchParams.get("day"));
   const [activeTab, setActiveTab] = useState(0);
+
+  useEffect(() => {
+    if (typeof day === "number" && day >= 1 && day <= 3) {
+      setActiveTab(day - 1);
+    }
+  }, [day]);
+
   const { data }: any = useSWR(
     `query {
       conference_config(
@@ -129,6 +139,7 @@ export default function Agenda() {
               className="text-center flex flex-col sm:flex-row mx-auto sm:space-x-9 space-y-9 sm:space-y-0 justify-center text-xl"
               onTabSwith={setActiveTab}
               highlited={days.indexOf(formatDate(new Date().toISOString()))}
+              selectedTab={activeTab}
             />
           </div>
         </div>

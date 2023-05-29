@@ -1,5 +1,5 @@
 import Head from "next/head";
-import { Bars3Icon } from "@heroicons/react/24/solid";
+import { Bars3Icon, MagnifyingGlassIcon } from "@heroicons/react/24/solid";
 import CustomImage from "../CustomImage";
 import NavItem from "./NavItem";
 import NavDropDown from "./NavDropDown";
@@ -128,18 +128,22 @@ export default function Nav({ pageTitle }: NavProps) {
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
-              {/* <form
+              <form
                 className="flex border-b-2 w-fit lg:max-w-[9.125rem] my-6 lg:my-0 mr-9"
                 role="search"
                 aria-label="Sitewide"
+                action="/search"
               >
                 <div className="relative inline-flex max-w-[86%]">
                   <input
                     id="searchBox"
                     type="text"
+                    name="search"
                     className="bg-inherit border-white min-w-0 peer px-1"
                     placeholder=" "
                     aria-label="Enter search keyword"
+                    required
+                    aria-required="true"
                   />
                   <label
                     htmlFor="searchBox"
@@ -154,7 +158,7 @@ export default function Nav({ pageTitle }: NavProps) {
                     stroke="currentColor"
                   />
                 </button>
-              </form> */}
+              </form>
               <a
                 target={"_blank"}
                 href="https://hopin.com/events/inclusive-africa-2023/registration"

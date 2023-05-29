@@ -8,12 +8,6 @@ import PressList from "@/components/PressList";
 import NewsLinks from "@/components/NewsLinks";
 import Album from "@/components/Album";
 
-export type DirectusFile = {
-  id: string;
-  title: string;
-  type: string;
-};
-
 export default function Agenda() {
   const router = useRouter();
   const { media, album = "", year = "" } = router.query;
