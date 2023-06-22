@@ -118,7 +118,7 @@ export default function Album({
               type
               year
               date_created
-              photos {
+              photos(limit: -1) {
                 id
                 directus_files_id {
                   id
@@ -395,7 +395,7 @@ export default function Album({
                 src={`${process.env.NEXT_PUBLIC_MEDIA_LINK}/${selectedPhoto.id}`}
                 alt={selectedPhoto.title}
                 className="h-[50vw] sm:h-[35vw] rounded overflow-hidden"
-                imgClass="object-cover"
+                imgClass="object-contain"
                 unoptimized
               />
             </div>
