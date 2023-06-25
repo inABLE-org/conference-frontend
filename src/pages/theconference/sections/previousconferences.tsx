@@ -1,424 +1,76 @@
-import Conferencecard from "@/components/Cardutilities/Conferencecard";
-import NextImage from "@/components/NextImage";
-import { ArrowRightIcon } from "@heroicons/react/24/solid";
-import Link from "next/link";
+import useSWR from "swr";
+import { Fetcher } from "@/utils/fetcher";
+import { DirectusFile } from "@/utils/searcher";
+import ConferenceCard from "@/components/Cardutilities/ConferenceCard";
+
+export type PreviousConferenceInfo = {
+  id: string;
+  year: number;
+  banner: DirectusFile;
+  theme: string;
+  start_date: string;
+  end_date: string;
+  launch: string;
+  registrations: number;
+  country_partners: number;
+  watch_parties: number;
+  reg_countries: number;
+  speakers: number;
+  speaker_countries: number;
+  knowledge_document: string;
+  playlist: string;
+  photos: string;
+  watch_countries: string[];
+};
+
 export default function PreviousConference() {
+  const { data }: any = useSWR(
+    `query {
+      conferences: conference_previuos(
+        sort: "-year"
+        filter: { status: { _eq: "published" } }
+      ) {
+        id
+        year
+        banner {
+          id
+          title
+        }
+        launch
+        registrations
+        country_partners
+        watch_parties
+        reg_countries
+        speakers
+		    speaker_countries
+        knowledge_document
+        photos
+        watch_countries
+      }
+    }
+    `,
+    Fetcher
+  );
+
   return (
     <div id="previous">
-      <h2 className="text-5xl font-semibold mt-48 mb-12 container">
+      <h2 className="text-5xl font-semibold mt-48 mb-14 container">
         About Previous Conferences
       </h2>
-      <div>
-        <div className="bg-gradient-to-b from-primary to-primary-1">
-          <div className="container py-20">
-            <div className="flex flex-col sm:flex-row text-white justify-between items-center">
-              <h3 className="font-semibold text-[64px]">
-                <a
-                  href="https://www.inclusiveafrica.org/media/press_release?press=16"
-                  aria-label="2022 conference"
-                >
-                  2022
-                </a>
-              </h3>
-              <Link
-                href="/media?media=2&album=main&year=2022"
-                className="border-2 border-white py-2 px-3 rounded-full font-medium text-xl h-fit"
-              >
-                2022 Gallery
-                <ArrowRightIcon
-                  className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-                  stroke="currentColor"
+      <div className="container">
+        {data && (
+          <ul role="list">
+            {data.conferences.map(
+              (_conference: PreviousConferenceInfo, key: number) => (
+                <ConferenceCard
+                  conference={_conference}
+                  key={key}
+                  default_show={key === 1}
                 />
-              </Link>
-            </div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-28 pt-12">
-              <div>
-                <NextImage
-                  className="h-[50vw] max-h-[27vw] w-full rounded-2xl overflow-hidden"
-                  src="/assets/img/conference2022.png"
-                  imgClass="object-cover"
-                />
-                <h4 className="text-white font-bold text-xl my-5">
-                  Live Watch parties In:
-                </h4>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2  gap-[-30px] mt-3 text-white lg:w-[430px] ml-5">
-                  <div>
-                    <ul className="list-disc">
-                      <li>Uganda</li>
-                      <li>Ethiopia</li>
-                      <li>Ghana</li>
-                      <li>Togo</li>
-                      <li>Rwanda</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="list-disc">
-                      <li>Nigeria</li>
-                      <li>Malawi</li>
-                      <li>Zambia</li>
-                      <li>Cameroon</li>
-                      <li>Tanzania</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="list-disc">
-                      <li>South Africa</li>
-                      <li>Gabon</li>
-                      <li className="whitespace-nowrap">
-                        Central Africa Republic
-                      </li>
-                      <li>Burundi</li>
-                    </ul>
-                  </div>
-                </div>
-                <div className="mt-5 flex flex-col space-y-4">
-                  <a
-                    href="https://inable.org/wp-content/uploads/2023/03/2022-Conference-Day-1-Knowledge-Document.pdf"
-                    className="text-white border-b-2 border-b-secondary font-medium w-fit"
-                    target={"_blank"}
-                    aria-describedby="newTab"
-                  >
-                    Knowledge Document - Day one
-                  </a>
-                  <a
-                    href="https://inable.org/wp-content/uploads/2023/03/2022-Conference-Day-2-Knowledge-Document.pdf"
-                    className="text-white border-b-2 border-b-secondary font-medium w-fit"
-                    target={"_blank"}
-                    aria-describedby="newTab"
-                  >
-                    Knowledge Document - Day two
-                  </a>
-                </div>
-              </div>
-              <div>
-                <div className="grid gap-x-5 gap-y-9 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-2xl font-semibold">Launch:</span>
-                        <span className="text-xl xl:text-start px-1">
-                          KS2952 ICT Accessibility Standards for products &
-                          services
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">+2465</span>
-                        <span className="font-medium text-2xl">
-                          Registrations
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">14</span>
-                        <span className="font-medium text-2xl">
-                          Country partners
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">522</span>
-                        <span className="font-medium text-2xl">
-                          Watch Parties Attendance
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">64</span>
-                        <span className="font-medium text-2xl xl:px-4">
-                          Country by registration
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">
-                          63 / 17
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Speakers Countries
-                        </span>
-                      </>
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div>
-          <div className="container py-20">
-            <div className="flex flex-col sm:flex-row justify-between items-center">
-              <h3 className="font-semibold text-[64px]">
-                <a
-                  href="https://www.inclusiveafrica.org/media/press_release?press=11"
-                  aria-label="2021 conference"
-                >
-                  2021
-                </a>
-              </h3>
-              {/* <Link
-                href="/media?media=1&album=main&year=2021"
-                className="border-2 border-black py-2 px-3 rounded-full font-medium text-xl h-fit"
-              >
-                2021 Gallery
-                <ArrowRightIcon
-                  className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-                  stroke="currentColor"
-                />
-              </Link> */}
-            </div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-28 pt-12">
-              <div>
-                <NextImage
-                  className="h-[50vw] max-h-[27vw] w-full rounded-2xl overflow-hidden"
-                  src="/assets/img/conference2021.png"
-                  imgClass="object-cover"
-                />
-                <h4 className="text-dark font-bold text-xl my-5">
-                  Live Watch parties In:
-                </h4>
-                <div className="grid lg:grid-cols-3 md:grid-cols-2 my-4 text-dark lg:w-[450px] ml-5">
-                  <div className="lg:ml-5">
-                    <ul className="list-disc">
-                      <li>Kenya</li>
-                      <li>Uganda</li>
-                      <li>Ethiopia</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="list-disc">
-                      <li>Ghana</li>
-                      <li>Nigeria</li>
-                      <li>Malawi</li>
-                    </ul>
-                  </div>
-                  <div>
-                    <ul className="list-disc">
-                      <li>Zambia</li>
-                      <li>South Africa</li>
-                    </ul>
-                  </div>
-                </div>
-                <a
-                  href="https://inable.org/wp-content/uploads/2023/03/2021-Conference-Knowledge-Document.pdf"
-                  className="border-b-2 border-b-secondary font-medium mt-5"
-                  target={"_blank"}
-                  aria-describedby="newTab"
-                >
-                  Knowledge Document
-                </a>
-              </div>
-              <div>
-                <div className="grid gap-x-5 gap-y-9 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
-                  <Conferencecard
-                    className="shadow-about-card"
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">+1583</span>
-                        <span className="font-medium text-2xl">
-                          Registration
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    className="shadow-about-card"
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">8</span>
-                        <span className="font-medium text-2xl">
-                          Country partners
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    className="shadow-about-card"
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold">375</span>
-                        <span className="font-medium text-2xl">
-                          Watch Parties Attendance
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    className="shadow-about-card"
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">42</span>
-                        <span className="font-medium text-2xl">
-                          Countries By Registrations
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    className="shadow-about-card"
-                    title={
-                      <>
-                        <span className="text-[2rem] font-semibold">
-                          39 / 12
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Speakers Countries
-                        </span>
-                      </>
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
-        <div className="bg-gradient-to-b from-primary to-primary-1">
-          <div className="container py-20">
-            <div className="flex flex-col sm:flex-row text-white justify-between items-center">
-              <h3 className="font-semibold text-[64px]">
-                <a
-                  href="https://www.inclusiveafrica.org/media/press_release?press=3"
-                  aria-label="2020 conference"
-                >
-                  2020
-                </a>
-              </h3>
-              {/* <Link
-                href="/media?media=1&album=main&year=2020"
-                className="border-2 border-white py-2 px-3 rounded-full font-medium text-xl h-fit"
-              >
-                2020 Gallery
-                <ArrowRightIcon
-                  className="ml-4 h-5 w-5 inline-flex stroke-[1.5]"
-                  stroke="currentColor"
-                />
-              </Link> */}
-            </div>
-            <div className="grid lg:grid-cols-2 md:grid-cols-2 sm:grid-cols-1 gap-28 pt-12">
-              <div>
-                <NextImage
-                  className="h-[50vw] max-h-[27vw] w-full rounded-2xl overflow-hidden"
-                  src="/assets/img/conference2020.png"
-                  imgClass="object-cover"
-                />
-                <h4 className="text-white font-bold text-xl my-5">
-                  Live Watch parties In:
-                </h4>
-                <div>
-                  <div className="grid lg:grid-cols-3 md:grid-cols-2 my-3 text-dark lg:w-[450px] text-white ml-5">
-                    <div className="h-full">
-                      <ul className="list-disc lg:ml-6">
-                        <li>Kenya</li>
-                        <li>Uganda</li>
-                        <li>Ethiopia</li>
-                      </ul>
-                    </div>
-                    <div className="h-full">
-                      <ul className="list-disc">
-                        <li>Ghana</li>
-                        <li>Nigeria</li>
-                        <li>Malawi</li>
-                      </ul>
-                    </div>
-                    <div className="h-full">
-                      <ul className="list-disc">
-                        <li>Zambia</li>
-                        <li>South Africa</li>
-                      </ul>
-                    </div>
-                  </div>
-                  <a
-                    href="https://inable.org/wp-content/uploads/2023/03/2020-Conference-Knowledge-Document.pdf"
-                    className="text-white border-b-2 border-b-secondary font-medium mt-5"
-                    target={"_blank"}
-                    aria-describedby="newTab"
-                  >
-                    Knowledge Document
-                  </a>
-                </div>
-              </div>
-              <div>
-                <div className="grid gap-x-5 gap-y-9 lg:grid-cols-2 md:grid-cols-1 sm:grid-cols-1 grid-rows-3">
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold my-3">
-                          6300
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Registrations
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold my-3">
-                          8
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Country partners
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold my-3">
-                          302
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Watch Parties Attendance
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold my-3">
-                          70
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Countries By Registrations
-                        </span>
-                      </>
-                    }
-                  />
-                  <Conferencecard
-                    title={
-                      <>
-                        <span className="text-[32px] font-semibold my-3">
-                          27 / 14
-                        </span>
-                        <span className="font-medium text-2xl">
-                          Speakers Countries
-                        </span>
-                      </>
-                    }
-                  />
-                </div>
-              </div>
-            </div>
-          </div>
-        </div>
+              )
+            )}
+          </ul>
+        )}
       </div>
     </div>
   );

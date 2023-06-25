@@ -64,6 +64,7 @@ export default function Footer() {
                   <FooterNavItem href="/media" name="Press Releases" />
                   <FooterNavItem href="/media?media=1" name="News Links" />
                   <FooterNavItem href="/media?media=2" name="Photo Albums" />
+                  <FooterNavItem href="/media?media=3" name="Videos" />
                 </ul>
               </div>
               <div className="hidden sm:block col-start-7 col-span-6 lg:col-span-4 xl:col-span-3">
