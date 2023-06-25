@@ -45,6 +45,7 @@ module.exports = {
           6: "#9A9A9ABF",
           7: "#7F7F7F",
           8: "#343434",
+          9: "#727272",
         },
         link: {
           DEFAULT: "#0052B4",

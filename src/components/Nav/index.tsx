@@ -125,6 +125,7 @@ export default function Nav({ pageTitle }: NavProps) {
                 />
                 <DropDownItem name="News Links" href="/media?media=1" />
                 <DropDownItem name="Photo Albums" href="/media?media=2" />
+                <DropDownItem name="Videos" href="/media?media=3" />
               </NavDropDown>
             </ul>
             <div className="lg:flex lg:mb-6 xl:mb-0">
