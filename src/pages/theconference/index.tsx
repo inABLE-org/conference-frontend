@@ -6,6 +6,7 @@ import { useState } from "react";
 import PreviousConference from "./sections/previousconferences";
 import NextImage from "@/components/NextImage";
 import PageTitle from "@/components/PageTitle";
+
 export default function About() {
   const [openTab, setOpenTab] = useState(1);
 
@@ -182,7 +183,7 @@ export default function About() {
               disability leaders throughout Africa.
             </p>
 
-            <div className="md:flex pt-40 space-x-9 3xl:items-center">
+            <div className="md:flex pt-40 sm:space-x-9 3xl:items-center">
               <div className="md:w-5/12">
                 <h2 className="text-5xl font-semibold">Objectives</h2>
                 <p className="mt-12 font-medium">
@@ -196,14 +197,14 @@ export default function About() {
                   disability
                 </p>
                 <NextImage
-                  className="h-[50vw] max-h-[35vw] w-[115%] my-16 3xl:mb-0 3xl:mt-8"
+                  className="h-[50vw] max-h-[35vw] w-full sm:w-[115%] my-16 3xl:mb-0 3xl:mt-8"
                   src="/assets/img/spiner.png"
                   imgClass="object-contain -ml-12"
                 />
               </div>
               <div className="md:w-7/12">
                 <ObjectiveCard
-                  objectiveNumber={<h5>01</h5>}
+                  objectiveNumber={<h3>01</h3>}
                   objectiveName={
                     <>
                       Ensure that African youth with disabilities are at the
@@ -215,7 +216,7 @@ export default function About() {
                   }
                 />
                 <ObjectiveCard
-                  objectiveNumber={<h5>02</h5>}
+                  objectiveNumber={<h3>02</h3>}
                   objectiveName={
                     <>
                       Share regional and global best practices in implementing
@@ -229,7 +230,7 @@ export default function About() {
                   }
                 />
                 <ObjectiveCard
-                  objectiveNumber={<h5>03</h5>}
+                  objectiveNumber={<h3>03</h3>}
                   objectiveName={
                     <>
                       Focus attention on the best way forward for implementing
@@ -240,7 +241,7 @@ export default function About() {
                   }
                 />
                 <ObjectiveCard
-                  objectiveNumber={<h5>04</h5>}
+                  objectiveNumber={<h3>04</h3>}
                   objectiveName={
                     <span>
                       Highlight assistive technology innovations in Africa and
@@ -252,7 +253,7 @@ export default function About() {
                   }
                 />
                 <ObjectiveCard
-                  objectiveNumber={<h5>05</h5>}
+                  objectiveNumber={<h3>05</h3>}
                   objectiveName={
                     <span className="pt-7">
                       Demonstrate inclusive events’ &quot;best-practices&quot;,

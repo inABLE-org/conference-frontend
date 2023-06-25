@@ -7,6 +7,7 @@ import { useRouter } from "next/router";
 import PressList from "@/components/PressList";
 import NewsLinks from "@/components/NewsLinks";
 import Album from "@/components/Album";
+import Videos from "@/components/Videos";
 
 export default function Agenda() {
   const router = useRouter();
@@ -24,7 +25,7 @@ export default function Agenda() {
     if (
       typeof default_tab === "number" &&
       default_tab >= 0 &&
-      default_tab <= 2
+      default_tab <= 3
     ) {
       setActiveTab(default_tab);
     }
@@ -39,17 +40,23 @@ export default function Agenda() {
               <PageTitle title="Media" />
             </div>
             <Tabs
-              tabList={["Press Releases", "News Links", "Photo Album"]}
+              tabList={[
+                "Press Releases",
+                "News Links",
+                "Photo Album",
+                "Videos",
+              ]}
               className="text-center flex flex-col lg:flex-row mx-auto space-x-9 space-y-9 lg:space-y-0 justify-center text-xl"
               onTabSwith={setActiveTab}
               selectedTab={activeTab}
             />
           </div>
         </div>
-        <TabPanel className="container pt-24 pb-28" activeTab={activeTab}>
+        <TabPanel className="container pt-14 pb-28" activeTab={activeTab}>
           {activeTab === 0 && <PressList />}
           {activeTab === 1 && <NewsLinks />}
           {activeTab === 2 && <Album {...default_album} />}
+          {activeTab === 3 && <Videos />}
         </TabPanel>
       </Layout>
     </>
