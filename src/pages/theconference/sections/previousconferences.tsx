@@ -1,7 +1,7 @@
 import useSWR from "swr";
 import { Fetcher } from "@/utils/fetcher";
 import { DirectusFile } from "@/utils/searcher";
-import ConferenceCard from "@/components/Cardutilities/ConferenceCard";
+import ConferenceCard from "@/components/ConferenceCard";
 
 export type PreviousConferenceInfo = {
   id: string;
